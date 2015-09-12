@@ -48,3 +48,7 @@ $Debug/
 Network Trash Folder
 Temporary Items
 .apdisk
+master/dbger/Debug/utils.obj
+*.obj
+*.obj
+*.tlog
