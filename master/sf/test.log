@@ -1,0 +1,41 @@
+10fdfdf1010fdfdf10>[2015/09/05 10:26:08:730][WarningLevel][\main.cpp(30)]:10 fdfdf 20.15>[2015/09/05 12:49:53:227][WarningLevel][\main.cpp(19)]:>[2015/09/05 12:49:53:227][WarningLevel][\main.cpp(19)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 12:49:53:947][WarningLevel][\main.cpp(20)]:
+10 fdfdf 20.15>[2015/09/05 13:07:17:108][WarningLevel][\main.cpp(19)]:>[2015/09/05 13:07:17:108][WarningLevel][\main.cpp(19)]:x=10 y=fdfdf z = 20.150000
+
+>[2015/09/05 13:34:22:600][WarningLevel][\main.cpp(20)]:10 fdfdf 20.15
+>[2015/09/05 13:36:28:887][WarningLevel][\main.cpp(20)]:10 fdfdf  0 20.15
+
+>[2015/09/05 13:36:28:903][WarningLevel][\main.cpp(21)]:10 fdfdf 1 20.15
+>[2015/09/05 13:36:28:918][WarningLevel][\main.cpp(22)]:10 fdfdf 2 20.15>[2015/09/05 15:17:59:492][DebugLevel][\main.cpp(13)]:>[2015/09/05 15:17:59:492][DebugLevel][\main.cpp(13)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:17:59:522][InfoLevel][\main.cpp(14)]:>[2015/09/05 15:17:59:522][InfoLevel][\main.cpp(14)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:17:59:552][WarningLevel][\main.cpp(15)]:>[2015/09/05 15:17:59:552][WarningLevel][\main.cpp(15)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:17:59:572][ErrLevel][\main.cpp(16)]:>[2015/09/05 15:17:59:572][ErrLevel][\main.cpp(16)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:17:59:602][FatalLevel][\main.cpp(17)]:>[2015/09/05 15:17:59:602][FatalLevel][\main.cpp(17)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:19:37:291][DebugLevel][\main.cpp(13)]:>[2015/09/05 15:19:37:291][DebugLevel][\main.cpp(13)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:19:37:297][InfoLevel][\main.cpp(14)]:>[2015/09/05 15:19:37:297][InfoLevel][\main.cpp(14)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:19:37:302][WarnLevel][\main.cpp(15)]:>[2015/09/05 15:19:37:302][WarnLevel][\main.cpp(15)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:19:37:302][ErrLevel][\main.cpp(16)]:>[2015/09/05 15:19:37:302][ErrLevel][\main.cpp(16)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/05 15:19:37:312][FatalLevel][\main.cpp(17)]:>[2015/09/05 15:19:37:312][FatalLevel][\main.cpp(17)]:x=10 y=fdfdf z = 20.150000
+
+>[2015/09/05 15:19:37:312][DebugLevel][\main.cpp(19)]:10 fdfdf  0 20.15
+
+>[2015/09/05 15:19:37:322][InfoLevel][\main.cpp(20)]:10 fdfdf 1 20.15
+>[2015/09/05 15:19:37:332][WarnLevel][\main.cpp(21)]:10 fdfdf 2 20.15
+>[2015/09/05 15:19:37:332][ErrLevel][\main.cpp(22)]:10 fdfdf 2 20.15
+>[2015/09/05 15:19:37:342][FatalLevel][\main.cpp(23)]:10 fdfdf 2 20.15>[2015/09/12 14:55:05:758][DebugLevel][\main.cpp(13)]:>[2015/09/12 14:55:05:758][DebugLevel][\main.cpp(13)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:04:21:801][DebugLevel][\main.cpp(14)]:>[2015/09/12 15:04:21:801][DebugLevel][\main.cpp(14)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:04:22:238][InfoLevel][\main.cpp(15)]:>[2015/09/12 15:04:22:238][InfoLevel][\main.cpp(15)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:04:22:246][WarnLevel][\main.cpp(16)]:>[2015/09/12 15:04:22:246][WarnLevel][\main.cpp(16)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:04:22:251][ErrLevel][\main.cpp(17)]:>[2015/09/12 15:04:22:251][ErrLevel][\main.cpp(17)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:04:22:256][FatalLevel][\main.cpp(18)]:>[2015/09/12 15:04:22:256][FatalLevel][\main.cpp(18)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:13:56:848][DebugLevel][\main.cpp(13)]:>[2015/09/12 15:13:56:848][DebugLevel][\main.cpp(13)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:30:30:696][DebugLevel][\main.cpp(12)]:>[2015/09/12 15:30:30:696][DebugLevel][\main.cpp(12)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:30:31:769][InfoLevel][\main.cpp(13)]:>[2015/09/12 15:30:31:769][InfoLevel][\main.cpp(13)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:30:32:066][WarnLevel][\main.cpp(14)]:>[2015/09/12 15:30:32:066][WarnLevel][\main.cpp(14)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:30:32:590][ErrLevel][\main.cpp(15)]:>[2015/09/12 15:30:32:590][ErrLevel][\main.cpp(15)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 15:30:34:652][FatalLevel][\main.cpp(16)]:>[2015/09/12 15:30:34:652][FatalLevel][\main.cpp(16)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 17:10:38:046][DebugLevel][\main.cpp(12)]:>[2015/09/12 17:10:38:046][DebugLevel][\main.cpp(12)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 17:10:42:567][InfoLevel][\main.cpp(13)]:>[2015/09/12 17:10:42:567][InfoLevel][\main.cpp(13)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 17:10:43:060][WarnLevel][\main.cpp(14)]:>[2015/09/12 17:10:43:060][WarnLevel][\main.cpp(14)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 17:10:44:106][ErrLevel][\main.cpp(15)]:>[2015/09/12 17:10:44:106][ErrLevel][\main.cpp(15)]:x=10 y=fdfdf z = 20.150000
+>[2015/09/12 17:10:44:459][FatalLevel][\main.cpp(16)]:>[2015/09/12 17:10:44:459][FatalLevel][\main.cpp(16)]:x=10 y=fdfdf z = 20.150000
