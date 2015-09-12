@@ -2,11 +2,18 @@
 Thumbs.db
 ehthumbs.db
 
+#immediat files
+*.sdf
+*.vcxproj.user
+*.obj
+
+
 # Folder config file
 Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+$Debug/
 
 # Windows Installer files
 *.cab
