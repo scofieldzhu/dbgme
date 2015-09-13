@@ -1,0 +1,18 @@
+
+<Loggers>    
+        <ConsoleLogger name = "console">            
+            <Filter>
+                <Switch>ON</Switch>
+                <Level>ALL</Level>
+            </Filter>
+        </ConsoleLogger>
+        <FileLogger name = "file">
+            <Filter>
+                <Switch>ON</Switch>
+                <Level>ALL</Level>                            
+            </Filter>
+            <MaxSize>104857600</MaxSize> 
+            <ExceedMaxSize> <>
+            <FilePath>C:\\test.log.txt</FilePath>            
+        </FileLogger>       
+</Loggers>
