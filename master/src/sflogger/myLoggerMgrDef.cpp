@@ -4,8 +4,8 @@ USING_DBGER
 
 LineBreakTag lbt;
 StreamEndTag endt;
-SwitchSimpleLogger console_logger;
-SwitchSimpleFileLogger file_logger;
+SwitchSimpleLogger console_logger(XT("ConsoleLogger"));
+SwitchSimpleFileLogger file_logger(XT("FileLogger"));
 Logger2Mgr logger_mgr;
 
 void InitLoggers()

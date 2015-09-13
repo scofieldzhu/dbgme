@@ -18,14 +18,20 @@ struct Logger : public FilterPolicy,
 					   public FormatPolicy, 			 			 
 					   public TransferPolicy
 {		
+    const std::xStrT& GetName() { return name_; }
+
 	template <class L>
 	void Publish(L& log)
 	{		
-		if(!Filter(log))		
-			return;
-		Format(log);
-		Write(log);
-	}
+        L* clone_log = log.Clone();
+        if (Filter(*clone_log))
+        {
+            Format(*clone_log);
+            AppendLoggerInfo(*clone_log);
+            Write(*clone_log);
+        }
+        clone_log->Destroy();        
+	}    
 
 	template <typename T>
 	Logger& operator<<(T val)
@@ -41,7 +47,7 @@ struct Logger : public FilterPolicy,
 		{
 			start_flag_ = false;				
 			TransferPolicy::operator<<(xstr_stream_->str());
-			Destory();
+			Destroy();
 		}
 		return *this;		
 	}
@@ -66,31 +72,51 @@ struct Logger : public FilterPolicy,
 	template<class Level>
 	Logger& operator<<(Log<Level>& log)
 	{
+        typedef Log<Level> LogType;
 		start_flag_ = false;
-		if(!Filter(log))		
-			return *this;
-		Format(log);		
-		if(!xstr_stream_)
-			xstr_stream_ = new StringstreamT();
-		(*xstr_stream_) << log.content;
-		start_flag_ = true;
-		content_filled_ = false;
+        LogType* clone_log = log.Clone();
+        if (Filter(*clone_log))
+        {
+            Format(*clone_log);
+            AppendLoggerInfo(*clone_log);
+            if (!xstr_stream_)
+                xstr_stream_ = new StringstreamT();
+            (*xstr_stream_) << clone_log->content;
+            start_flag_ = true;
+            content_filled_ = false;
+            return *this;
+        }		
+        clone_log->Destroy();
 		return *this;
 	}
 
-	Logger()
-		:xstr_stream_(new StringstreamT()),
+	Logger(const std::xStrT& name)
+		:name_(name),
+        xstr_stream_(new StringstreamT()),
 		start_flag_(false),
-		content_filled_(false)
+		content_filled_(false),
+        total_log_num_(0)
 	{}
 
 	~Logger()
 	{
-		Destory();
+		Destroy();
 	}
 
 private:
-	void Destory()
+    template <class L>
+    void AppendLoggerInfo(L& log)
+    {
+        std::xStrT new_content = utils::IntToStr<xCharT>(total_log_num_);
+        new_content += (":>[");
+        new_content += GetName();
+        new_content += XT("]");
+        new_content += log.content;
+        log.content = new_content;
+        total_log_num_ += 1;
+    }
+
+	void Destroy()
 	{
 		if(xstr_stream_)		
 			delete xstr_stream_;
@@ -98,6 +124,8 @@ private:
 		start_flag_ = false;
 		content_filled_ = false;
 	}
+    const std::xStrT name_;
+    int total_log_num_;
 	bool start_flag_;
 	bool content_filled_; 	
 	typedef std::basic_stringstream<xCharT> StringstreamT;

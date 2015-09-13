@@ -4,6 +4,7 @@ ehthumbs.db
 
 #immediat files
 *.sdf
+*.suo
 *.vcxproj.user
 *.obj
 *.aps

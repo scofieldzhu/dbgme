@@ -13,7 +13,7 @@ struct SimpleFormatter
 		typedef typename LogType::LevelType LevelType;				
 		std::xStrT result = XT("");
 		HandleLineBreak(log, result);
-		result += XT(">[");
+		result += XT("[");
 		std::xStrT timestamp_str;
 		log.timestamp.ReprTo(timestamp_str);
 		result += timestamp_str;
