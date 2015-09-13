@@ -1,5 +1,5 @@
 #include "utils.hpp"
-#include "exportMacro.h"
+#include "drDLLExport.h"
 
 DBGER_NP_BEGIN
 namespace utils {

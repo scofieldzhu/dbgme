@@ -3,7 +3,7 @@ Thumbs.db
 ehthumbs.db
 
 #immediat files
-/master/*.sdf
+*.sdf
 *.vcxproj.user
 *.obj
 
@@ -14,9 +14,10 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 $Debug/
-/master/Debug
-/master/dbger/Debug
-/master/sf/Debug
+/master/builds/VS/_bin
+/master/builds/VS/dbger/Debug
+/master/builds/VS/sflogger/Debug
+/master/builds/VS/langext/Debug
 
 # Windows Installer files
 *.cab

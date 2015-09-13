@@ -71,6 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\_bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -89,7 +90,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DBGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\langext;..\..\..\src\dbger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,22 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\consoleAppender.hpp" />
-    <ClInclude Include="..\src\dbger.h" />
-    <ClInclude Include="..\src\fileAppender.hpp" />
-    <ClInclude Include="..\src\formatter.hpp" />
-    <ClInclude Include="..\src\general.hpp" />
-    <ClInclude Include="..\src\level.hpp" />
-    <ClInclude Include="..\src\log.hpp" />
-    <ClInclude Include="..\src\logAssistor.hpp" />
-    <ClInclude Include="..\src\logger.hpp" />
-    <ClInclude Include="..\src\loggerMgr.hpp" />
-    <ClInclude Include="..\src\logMacros.h" />
-    <ClInclude Include="..\src\utils.hpp" />
-    <ClInclude Include="..\src\xfilter.hpp" />
-    <ClInclude Include="exportMacro.h" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="..\..\..\src\dbger\utils.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -177,7 +163,22 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\dbger\consoleAppender.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\dbger.h" />
+    <ClInclude Include="..\..\..\src\dbger\drDLLExport.h" />
+    <ClInclude Include="..\..\..\src\dbger\fileAppender.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\formatter.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\general.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\level.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\log.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\logAssistor.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\logger.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\loggerMgr.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\logMacros.h" />
+    <ClInclude Include="..\..\..\src\dbger\utils.hpp" />
+    <ClInclude Include="..\..\..\src\dbger\xfilter.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
