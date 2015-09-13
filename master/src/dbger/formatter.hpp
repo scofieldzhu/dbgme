@@ -11,10 +11,10 @@ struct SimpleFormatter
     void Format(LogType& log)
     {				
 		typedef typename LogType::LevelType LevelType;				
-		xStrT result = XT("");
+		std::xStrT result = XT("");
 		HandleLineBreak(log, result);
 		result += XT(">[");
-		xStrT timestamp_str;
+		std::xStrT timestamp_str;
 		log.timestamp.ReprTo(timestamp_str);
 		result += timestamp_str;
 		result += XT("][");
@@ -31,12 +31,12 @@ struct SimpleFormatter
 
 private:
 	template <class LogType>
-	void HandleLineBreak(LogType& log, xStrT& formatted_str)
+	void HandleLineBreak(LogType& log, std::xStrT& formatted_str)
 	{		
 		if(log.content.empty())		
 			return;		
-		xStrT::size_type pos = 0;
-		for(; pos != xStrT::npos; ++pos)
+		std::xStrT::size_type pos = 0;
+		for(; pos != std::xStrT::npos; ++pos)
 		{
 			if(log.content[pos] != 13 && log.content[pos] != 10)
 				break;

@@ -59,7 +59,7 @@ namespace details
 	}
 
 	template <class L>
-	inline L AssembleLog(const xStrT& content,
+	inline L AssembleLog(const std::xStrT& content,
 									 const xCharT* abs_file,
 									 const xCharT* func,
 									 int lineno															

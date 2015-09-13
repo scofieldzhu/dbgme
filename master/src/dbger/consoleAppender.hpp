@@ -10,13 +10,13 @@ struct ConsoleAppender
 	template <class L>
 	void Write(L& log)
 	{		
-		std::xcout << log.content;
+		std::xCout << log.content;
 	}
 
 	template <typename T>
  	ConsoleAppender& operator<<(T val)
  	{
- 		std::xcout << val;
+ 		std::xCout << val;
  		return *this;
  	}
 };

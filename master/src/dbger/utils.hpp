@@ -104,64 +104,6 @@ struct TypeAt<TypeList<T, U>, Index>
 
 } //end -typelist nps
 
-////////////////////////////////////////////////////////////////////////////////
-//WCharChecker class
-////////////////////////////////////////////////////////////////////////////////
-template <typename CharT>
-struct WCharChecker;
-
-template <> 
-struct WCharChecker<char>
-{
-    enum { Result = false };
-};
-
-template <> 
-struct WCharChecker<wchar_t>
-{
-    enum { Result = true};
-};
-
-/////////////////////////////////////////////////////////////////////////////////
-///EqualCharTypeChecker class
-///////////////////////////////////////////////////////////////////////////////
-template <typename, typename>
-struct EqualCharType;
-
-template<>
-struct EqualCharType<char, char>
-{
-	enum {Result = true};
-};
-
-template<>
-struct EqualCharType<char, wchar_t>
-{
-	enum {Result = false};
-};
-
-template<>
-struct EqualCharType<wchar_t, char>
-{
-	enum {Result = false};
-};
-
-template<>
-struct EqualCharType<wchar_t, wchar_t>
-{
-	enum {Result = true};
-};
-
-template
-<
-	typename L,
-	typename R
->
-struct EqualCharTypeChecker
-{
-	char array[EqualCharType<L, R>::Result ? 1 : -1];
-};
-
 /////////////////////////////////////////////////////////////////////////
 //StrType class
 /////////////////////////////////////////////////////////////////////////
@@ -243,10 +185,6 @@ struct DateTime
 };
 
 } //utils nps end
-
-typedef xChar xCharT;
-typedef utils::CharTraits<xCharT> xCharTraits;
-typedef xCharTraits::StringT xStrT;
 
 DBGER_NP_END
 

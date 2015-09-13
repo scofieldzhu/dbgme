@@ -23,7 +23,7 @@ struct FileAppender
 		return *this;
 	}
 
-	FileAppender(const xStrT& filepath = XT("test.log"))
+	FileAppender(const std::xStrT& filepath = XT("test.log"))
 		:ofs_(filepath, std::ios_base::out | std::ios_base::app)
 	{
 		assert(!ofs_.bad());			

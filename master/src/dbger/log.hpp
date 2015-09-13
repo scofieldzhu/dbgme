@@ -9,20 +9,20 @@ template <class Level>
 struct Log
 {    
     typedef Level LevelType;    
-    Log(const xStrT& content_val)
+    Log(const std::xStrT& content_val)
         :content(content_val),
 		timestamp(utils::DateTime::Now())
 	{}    
-	Log(const xStrT& content_val, const xStrT& func_val, const xStrT& file_val, int lineno_val)
+	Log(const std::xStrT& content_val, const std::xStrT& func_val, const std::xStrT& file_val, int lineno_val)
 		:content(content_val),
 		func(func_val),
 		file(file_val),
 		lineno(lineno_val),
 		timestamp(utils::DateTime::Now())
 	{}
-    xStrT content;
-    xStrT func;
-    xStrT file;
+    std::xStrT content;
+    std::xStrT func;
+    std::xStrT file;
     int lineno;
 	utils::DateTime timestamp;    
 };

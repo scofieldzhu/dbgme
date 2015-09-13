@@ -54,7 +54,7 @@ struct Logger : public FilterPolicy,
 			(*xstr_stream_) << XT("\r\n");					
 		else
 		{
-			xStrT current_content = xstr_stream_->str();			
+			std::xStrT current_content = xstr_stream_->str();			
 			xstr_stream_ = new StringstreamT(); //abandon its' content
 			(*xstr_stream_) << XT("\r\n");
 			(*xstr_stream_) << current_content;			

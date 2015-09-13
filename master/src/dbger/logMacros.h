@@ -8,7 +8,7 @@ template
     class LogType,
     class LoggerMgrT
 >
-void PublishLog(LoggerMgrT& mgr, DBGER::xStrT content, const xChar* file, const xChar* func, int lineno)
+void PublishLog(LoggerMgrT& mgr, std::xStrT content, const xCharT* file, const xCharT* func, int lineno)
 {
 	LogType log = DBGER::details::AssembleLog<LogType>(content, file, func, lineno);
     mgr.Publish(log);
@@ -25,7 +25,7 @@ template
 	class LogType,
     class LoggerMgrT
 >
-LoggerMgrT& PublishLog2(LoggerMgrT& mgr, const xChar* file, const xChar* func, int lineno)
+LoggerMgrT& PublishLog2(LoggerMgrT& mgr, const xCharT* file, const xCharT* func, int lineno)
 {
 	LogType log = DBGER::details::AssembleLog<LogType>(XT(""), file, func, lineno);
 	mgr << log;

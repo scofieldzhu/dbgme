@@ -1,7 +1,7 @@
 #ifndef __GENERAL_H__
 #define __GENERAL_H__
 
-#include "basicType.h"
+#include "langext.h"
 
 #define DBGER dbger
 #define DBGER_NP_BEGIN namespace DBGER {
