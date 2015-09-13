@@ -6,6 +6,8 @@ ehthumbs.db
 *.sdf
 *.vcxproj.user
 *.obj
+*.aps
+*.log
 
 
 # Folder config file
