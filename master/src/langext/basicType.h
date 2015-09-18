@@ -5,7 +5,7 @@
 #include <cstring>
 #include <string>
 
-#ifdef _UNICODE_SUPPORT
+#ifdef _UNICODE
     #define _XChar wchar_t
     #define _XT(t) L##t
     #define _xstring wstring
@@ -35,8 +35,10 @@
 #define NP_END }
 #define USING_NP(np) using namespace np;
 
-#define LGT langext
+#define LGT lgt
 #define LGT_NP_BEGIN NP_BEGIN(LGT)
 #define USING_LGT USING_NP(LGT)
+
+#pragma warning(disable:4251)
 
 #endif

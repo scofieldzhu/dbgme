@@ -1,16 +1,18 @@
 #ifndef __LOG_H__
 #define __LOG_H__
 
-#include "utils.h"
+#include "dr2DllExport.h"
+#include "general.h"
+#include "xtime.h"
 
-DBGER2_NP_BEGIN
+DGR2_NP_BEGIN
 
-struct Log
+struct DGR2_API Log
 {    
     void SetContent(const std::xStrT& content) { content_ = content;  }
     const std::xStrT& GetContent() { return content_; }
     const Level& GetLevel()const { return *level_;  }
-    const utils::DateTime& GetDateTimeStamp()const { return timestamp_; }
+    const LGT::DateTime& GetDateTimeStamp()const { return timestamp_; }
     const std::xStrT& GetFuncName()const { return func_name_; }
     const std::xStrT& GetFileName()const { return filename_; }
     int GetLineNo()const { return lineno_; }
@@ -24,9 +26,8 @@ private:
     std::xStrT func_name_;
     std::xStrT filename_;
     int lineno_;
-    utils::DateTime timestamp_;
+    LGT::DateTime timestamp_;
 };
 
-DBGER2_NP_END
-
+NP_END
 #endif

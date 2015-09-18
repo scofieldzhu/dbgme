@@ -3,7 +3,7 @@
 
 #include "level.h"
 
-DBGER2_NP_BEGIN
+DGR2_NP_BEGIN
 
 #define NEW_LEVEL_CLASS(LevelClass, Val) \
 struct LevelClass : public DefLevel{ \
@@ -18,6 +18,6 @@ NEW_LEVEL_CLASS(WarnLevel, 2)
 NEW_LEVEL_CLASS(ErrLevel, 3)
 NEW_LEVEL_CLASS(FatalLevel, 4)
 
-DBGER2_NP_END
+NP_END
 
 #endif

@@ -88,7 +88,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DBGER2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>.\;..\..\..\src\langext;..\..\..\src\dbger2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -157,9 +157,11 @@
     <ClInclude Include="..\..\..\src\dbger2\log.h" />
     <ClInclude Include="..\..\..\src\dbger2\logger.h" />
     <ClInclude Include="..\..\..\src\dbger2\utils.h" />
+    <ClInclude Include="standardFormatter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\dbger2\log.cpp" />
+    <ClCompile Include="..\..\..\src\dbger2\standardFormatter.cpp" />
     <ClCompile Include="..\..\..\src\dbger2\utils.cpp" />
     <ClCompile Include="dllMain.cpp" />
   </ItemGroup>

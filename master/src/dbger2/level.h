@@ -3,7 +3,8 @@
 
 #include "general.h"
 
-DBGER2_NP_BEGIN
+DGR2_NP_BEGIN
+
 struct Level
 {
     virtual int GetValue() const = 0;
@@ -21,5 +22,6 @@ struct DefLevel : public Level
 private:
     int val_;
 };
-DBGER2_NP_END
+
+NP_END
 #endif

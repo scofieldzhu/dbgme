@@ -1,24 +1,20 @@
 #ifndef __GENERAL_H__
 #define __GENERAL_H__
 
-#include "langext.h"
+#include "basicType.h"
 
-#define DBGER2 dbger2
-#define DBGER2_NP_BEGIN namespace DBGER2 {
-#define DBGER2_NP_END }
-#define USING_DBGER2 using namespace DBGER2;
+#define DGR2 dbger2
+#define DGR2_NP_BEGIN NP_BEGIN(DGR2)
+#define USING_DGR2 USING_NP(DGR2)
 
-#define UTILS utils
-#define UTILS_NP_BEGIN namespace UTILS {
-#define UTILS_NP_END }
-#define USING_UTILS using namespace UTILS;
+#define UTLS utils
+#define UTLS_NP_BEGIN NP_BEGIN(UTLS)
+#define USING_UTLS USING_NP(UTLS)
 
-DBGER2_NP_BEGIN
+DGR2_NP_BEGIN
+
 struct Level;
 struct Log;
-UTILS_NP_BEGIN
-struct DateTime;
-UTILS_NP_END
-DBGER2_NP_END
 
+NP_END
 #endif

@@ -2,15 +2,13 @@
 #define __FORMATTER_H__
 
 #include "general.h"
+#include "dr2DllExport.h"
 
-DBGER2_NP_BEGIN
-
-struct Formatter
+DGR2_NP_BEGIN
+struct DGR2_API Formatter
 {
     virtual void Format(Log& log) = 0;
     virtual ~Formatter() {}
 };
-
-DBGER2_NP_END
-
+NP_END
 #endif

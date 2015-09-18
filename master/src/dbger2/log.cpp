@@ -1,7 +1,7 @@
 #include "log.h"
 #include "level.h"
-USING_DBGER2
-USING_UTILS
+USING_DGR2
+USING_LGT
 
 Log::Log(const Level& level, const std::xStrT& content, const std::xStrT& func_name, const std::xStrT& filename, int lineno) 
     :level_(level.Clone()),

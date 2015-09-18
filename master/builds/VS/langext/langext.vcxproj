@@ -151,9 +151,11 @@
     <ClInclude Include="..\..\..\src\langext\basicType.h" />
     <ClInclude Include="..\..\..\src\langext\langext.h" />
     <ClInclude Include="..\..\..\src\langext\lgtDLLExport.h" />
+    <ClInclude Include="..\..\..\src\langext\xText.h" />
     <ClInclude Include="..\..\..\src\langext\xtime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\langext\xText.cpp" />
     <ClCompile Include="..\..\..\src\langext\xtime.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>

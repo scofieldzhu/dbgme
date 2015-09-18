@@ -42,6 +42,9 @@
     <ClInclude Include="..\..\..\src\dbger2\utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="standardFormatter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllMain.cpp">
@@ -51,6 +54,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\dbger2\log.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dbger2\standardFormatter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
