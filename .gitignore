@@ -18,8 +18,10 @@ Desktop.ini
 $RECYCLE.BIN/
 $Debug/
 /master/.vs
+/master/ipch
 /master/builds/VS/_bin
 /master/builds/VS/dbger/Debug
+/master/builds/VS/dbger2/Debug
 /master/builds/VS/sflogger/Debug
 /master/builds/VS/langext/Debug
 
