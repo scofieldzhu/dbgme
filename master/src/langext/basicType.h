@@ -31,4 +31,12 @@
 #define _XFILE_ __XFILE__
 #define xCout _xcout
 
+#define NP_BEGIN(np) namespace np{
+#define NP_END }
+#define USING_NP(np) using namespace np;
+
+#define LGT langext
+#define LGT_NP_BEGIN NP_BEGIN(LGT)
+#define USING_LGT USING_NP(LGT)
+
 #endif

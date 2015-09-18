@@ -88,7 +88,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LANGEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>.\;..\..\..\src\langext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -150,9 +150,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\src\langext\basicType.h" />
     <ClInclude Include="..\..\..\src\langext\langext.h" />
-    <ClInclude Include="..\..\..\src\langext\ltDLLExport.h" />
+    <ClInclude Include="..\..\..\src\langext\lgtDLLExport.h" />
+    <ClInclude Include="..\..\..\src\langext\xtime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\langext\xtime.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

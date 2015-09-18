@@ -18,6 +18,10 @@ struct Logger : public FilterPolicy,
 					   public FormatPolicy, 			 			 
 					   public TransferPolicy
 {		
+    typedef FilterPolicy FilterClassType;
+    typedef FormatPolicy FormatterClassType;
+    typedef TransferPolicy TransferClassType;
+
     const std::xStrT& GetName() { return name_; }
 
 	template <class L>

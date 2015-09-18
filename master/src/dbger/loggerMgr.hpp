@@ -1,7 +1,7 @@
 #ifndef __LOGGER_MGR_H__
 #define __LOGGER_MGR_H__
 
-#include "general.h"
+#include "general.hpp"
 
 DBGER_NP_BEGIN
 

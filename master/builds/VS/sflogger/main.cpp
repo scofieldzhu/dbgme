@@ -1,13 +1,22 @@
 #include <iostream>
-#include "myLogMacros.h"
-#include "loggerParser.h"
+#include "levels.h"
+#include "xtime.h"
+// #include "myLogMacros.h"
+// #include "loggerParser.h"
 using namespace std;
+USING_DBGER2
+USING_LGT
 
-LoggerParser parser(XT("logger-conf.xml"));
+//LoggerParser parser(XT("logger-conf.xml"));
 
 int main()
 {    
-    parser.Parse();
+    std::xStrT x;
+    DateTime::Now().ReprTo(x);
+
+    
+    std::cout << x << endl;
+  //  parser.Parse();
 
 // 	InitLoggers();
 // 	int x = 10;
