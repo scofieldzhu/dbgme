@@ -3,11 +3,11 @@
 
 #include "general.hpp"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 
 #define NEW_LEVEL_TYPE(ClassType, Value) \
 struct ClassType {\
-	static const char* GetDesp() { return static_cast<const char*>(#ClassType); } \
+	static const xCharT* GetDesp() { return XT(#ClassType); } \
 	static int GetLevelVal() { return Value; } \
 };
 
@@ -17,6 +17,6 @@ NEW_LEVEL_TYPE(WarnLevel, 2)
 NEW_LEVEL_TYPE(ErrLevel, 3)
 NEW_LEVEL_TYPE(FatalLevel, 4)
 
-DBGER_NP_END
+NP_END
 
 #endif

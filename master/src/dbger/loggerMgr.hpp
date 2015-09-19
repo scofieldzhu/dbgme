@@ -3,7 +3,7 @@
 
 #include "general.hpp"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 
 template 
 <
@@ -12,25 +12,25 @@ template
 >
 struct LoggerMgr : public Base
 {
-	using Base::SetL;
-	using Base::GetL;
+	using Base::setL;
+	using Base::getL;
 
-	void SetL(L& logger)
+	void setL(L& logger)
 	{
 		logger_ = &logger;
 	}
 		 
-	void GetL(L* &result)
+	void getL(L* &result)
 	{
 		result = logger_;
 	}
 		 
 	template <class L>
-	void Publish(L& log)
+	void publish(L& log)
 	{
-		Base::Publish(log);
+		Base::publish(log);
 		if(logger_)
-		 	logger_->Publish(log);
+		 	logger_->publish(log);
 	}
 
 	template <typename T>
@@ -54,23 +54,23 @@ template
 <
 	class L			
 >
-struct LoggerMgr<L, utils::NullType>
+struct LoggerMgr<L, NullType>
 {
-	void SetL(L& logger)
+	void setL(L& logger)
 	{
 		logger_ = &logger;
 	}
 
-	void GetL(L* &result)
+	void getL(L* &result)
 	{
 		result = logger_;
 	}
 	
 	template <class L>
-	void Publish(L& log)
+	void publish(L& log)
 	{		
 		if(logger_)
-			logger_->Publish(log);
+			logger_->publish(log);
 	}
 
 	template <typename T>
@@ -89,5 +89,5 @@ private:
 	L* logger_;
 };
 
-DBGER_NP_END
+NP_END
 #endif

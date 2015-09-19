@@ -1,28 +1,27 @@
 #ifndef __FORMATTER_H__
 #define __FORMATTER_H__
 
-#include "utils.hpp"
+#include "general.hpp"
+#include "xText.h"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 
 struct SimpleFormatter
 {	
 	template <class LogType>
-    void Format(LogType& log)
+    void format(LogType& log)
     {				
 		typedef typename LogType::LevelType LevelType;				
 		std::xStrT result = XT("");
-		HandleLineBreak(log, result);
-		result += XT("[");
-		std::xStrT timestamp_str;
-		log.timestamp.ReprTo(timestamp_str);
-		result += timestamp_str;
+		handleLineBreak(log, result);
+		result += XT("[");		
+        result += log.timestamp.repr();
 		result += XT("][");
-		result += utils::EncodeString<char, xCharT>(LevelType::GetDesp());
+		result += std::xStrT(LevelType::GetDesp());
 		result += XT("][");
 		result += log.file;
 		result += XT("(");
-		result += utils::IntToStr<xCharT>(log.lineno);
+        result += LGT::Int2Str(log.lineno);
 		result += XT(")]:");		
 		if(!log.content.empty())
 			result += log.content;
@@ -31,7 +30,7 @@ struct SimpleFormatter
 
 private:
 	template <class LogType>
-	void HandleLineBreak(LogType& log, std::xStrT& formatted_str)
+	void handleLineBreak(LogType& log, std::xStrT& formatted_str)
 	{		
 		if(log.content.empty())		
 			return;		
@@ -49,6 +48,6 @@ private:
 	}
 };
 
-DBGER_NP_END
+NP_END
 
 #endif

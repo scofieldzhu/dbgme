@@ -3,9 +3,9 @@
 
 #include "myLoggerDefs.h"
 
-extern DBGER::LineBreakTag lbt;
+extern DGR::LineBreakTag lbt;
 extern Logger2Mgr logger_mgr;
-extern DBGER::StreamEndTag endt;
+extern DGR::StreamEndTag endt;
 extern void InitLoggers();
 
 #define MY_LOG_DBG(fmt, ...) LOG_DBG(logger_mgr, fmt, __VA_ARGS__)

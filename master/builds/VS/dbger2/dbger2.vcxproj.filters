@@ -42,7 +42,10 @@
     <ClInclude Include="..\..\..\src\dbger2\utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="standardFormatter.h">
+    <ClInclude Include="..\..\..\src\dbger2\standardFormatter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dbger2\filter.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

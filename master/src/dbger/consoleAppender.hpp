@@ -2,13 +2,14 @@
 #define __CONSOLE_APPENDER_H__
 
 #include <ostream>
+#include "basicType.h"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 
 struct ConsoleAppender
 {		
 	template <class L>
-	void Write(L& log)
+	void write(L& log)
 	{		
 		std::xCout << log.content;
 	}
@@ -21,5 +22,5 @@ struct ConsoleAppender
  	}
 };
 
-DBGER_NP_END
+NP_END
 #endif

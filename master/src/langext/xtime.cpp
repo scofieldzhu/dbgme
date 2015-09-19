@@ -1,9 +1,9 @@
 #include "xtime.h"
 #include <ctime>
-#include <cstdlib>
-#include <sys/types.h>
 #include <sys/timeb.h>
-USING_LGT
+using namespace std;
+
+LGT_NP_BEGIN
 
 DateTime DateTime::Now()
 {
@@ -20,7 +20,7 @@ DateTime DateTime::Now()
                                 tb_now.millitm);
 }
 
-void DateTime::ReprTo(std::xStrT& output) const
+xStrT DateTime::repr() const
 {
     static const int MAX_DATETIME_TEXT_BUFFER = 500;
     xCharT buffer[MAX_DATETIME_TEXT_BUFFER] = { XT('\0') };
@@ -34,5 +34,7 @@ void DateTime::ReprTo(std::xStrT& output) const
                   daytime.min,
                   daytime.sec,
                   daytime.millisec);
-    output = std::xStrT(buffer);
+    return xStrT(buffer);
 }
+
+NP_END

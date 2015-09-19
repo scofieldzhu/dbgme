@@ -3,15 +3,15 @@
 
 #include "general.hpp"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 
 struct SwitchFilter
 {    
 	template <class L>
-    bool Filter(const L& log)const { return IsSwitchOn(); }
-    void SwitchOn(){ switch_ = true;}
-    void SwitchOff(){ switch_ = false;}
-    bool IsSwitchOn()const { return switch_; }
+    bool filter(const L& log)const { return isSwitchOn(); }
+    void switchOn(){ switch_ = true;}
+    void switchOff(){ switch_ = false;}
+    bool isSwitchOn()const { return switch_; }
     SwitchFilter(bool on = true)
         :switch_(on){}
 private:
@@ -24,7 +24,7 @@ struct LevelFilter
     typedef FixedLevel LeftLevelType;    
 
 	template <class L>
-    bool Filter(const L& log)const 
+    bool filter(const L& log)const 
 	{ 
 		typedef L LogType;
 		typedef typename LogType::LevelType RightLevelType;
@@ -38,7 +38,7 @@ struct ConditionFilter
     typedef Condition ConditionType;    
 
 	template <class L>
-    bool Filter(const L& log)const 
+    bool filter(const L& log)const 
 	{		
 		return cond_(log); 
 	}    
@@ -46,6 +46,6 @@ private:
     ConditionType cond_;
 };
 
-DBGER_NP_END
+NP_END
 
 #endif

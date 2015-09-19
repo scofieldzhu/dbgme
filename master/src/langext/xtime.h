@@ -34,7 +34,7 @@ struct LGT_API DayTime
 struct LGT_API DateTime
 {
     static DateTime Now();
-    void ReprTo(std::xStrT& output)const;
+    std::xStrT repr()const;
     DateTime()
     {}
     DateTime(const Date& d, const DayTime& t)

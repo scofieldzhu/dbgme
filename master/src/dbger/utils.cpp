@@ -1,7 +1,7 @@
 #include "utils.hpp"
 #include "drDLLExport.h"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 namespace utils {
 template <> 
 DBGER_API
@@ -68,4 +68,4 @@ std::wstring IntToStr<wchar_t>(int value)
 
 }//end-utils nps
 
-DBGER_NP_END
+NP_END

@@ -2,9 +2,10 @@
 #define __LOGGER_H__
 
 #include <sstream>
+#include "xText.h"
 #include "log.hpp"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 struct StreamEndTag{};
 struct LineBreakTag{};
 
@@ -22,19 +23,19 @@ struct Logger : public FilterPolicy,
     typedef FormatPolicy FormatterClassType;
     typedef TransferPolicy TransferClassType;
 
-    const std::xStrT& GetName() { return name_; }
+    const std::xStrT& getName() { return name_; }
 
 	template <class L>
-	void Publish(L& log)
+	void publish(L& log)
 	{		
-        L* clone_log = log.Clone();
-        if (Filter(*clone_log))
+        L* clone_log = log.clone();
+        if (filter(*clone_log))
         {
-            Format(*clone_log);
-            AppendLoggerInfo(*clone_log);
-            Write(*clone_log);
+            format(*clone_log);
+            appendLoggerInfo(*clone_log);
+            write(*clone_log);
         }
-        clone_log->Destroy();        
+        clone_log->destroy();        
 	}    
 
 	template <typename T>
@@ -51,7 +52,7 @@ struct Logger : public FilterPolicy,
 		{
 			start_flag_ = false;				
 			TransferPolicy::operator<<(xstr_stream_->str());
-			Destroy();
+			destroy();
 		}
 		return *this;		
 	}
@@ -78,11 +79,11 @@ struct Logger : public FilterPolicy,
 	{
         typedef Log<Level> LogType;
 		start_flag_ = false;
-        LogType* clone_log = log.Clone();
-        if (Filter(*clone_log))
+        LogType* clone_log = log.clone();
+        if (filter(*clone_log))
         {
-            Format(*clone_log);
-            AppendLoggerInfo(*clone_log);
+            format(*clone_log);
+            appendLoggerInfo(*clone_log);
             if (!xstr_stream_)
                 xstr_stream_ = new StringstreamT();
             (*xstr_stream_) << clone_log->content;
@@ -90,7 +91,7 @@ struct Logger : public FilterPolicy,
             content_filled_ = false;
             return *this;
         }		
-        clone_log->Destroy();
+        clone_log->destroy();
 		return *this;
 	}
 
@@ -104,23 +105,23 @@ struct Logger : public FilterPolicy,
 
 	~Logger()
 	{
-		Destroy();
+		destroy();
 	}
 
 private:
     template <class L>
-    void AppendLoggerInfo(L& log)
+    void appendLoggerInfo(L& log)
     {
-        std::xStrT new_content = utils::IntToStr<xCharT>(total_log_num_);
-        new_content += (":>[");
-        new_content += GetName();
+        std::xStrT new_content = LGT::Int2Str(total_log_num_);
+        new_content += XT(":>[");
+        new_content += getName();
         new_content += XT("]");
         new_content += log.content;
         log.content = new_content;
         total_log_num_ += 1;
     }
 
-	void Destroy()
+	void destroy()
 	{
 		if(xstr_stream_)		
 			delete xstr_stream_;
@@ -136,5 +137,5 @@ private:
 	StringstreamT* xstr_stream_;
 };
 
-DBGER_NP_END
+NP_END
 #endif

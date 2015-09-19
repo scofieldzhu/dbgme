@@ -27,7 +27,7 @@
     <ClInclude Include="..\..\..\src\langext\lgtDLLExport.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\langext\xText.h">
+    <ClInclude Include="..\..\..\src\langext\xtext.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <ClCompile Include="..\..\..\src\langext\xtime.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\langext\xText.cpp">
+    <ClCompile Include="..\..\..\src\langext\xtext.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

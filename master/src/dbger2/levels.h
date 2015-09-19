@@ -7,8 +7,8 @@ DGR2_NP_BEGIN
 
 #define NEW_LEVEL_CLASS(LevelClass, Val) \
 struct LevelClass : public DefLevel{ \
-    const xCharT* Repr() const { return XT(#LevelClass); } \
-    Level* Clone()const { return new LevelClass(*this); } \
+    const xCharT* repr() const { return XT(#LevelClass); } \
+    Level* clone()const { return new LevelClass(*this); } \
     LevelClass() : DefLevel(Val) {} \
 };
 

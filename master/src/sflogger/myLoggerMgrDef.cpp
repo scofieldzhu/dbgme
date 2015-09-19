@@ -1,6 +1,5 @@
 #include "myLoggerDefs.h"
-
-USING_DBGER
+USING_DGR
 
 LineBreakTag lbt;
 StreamEndTag endt;
@@ -10,6 +9,6 @@ Logger2Mgr logger_mgr;
 
 void InitLoggers()
 {
-	logger_mgr.SetL(console_logger);
-	logger_mgr.SetL(file_logger);
+	logger_mgr.setL(console_logger);
+	logger_mgr.setL(file_logger);
 }

@@ -2,13 +2,14 @@
 #define __FILE_APPENDER_H__
 
 #include <fstream>
+#include <cassert>
 #include "general.hpp"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 struct FileAppender 
 {
 	template <class L>
-	void Write(L& log)
+	void write(L& log)
 	{
 		if(ofs_.tellp() > MAX_FILE_BYTE_SIZE)		
 			ofs_.clear();		
@@ -36,5 +37,5 @@ private:
 	static const int MAX_FILE_BYTE_SIZE = 1024 * 1024;
 	std::basic_ofstream<xCharT> ofs_;
 };
-DBGER_NP_END
+NP_END
 #endif

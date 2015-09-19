@@ -1,9 +1,9 @@
 #ifndef __LOG_H__
 #define __LOG_H__
 
-#include "utils.hpp"
+#include "xtime.h"
 
-DBGER_NP_BEGIN
+DGR_NP_BEGIN
 
 template <class Level>
 struct Log
@@ -12,7 +12,7 @@ struct Log
 
     Log(const std::xStrT& content_val)
         :content(content_val),
-		timestamp(utils::DateTime::Now())
+		timestamp(LGT::DateTime::Now())
 	{}    
 
 	Log(const std::xStrT& content_val, const std::xStrT& func_val, const std::xStrT& file_val, int lineno_val)
@@ -20,17 +20,17 @@ struct Log
 		func(func_val),
 		file(file_val),
 		lineno(lineno_val),
-		timestamp(utils::DateTime::Now())
+		timestamp(LGT::DateTime::Now())
 	{}
 
-    Log* Clone()
+    Log* clone()
     {
-        Log* clone = new Log(content);
-        *clone = *this;
-        return clone;
+        Log* copy = new Log(content);
+        *copy = *this;
+        return copy;
     }
 
-    void Destroy()
+    void destroy()
     {
         delete this;
     }    
@@ -39,9 +39,9 @@ struct Log
     std::xStrT func;
     std::xStrT file;
     int lineno;
-	utils::DateTime timestamp;    
+	LGT::DateTime timestamp;    
 };
 
-DBGER_NP_END
+NP_END
 
 #endif

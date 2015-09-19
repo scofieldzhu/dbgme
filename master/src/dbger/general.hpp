@@ -1,11 +1,14 @@
 #ifndef __GENERAL_H__
 #define __GENERAL_H__
 
-#include "langext.h"
+#include "basicType.h"
 
-#define DBGER dbger
-#define DBGER_NP_BEGIN namespace DBGER {
-#define DBGER_NP_END }
-#define USING_DBGER using namespace DBGER;
+#define DGR dbger
+#define DGR_NP_BEGIN NP_BEGIN(DGR)
+#define USING_DGR USING_NP(DGR)
+
+DGR_NP_BEGIN
+struct NullType;
+NP_END
 
 #endif

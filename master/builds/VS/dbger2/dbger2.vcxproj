@@ -95,6 +95,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\_bin</AdditionalLibraryDirectories>
+      <AdditionalDependencies>langext.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,14 +152,15 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\src\dbger2\appender.h" />
     <ClInclude Include="..\..\..\src\dbger2\dr2DllExport.h" />
+    <ClInclude Include="..\..\..\src\dbger2\filter.h" />
     <ClInclude Include="..\..\..\src\dbger2\formatter.h" />
     <ClInclude Include="..\..\..\src\dbger2\general.h" />
     <ClInclude Include="..\..\..\src\dbger2\level.h" />
     <ClInclude Include="..\..\..\src\dbger2\levels.h" />
     <ClInclude Include="..\..\..\src\dbger2\log.h" />
     <ClInclude Include="..\..\..\src\dbger2\logger.h" />
+    <ClInclude Include="..\..\..\src\dbger2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dbger2\utils.h" />
-    <ClInclude Include="standardFormatter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\dbger2\log.cpp" />

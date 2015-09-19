@@ -1,10 +1,10 @@
 #ifndef __EXPORT_MACRO_H__
 #define __EXPORT_MACRO_H__
 
-#ifdef DBGER_EXPORTS
-    #define DBGER_API __declspec(dllexport)
+#ifdef DGR_EXPORTS
+    #define DGR_API __declspec(dllexport)
 #else
-    #define DBGER_API __declspec(dllimport)
+    #define DGR_API __declspec(dllimport)
 #endif
 
 #endif

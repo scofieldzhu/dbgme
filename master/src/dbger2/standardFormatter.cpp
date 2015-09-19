@@ -4,36 +4,35 @@
 #include "xText.h"
 #include "level.h"
 using namespace std;
-USING_DGR2
 USING_LGT
 
-void StandardFormatter::Format(Log& log)
+DGR2_NP_BEGIN
+
+void StandardFormatter::format(Log& log)
 {
     xStrT result = XT("");
-    HandleLineBreak(log, result);
-    result += XT("[");
-    xStrT timestamp_desp;
-    log.GetDateTimeStamp().ReprTo(timestamp_desp);
-    result += timestamp_desp;
+    handleLineBreak(log, result);
+    result += XT("[");    
+    result += log.getTimeStamp().repr();
     result += XT("][");
-    result += log.GetLevel().Repr();
+    result += log.getLevel().repr();
     result += XT("][");
-    result += log.GetFileName();
+    result += log.getFileName();
     result += XT("(");
-    result += Int2Str(log.GetLineNo());
+    result += Int2Str(log.getLineNo());    
     result += XT(")]:");
-    if (!log.GetContent().empty())
-        result += log.GetContent();
-    log.SetContent(result);
+    if (!log.getContent().empty())
+        result += log.getContent();
+    log.setContent(result);
 }
 
-void StandardFormatter::HandleLineBreak(Log& log, xStrT& formatted_str)
+void StandardFormatter::handleLineBreak(Log& log, xStrT& formatted_str)
 {
-    if (log.GetContent().empty())
+    if (log.getContent().empty())
         return;
     xStrT::size_type pos = 0;
-    xStrT content_copy = log.GetContent();
-    for (; pos != std::xStrT::npos; ++pos)
+    xStrT content_copy = log.getContent();
+    for (; pos != xStrT::npos; ++pos)
     {
         if (content_copy[pos] != 13 && content_copy[pos] != 10)
             break;
@@ -41,7 +40,7 @@ void StandardFormatter::HandleLineBreak(Log& log, xStrT& formatted_str)
     if (pos != 0)
     {
         formatted_str = content_copy.substr(0, pos);
-        log.SetContent(content_copy.substr(pos));
+        log.setContent(content_copy.substr(pos));
     }
 }
 
@@ -54,3 +53,5 @@ StandardFormatter::~StandardFormatter()
 {
 
 }
+
+NP_END
