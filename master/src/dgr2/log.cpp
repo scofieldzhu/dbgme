@@ -14,6 +14,18 @@ Log::Log(const Level& level, const std::xStrT& content, const std::xStrT& func_n
 {
 }
 
+Log::Log(const Log& rhs)
+{
+    if (level_)
+        delete level_;
+    level_ = rhs.level_->clone();
+    content_ = rhs.content_;
+    func_name_ = rhs.func_name_;
+    filename_ = rhs.filename_;
+    lineno_ = rhs.lineno_;
+    timestamp_ = rhs.timestamp_;
+}
+
 const Log& Log::operator=(const Log& rhs)
 {
     if (level_)

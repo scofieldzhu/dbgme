@@ -18,6 +18,7 @@ struct DGR2_API Log
     int getLineNo()const { return lineno_; }
     const Log& operator=(const Log& rhs);
     Log(const Level& level, const std::xStrT& content, const std::xStrT& func_name, const std::xStrT& filename, int lineno);
+    Log(const Log& rhs);
     ~Log();
 
 private:

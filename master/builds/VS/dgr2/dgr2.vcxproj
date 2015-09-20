@@ -165,6 +165,7 @@
     <ClInclude Include="..\..\..\src\dgr2\levels.h" />
     <ClInclude Include="..\..\..\src\dgr2\log.h" />
     <ClInclude Include="..\..\..\src\dgr2\logger.h" />
+    <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h" />
     <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\utils.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\log.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\logger.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\loggerMgr.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\ostreamAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\utils.cpp" />

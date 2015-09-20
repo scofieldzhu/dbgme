@@ -63,6 +63,9 @@
     <ClInclude Include="..\..\..\src\dgr2\fileAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllMain.cpp">
@@ -93,6 +96,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\logger.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\loggerMgr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
