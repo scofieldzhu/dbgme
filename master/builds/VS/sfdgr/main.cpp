@@ -3,7 +3,11 @@
 //#include "myLogMacros.h"
 #include "loggerParser.h"
 #include "levelFilter.h"
-#include "levels.h"
+#include "logMacro.h"
+#include "standardFormatter.h"
+#include "consoleAppender.h"
+#include "fileAppender.h"
+#include "logger.h"
 using namespace std;
 USING_DGR2
 USING_LGT
@@ -12,9 +16,17 @@ USING_LGT
 
 int main()
 {        
-    DebugLevel l;
-    LevelFilter* f = new LevelFilter(l);
-    delete f;
+    DebugLevel level;
+    LevelFilter filter(level);
+    StandardFormatter formatter;
+    ConsoleAppender console_appender(NULL, 1);
+    Logger logger;
+    logger.setFilter(&filter);
+    logger.setFormatter(&formatter);
+    logger.addAppender(console_appender);
+    LoggerMgr::GetInst()->addLogger(logger);
+    LOG_WARN(XT("HelloWorld"))
+
     
   //  parser.Parse();
 

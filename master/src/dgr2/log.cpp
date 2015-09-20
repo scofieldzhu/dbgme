@@ -4,7 +4,7 @@ USING_LGT
 
 DGR2_NP_BEGIN
 
-Log::Log(const Level& level, const std::xStrT& content, const std::xStrT& func_name, const std::xStrT& filename, int lineno) 
+Log::Log(const Level& level, const std::xStrT& content, const std::xStrT& func_name, const std::xStrT& filename, unsigned int lineno) 
     :level_(level.clone()),
     content_(content),
     func_name_(func_name),

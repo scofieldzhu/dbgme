@@ -4,7 +4,7 @@ using namespace std;
 DGR2_NP_BEGIN
 UTLS_NP_BEGIN
 
-xStrT ConvertArgsToString(const xCharT* format, ...)
+DGR2_API xStrT ConvertArgsToString(const xCharT* format, ...)
 {
     static const int MAX_BUFFER_SIZE = 300;
     va_list vl;
@@ -14,5 +14,14 @@ xStrT ConvertArgsToString(const xCharT* format, ...)
     va_end(vl);
     return xStrT(buffer);
 }
+
+DGR2_API xStrT SplitRelativeFilePath(const xCharT* abs_filepath)
+{
+    xCharT* work_dir_buffer = xGetcwd(NULL, 0);    
+    xStrT substr = xStrT(abs_filepath).substr(xCsLen(work_dir_buffer));
+    free(work_dir_buffer);
+    return substr;
+}
+
 NP_END
 NP_END

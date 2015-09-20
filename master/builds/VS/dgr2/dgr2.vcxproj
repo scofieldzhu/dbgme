@@ -166,6 +166,7 @@
     <ClInclude Include="..\..\..\src\dgr2\log.h" />
     <ClInclude Include="..\..\..\src\dgr2\logger.h" />
     <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h" />
+    <ClInclude Include="..\..\..\src\dgr2\logMacro.h" />
     <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\utils.h" />

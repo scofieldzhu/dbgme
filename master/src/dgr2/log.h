@@ -1,7 +1,6 @@
 #ifndef __LOG_H__
 #define __LOG_H__
 
-#include "dr2DllExport.h"
 #include "general.h"
 #include "xtime.h"
 
@@ -17,7 +16,7 @@ struct DGR2_API Log
     const std::xStrT& getFileName()const { return filename_; }
     int getLineNo()const { return lineno_; }
     const Log& operator=(const Log& rhs);
-    Log(const Level& level, const std::xStrT& content, const std::xStrT& func_name, const std::xStrT& filename, int lineno);
+    Log(const Level& level, const std::xStrT& content, const std::xStrT& func_name, const std::xStrT& filename, unsigned int lineno);
     Log(const Log& rhs);
     ~Log();
 
@@ -26,7 +25,7 @@ private:
     std::xStrT content_;
     std::xStrT func_name_;
     std::xStrT filename_;
-    int lineno_;
+    unsigned int lineno_;
     LGT::DateTime timestamp_;
 };
 

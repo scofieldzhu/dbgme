@@ -8,7 +8,7 @@ DGR2_NP_BEGIN
 class DGR2_API LoggerMgr
 {
 public:
-    LoggerMgr* GetInst();
+    static LoggerMgr* GetInst();
     void addLogger(Logger& logger);
     void publish(const Log& log);
 private:
