@@ -18,7 +18,7 @@ Desktop.ini
 $RECYCLE.BIN/
 $Debug/
 /master/.vs
-/master/ipch
+/master/builds/VS/ipch
 /master/builds/VS/_bin
 /master/builds/VS/dgr/Debug
 /master/builds/VS/dgr2/Debug
