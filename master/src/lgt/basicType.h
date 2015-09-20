@@ -4,6 +4,7 @@
 #include <wchar.h>
 #include <cstring>
 #include <string>
+#include <memory>
 
 #ifdef _UNICODE
     #define _XChar wchar_t

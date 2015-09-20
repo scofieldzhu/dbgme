@@ -153,19 +153,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\dgr2\appender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\consoleAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\defAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\dr2DllExport.h" />
+    <ClInclude Include="..\..\..\src\dgr2\fileAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\filter.h" />
     <ClInclude Include="..\..\..\src\dgr2\formatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\general.h" />
     <ClInclude Include="..\..\..\src\dgr2\level.h" />
+    <ClInclude Include="..\..\..\src\dgr2\levelFilter.h" />
     <ClInclude Include="..\..\..\src\dgr2\levels.h" />
     <ClInclude Include="..\..\..\src\dgr2\log.h" />
     <ClInclude Include="..\..\..\src\dgr2\logger.h" />
+    <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\dgr2\consoleAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\defAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\fileAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\log.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\logger.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\ostreamAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\utils.cpp" />
     <ClCompile Include="dllMain.cpp" />

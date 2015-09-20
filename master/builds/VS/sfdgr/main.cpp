@@ -2,14 +2,20 @@
 #include "xtime.h"
 //#include "myLogMacros.h"
 #include "loggerParser.h"
+#include "levelFilter.h"
+#include "levels.h"
 using namespace std;
-//USING_DGR
+USING_DGR2
 USING_LGT
 
 //LoggerParser parser(XT("logger-conf.xml"));
 
 int main()
 {        
+    DebugLevel l;
+    LevelFilter* f = new LevelFilter(l);
+    delete f;
+    
   //  parser.Parse();
 
 // 	InitLoggers();
