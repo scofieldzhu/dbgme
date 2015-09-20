@@ -17,7 +17,7 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 $Debug/
-/master/.vs
+/master/builds/.vs
 /master/builds/VS/ipch
 /master/builds/VS/_bin
 /master/builds/VS/dgr/Debug
