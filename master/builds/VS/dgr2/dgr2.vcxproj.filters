@@ -15,30 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\langext\basicType.h">
+    <ClInclude Include="..\..\..\src\dgr2\appender.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\langext\langext.h">
+    <ClInclude Include="..\..\..\src\dgr2\dr2DllExport.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\langext\xtime.h">
+    <ClInclude Include="..\..\..\src\dgr2\filter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\langext\lgtDLLExport.h">
+    <ClInclude Include="..\..\..\src\dgr2\formatter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\langext\xtext.h">
+    <ClInclude Include="..\..\..\src\dgr2\general.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\level.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\levels.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\logger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="dllMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\langext\xtime.cpp">
+    <ClCompile Include="..\..\..\src\dgr2\log.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\langext\xtext.cpp">
+    <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\utils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
