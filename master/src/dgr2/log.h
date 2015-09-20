@@ -10,7 +10,7 @@ DGR2_NP_BEGIN
 struct DGR2_API Log
 {    
     void setContent(const std::xStrT& content) { content_ = content;  }
-    const std::xStrT& getContent() { return content_; }
+    const std::xStrT& getContent() const { return content_; }
     const Level& getLevel()const { return *level_;  }
     const LGT::DateTime& getTimeStamp()const { return timestamp_; }
     const std::xStrT& getFuncName()const { return func_name_; }

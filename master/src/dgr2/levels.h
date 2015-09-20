@@ -10,6 +10,7 @@ struct LevelClass : public DefLevel{ \
     const xCharT* repr() const { return XT(#LevelClass); } \
     Level* clone()const { return new LevelClass(*this); } \
     LevelClass() : DefLevel(Val) {} \
+    ~LevelClass(){} \
 };
 
 NEW_LEVEL_CLASS(DebugLevel, 0)

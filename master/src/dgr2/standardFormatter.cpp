@@ -46,12 +46,9 @@ void StandardFormatter::handleLineBreak(Log& log, xStrT& formatted_str)
 
 StandardFormatter::StandardFormatter()
 {
-
 }
 
 StandardFormatter::~StandardFormatter()
 {
-
 }
-
 NP_END
