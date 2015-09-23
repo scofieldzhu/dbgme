@@ -23,10 +23,10 @@ DateTime DateTime::Now()
 xStrT DateTime::repr() const
 {
     static const int MAX_DATETIME_TEXT_BUFFER = 500;
-    xCharT buffer[MAX_DATETIME_TEXT_BUFFER] = { XT('\0') };
+    xCharT buffer[MAX_DATETIME_TEXT_BUFFER] = { _X('\0') };
     xSprintf(buffer,
                   MAX_DATETIME_TEXT_BUFFER - 1,
-                  XT("%d/%02d/%02d %02d:%02d:%02d:%03d"),
+                  _X("%d/%02d/%02d %02d:%02d:%02d:%03d"),
                   date.year,
                   date.mon,
                   date.mday,

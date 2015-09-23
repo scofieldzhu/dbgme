@@ -12,17 +12,17 @@ struct SimpleFormatter
     void format(LogType& log)
     {				
 		typedef typename LogType::LevelType LevelType;				
-		std::xStrT result = XT("");
+		std::xStrT result = _X("");
 		handleLineBreak(log, result);
-		result += XT("[");		
+		result += _X("[");		
         result += log.timestamp.repr();
-		result += XT("][");
+		result += _X("][");
 		result += std::xStrT(LevelType::GetDesp());
-		result += XT("][");
+		result += _X("][");
 		result += log.file;
-		result += XT("(");
+		result += _X("(");
         result += LGT::Int2Str(log.lineno);
-		result += XT(")]:");		
+		result += _X(")]:");		
 		if(!log.content.empty())
 			result += log.content;
         log.content = result;

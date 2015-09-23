@@ -1,6 +1,5 @@
 #include <iostream>
 #include "xtime.h"
-//#include "myLogMacros.h"
 #include "loggerParser.h"
 #include "levelFilter.h"
 #include "logMacro.h"
@@ -12,40 +11,28 @@ using namespace std;
 USING_DGR2
 USING_LGT
 
-//LoggerParser parser(XT("logger-conf.xml"));
-
 int main()
-{        
-    DebugLevel level;
-    LevelFilter filter(level);
+{            
+    WarnLevel lower;
+    FatalLevel upper;
+    LevelFilter filter(&lower, &upper);
     StandardFormatter formatter;
-    ConsoleAppender console_appender(NULL, 1);
+    ConsoleAppender console_appender(NULL);
+    FileAppender file_appender(_X("test.log.txt"), NULL, 2);
     Logger logger;
     logger.setFilter(&filter);
     logger.setFormatter(&formatter);
     logger.addAppender(console_appender);
+    logger.addAppender(file_appender);
     LoggerMgr::GetInst()->addLogger(logger);
-    LOG_WARN(XT("HelloWorld"))
 
-    
-  //  parser.Parse();
-
-// 	InitLoggers();
-// 	int x = 10;
-// 	const xCharT* y = XT("fdfdf");
-// 	float z = 20.15f;
-//// 			
-//  	MY_LOG_DBG(XT("x=%d y=%s z = %f\r\n"), x, y, z);
-//    MY_LOG_INFO(XT("x=%d y=%s z = %f\r\n"), x, y, z);
-//    MY_LOG_WARN(XT("x=%d y=%s z = %f\r\n"), x, y, z);
-//    MY_LOG_ERR(XT("x=%d y=%s z = %f\r\n"), x, y, z);
-//    MY_LOG_FATAL(XT("x=%d y=%s z = %f\r\n"), x, y, z);
-//// 
-// 	MY_LOG_DBG2 << lbt << x << " " << y << "  0 " << z <<lbt << endt;
-// 	MY_LOG_INFO2 << lbt << x << " " << y << " 1 " << z << endt;
-// 	MY_LOG_WARN2 << lbt << x << " " << y << " 2 " << z << endt;
-// 	MY_LOG_ERR2 << lbt << x << " " << y << " 2 " << z << endt;
-// 	MY_LOG_FATAL2 << lbt << x << " " << y << " 2 " << z << endt;
-
+    const xCharT* x = _X("fdfdf");
+    int ix = 10;
+    double fx = 12.36;    
+    LOG_DBG(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    LOG_INF(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    LOG_WARN(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    LOG_ERR(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    LOG_FAT(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
 	return 0;
 }

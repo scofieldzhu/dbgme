@@ -8,7 +8,7 @@ LGT_NP_BEGIN
 LGT_API xStrT Int2Str(int value, int radix)
 {
      static const int MAX_BUFFER_SIZE = 30;
-     xCharT buffer[MAX_BUFFER_SIZE] = { XT('\0') };
+     xCharT buffer[MAX_BUFFER_SIZE] = { _X('\0') };
      errno_t result = _itot_s(value, buffer, MAX_BUFFER_SIZE - 1, 10);
      assert(result == 0);
      return xStrT(buffer);

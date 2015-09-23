@@ -62,12 +62,12 @@ struct Logger : public FilterPolicy,
 		if(!start_flag_)		
 			return *this;						
 		if(content_filled_)				
-			(*xstr_stream_) << XT("\r\n");					
+			(*xstr_stream_) << _X("\r\n");					
 		else
 		{
 			std::xStrT current_content = xstr_stream_->str();			
 			xstr_stream_ = new StringstreamT(); //abandon its' content
-			(*xstr_stream_) << XT("\r\n");
+			(*xstr_stream_) << _X("\r\n");
 			(*xstr_stream_) << current_content;			
 			content_filled_ = true;
 		}									
@@ -113,9 +113,9 @@ private:
     void appendLoggerInfo(L& log)
     {
         std::xStrT new_content = LGT::Int2Str(total_log_num_);
-        new_content += XT(":>[");
+        new_content += _X(":>[");
         new_content += getName();
-        new_content += XT("]");
+        new_content += _X("]");
         new_content += log.content;
         log.content = new_content;
         total_log_num_ += 1;

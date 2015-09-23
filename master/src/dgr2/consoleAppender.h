@@ -6,7 +6,7 @@
 DGR2_NP_BEGIN
 struct DGR2_API ConsoleAppender : public OstreamAppender
 {
-    ConsoleAppender(Filter* filter, unsigned int flush_frequence);
+    ConsoleAppender(Filter* filter, unsigned int flush_frequence = 1);
     ~ConsoleAppender();
 };
 NP_END

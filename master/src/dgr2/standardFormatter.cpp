@@ -10,17 +10,17 @@ DGR2_NP_BEGIN
 
 void StandardFormatter::format(Log& log)
 {
-    xStrT result = XT("");
+    xStrT result = _X("");
     handleLineBreak(log, result);
-    result += XT("[");    
+    result += _X("[");    
     result += log.getTimeStamp().repr();
-    result += XT("][");
+    result += _X("][");
     result += log.getLevel().repr();
-    result += XT("][");
+    result += _X("][");
     result += log.getFileName();
-    result += XT("(");
+    result += _X("(");
     result += Int2Str(log.getLineNo());    
-    result += XT(")]:");
+    result += _X(")]:");
     if (!log.getContent().empty())
         result += log.getContent();
     log.setContent(result);

@@ -7,7 +7,7 @@ DGR_NP_BEGIN
 
 #define NEW_LEVEL_TYPE(ClassType, Value) \
 struct ClassType {\
-	static const xCharT* GetDesp() { return XT(#ClassType); } \
+	static const xCharT* GetDesp() { return _X(#ClassType); } \
 	static int GetLevelVal() { return Value; } \
 };
 

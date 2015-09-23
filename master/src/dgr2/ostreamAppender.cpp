@@ -23,7 +23,7 @@ void OstreamAppender::flush()
 void OstreamAppender::doWrite(const Log& log)
 {
     xStrT content = Int2Str(getFinishedLogCount());
-    content += XT(">");
+    content += _X(">");
     content += log.getContent();    
     os_->write(content.c_str(), content.size());    
 }

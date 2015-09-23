@@ -168,20 +168,25 @@
     <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h" />
     <ClInclude Include="..\..\..\src\dgr2\logMacro.h" />
     <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqliteAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\utils.h" />
+    <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\dgr2\consoleAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\defAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\fileAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\levels.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\log.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\logger.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\loggerMgr.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\ostreamAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\sqliteAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\utils.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp" />
     <ClCompile Include="dllMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

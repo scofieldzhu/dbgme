@@ -27,7 +27,7 @@ template
 >
 LoggerMgrT& PublishLog2(LoggerMgrT& mgr, const xCharT* file, const xCharT* func, int lineno)
 {
-	LogType log = DGR::details::AssembleLog<LogType>(XT(""), file, func, lineno);
+	LogType log = DGR::details::AssembleLog<LogType>(_X(""), file, func, lineno);
 	mgr << log;
 	return mgr;
 }

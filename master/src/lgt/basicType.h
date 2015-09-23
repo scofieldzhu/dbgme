@@ -8,7 +8,7 @@
 
 #ifdef _UNICODE
     #define _XChar wchar_t
-    #define _XT(t) L##t
+    #define __X(t) L##t
     #define _xstring wstring
     #define _xCsLen wcslen
     #define _xsprintf swprintf_s
@@ -19,7 +19,7 @@
     #define _xcout wcout
 #else
     #define _XChar char
-    #define _XT(t) t
+    #define __X(t) t
     #define _xstring string
     #define _xCsLen strlen
     #define _xsprintf sprintf_s
@@ -31,7 +31,7 @@
 #endif
 
 #define xCharT _XChar
-#define XT _XT
+#define _X __X
 #define xStrT _xstring
 #define xCsLen _xCsLen
 #define xSprintf _xsprintf
