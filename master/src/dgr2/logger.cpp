@@ -3,6 +3,7 @@
 #include "filter.h"
 #include "formatter.h"
 #include "appender.h"
+#include "log.h"
 using namespace std;
 
 DGR2_NP_BEGIN
@@ -30,7 +31,41 @@ void Logger::publish(Log& log)
         (*iter)->write(log);
 }
 
+Logger& Logger::operator<<(Log& log)
+{
+    target_log_ = &log;
+    return *this;
+}
+
+Logger& Logger::operator<<(LogTag tag)
+{
+    switch(tag)
+    {
+        case endt:
+            onEndLog();
+            break;
+
+        case lbt:
+            xostream_ << std::endl;
+            break;
+
+        default:
+            break;
+    }
+    return *this;
+}
+
+void Logger::onEndLog()
+{
+    xStrT content = xostream_.str();
+    target_log_->setContent(content);
+    publish(*target_log_);
+}
+
 Logger::Logger()
+    :filter_(NULL),
+    formatter_(NULL),
+    target_log_(NULL)
 {
 }
 

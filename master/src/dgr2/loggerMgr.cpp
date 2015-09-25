@@ -2,15 +2,22 @@
 #include "loggerMgr.h"
 #include "log.h"
 #include "logger.h"
+#include "autoLock.h"
+#include "locks.h"
 using namespace std;
 DGR2_NP_BEGIN
+USING_LGT
 
 LoggerMgr* LoggerMgr::inst_ = NULL;
 
 LoggerMgr* LoggerMgr::GetInst()
 {
     if(inst_ == NULL)
-        inst_ = new LoggerMgr();
+    {
+        AutoLock<CriticalSectionLock> lock;
+        if(inst_ == NULL)        
+            inst_ = new LoggerMgr();
+    }
     return inst_;
 }
 

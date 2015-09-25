@@ -7,12 +7,13 @@
 #include "consoleAppender.h"
 #include "fileAppender.h"
 #include "logger.h"
+#include <iomanip>
 using namespace std;
 USING_DGR2
 USING_LGT
 
 int main()
-{            
+{
     WarnLevel lower;
     FatalLevel upper;
     LevelFilter filter(&lower, &upper);
@@ -28,10 +29,12 @@ int main()
 
     const xCharT* x = _X("fdfdf");
     int ix = 10;
-    double fx = 12.36;    
+    double fx = 12.36;
+    SLOG_DBG << ix <<_X("    ")<< fx << END;
+
     LOG_DBG(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     LOG_INF(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    LOG_WARN(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    LOG_WARN(_X("\r\nHelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     LOG_ERR(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     LOG_FAT(_X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
 	return 0;

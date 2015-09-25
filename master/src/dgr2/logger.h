@@ -2,7 +2,9 @@
 #define __LOGGER_H__
 
 #include <vector>
+#include <sstream>
 #include "general.h"
+#include "logTag.h"
 
 DGR2_NP_BEGIN
 struct DGR2_API Logger
@@ -16,13 +18,25 @@ struct DGR2_API Logger
     void addAppender(Appender& appender);
     void removeAppender(Appender& appender);
     void publish(Log& log);
+    template <typename T>
+    Logger& operator<<(T val)
+    {
+        xostream_ << val;
+        return *this;
+    }
+    Logger& operator<<(Log& log);
+    Logger& operator<<(LogTag tag);
     Logger();
     ~Logger();
+
 private:
+    void onEndLog();
     Filter* filter_;
     Formatter* formatter_;
     typedef std::vector<Appender*> AppenderListType;
     AppenderListType appenders_;
+    std::basic_ostringstream<xCharT> xostream_;
+    Log* target_log_;
 };
 NP_END
 #endif

@@ -97,7 +97,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\_bin</AdditionalLibraryDirectories>
-      <AdditionalDependencies>langext.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lgt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -109,10 +109,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\lgt;..\..\..\src\dgr2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lgt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -170,6 +173,7 @@
     <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\sqliteAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
+    <ClInclude Include="..\..\..\src\dgr2\logTag.h" />
     <ClInclude Include="..\..\..\src\dgr2\utils.h" />
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
   </ItemGroup>

@@ -107,6 +107,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;LGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\lgt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -153,10 +154,13 @@
     <ClInclude Include="..\..\..\src\lgt\basicType.h" />
     <ClInclude Include="..\..\..\src\lgt\langext.h" />
     <ClInclude Include="..\..\..\src\lgt\lgtDLLExport.h" />
+    <ClInclude Include="..\..\..\src\lgt\autoLock.h" />
+    <ClInclude Include="..\..\..\src\lgt\locks.h" />
     <ClInclude Include="..\..\..\src\lgt\xtext.h" />
     <ClInclude Include="..\..\..\src\lgt\xtime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\lgt\locks.cpp" />
     <ClCompile Include="..\..\..\src\lgt\xtext.cpp" />
     <ClCompile Include="..\..\..\src\lgt\xtime.cpp" />
     <ClCompile Include="dllmain.cpp" />
