@@ -23,6 +23,7 @@ public:
         }
         return *this;
     }
+    LoggerMgr& operator<<(const Log& log);
 private:
     LoggerMgr();
     LoggerMgr(const LoggerMgr&);

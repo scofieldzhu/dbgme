@@ -24,7 +24,7 @@ struct DGR2_API Logger
         xostream_ << val;
         return *this;
     }
-    Logger& operator<<(Log& log);
+    Logger& operator<<(const Log& log);
     Logger& operator<<(LogTag tag);
     Logger();
     ~Logger();

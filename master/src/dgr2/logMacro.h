@@ -12,14 +12,18 @@
 
 #define LOG_DBG(fmt, ...) _PUBLISH_LOG(DGR2::DebugLevel(), fmt, __VA_ARGS__)
 #define LOG_INF(fmt, ...) _PUBLISH_LOG(DGR2::InfoLevel(), fmt, __VA_ARGS__)
-#define LOG_WARN(fmt, ...) _PUBLISH_LOG(DGR2::WarnLevel(), fmt, __VA_ARGS__)
+#define LOG_WAR(fmt, ...) _PUBLISH_LOG(DGR2::WarnLevel(), fmt, __VA_ARGS__)
 #define LOG_ERR(fmt, ...) _PUBLISH_LOG(DGR2::ErrLevel(), fmt, __VA_ARGS__)
 #define LOG_FAT(fmt, ...) _PUBLISH_LOG(DGR2::FatalLevel(), fmt, __VA_ARGS__)
 
 #define _SLOG(level) { __NEW_LOG(level, _X("")); (*DGR2::LoggerMgr::GetInst())<<(log)
-#define _SLOG_DBG _SLOG(DGR2::DebugLevel())
 #define END endt;}
+#define LBT lbt
 
-#define SLOG_DBG _SLOG_DBG
+#define SLOG_DBG _SLOG(DGR2::DebugLevel())
+#define SLOG_INF _SLOG(DGR2::InfoLevel())
+#define SLOG_WAR _SLOG(DGR2::WarnLevel())
+#define SLOG_ERR _SLOG(DGR2::ErrLevel())
+#define SLOG_FAT _SLOG(DGR2::FatalLevel())
 
 #endif

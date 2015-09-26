@@ -31,9 +31,9 @@ void Logger::publish(Log& log)
         (*iter)->write(log);
 }
 
-Logger& Logger::operator<<(Log& log)
+Logger& Logger::operator<<(const Log& log)
 {
-    target_log_ = &log;
+    target_log_ = new Log(log);
     return *this;
 }
 
@@ -56,10 +56,12 @@ Logger& Logger::operator<<(LogTag tag)
 }
 
 void Logger::onEndLog()
-{
-    xStrT content = xostream_.str();
-    target_log_->setContent(content);
+{    
+    target_log_->setContent(xostream_.str());
+    xostream_.str(_X(""));
     publish(*target_log_);
+    delete target_log_;
+    target_log_ = NULL;
 }
 
 Logger::Logger()

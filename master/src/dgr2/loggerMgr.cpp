@@ -37,6 +37,16 @@ void LoggerMgr::publish(const Log& log)
     }
 }
 
+LoggerMgr& LoggerMgr::operator<<(const Log& log)
+{
+    LoggerListType::const_iterator iter = loggers_.begin();
+    for (; iter != loggers_.end(); ++iter)
+    {
+        (*iter)->operator<<(log);
+    }
+    return *this;
+}
+
 LoggerMgr::LoggerMgr()
 {
 
