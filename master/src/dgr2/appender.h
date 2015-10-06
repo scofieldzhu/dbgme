@@ -10,7 +10,10 @@ struct DGR2_API Appender
     virtual void flush() = 0;
     virtual void setFilter(Filter* filter) = 0;
     virtual Filter* getFilter() = 0;
-    virtual const Filter* getFilter()const = 0;
+    virtual const Filter* getFilter()const = 0;    
+    virtual void setFormatter(Formatter* formatter) = 0;
+    virtual Formatter* getFormatter() = 0;
+    virtual const Formatter* getFormatter()const = 0;
     virtual ~Appender() {}
 };
 NP_END

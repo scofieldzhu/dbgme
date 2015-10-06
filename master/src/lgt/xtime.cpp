@@ -27,13 +27,13 @@ xStrT DateTime::repr() const
     xSprintf(buffer,
                   MAX_DATETIME_TEXT_BUFFER - 1,
                   _X("%d/%02d/%02d %02d:%02d:%02d:%03d"),
-                  date.year,
-                  date.mon,
-                  date.mday,
-                  daytime.hour,
-                  daytime.min,
-                  daytime.sec,
-                  daytime.millisec);
+                  date_.year_,
+                  date_.mon_,
+                  date_.mday_,
+                  daytime_.hour_,
+                  daytime_.min_,
+                  daytime_.sec_,
+                  daytime_.millisec_);
     return xStrT(buffer);
 }
 

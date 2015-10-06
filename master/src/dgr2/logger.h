@@ -8,16 +8,13 @@
 
 DGR2_NP_BEGIN
 struct DGR2_API Logger
-{
-    void setFilter(Filter* filter) { filter_ = filter; }
-    Filter* getFilter() { return filter_; }
-    const Filter* getFilter()const { return filter_; }
-    void setFormatter(Formatter* formatter) { formatter_ = formatter; }
-    Formatter* getFormatter() { return formatter_; }
-    const Formatter* getFormatter()const { return formatter_; }
+{    
+    const std::xStrT& getName()const { return name_; }
     void addAppender(Appender& appender);
     void removeAppender(Appender& appender);
     void publish(Log& log);
+    void publish(const Level& level, const xCharT* fmt, ...);
+    void publish(const Level& level, const xCharT* file, const xCharT* func, unsigned int lineno, const xCharT* fmt, ...);
     template <typename T>
     Logger& operator<<(T val)
     {
@@ -26,17 +23,16 @@ struct DGR2_API Logger
     }
     Logger& operator<<(const Log& log);
     Logger& operator<<(LogTag tag);
-    Logger();
+    Logger(const std::xStrT& name);
     ~Logger();
 
 private:
-    void onEndLog();
-    Filter* filter_;
-    Formatter* formatter_;
+    void onEndLog();    
     typedef std::vector<Appender*> AppenderListType;
     AppenderListType appenders_;
     std::basic_ostringstream<xCharT> xostream_;
     Log* target_log_;
+    std::xStrT name_;
 };
 NP_END
 #endif

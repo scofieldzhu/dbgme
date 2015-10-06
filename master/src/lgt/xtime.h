@@ -8,27 +8,27 @@ LGT_NP_BEGIN
 struct LGT_API Date
 {
     Date(int y = 1900, int m = 1, int d = 1)
-        :year(y),
-        mon(m),
-        mday(d)
+        :year_(y),
+        mon_(m),
+        mday_(d)
     {}
-    int year;
-    int mon;
-    int mday;
+    int year_;
+    int mon_;
+    int mday_;
 };
 
 struct LGT_API DayTime
 {
     DayTime(int h = 0, int m = 0, int s = 0, int ms = 0)
-        :hour(h),
-        min(m),
-        sec(s),
-        millisec(ms)
+        :hour_(h),
+        min_(m),
+        sec_(s),
+        millisec_(ms)
     {}
-    int hour;
-    int min;
-    int sec;
-    int millisec;
+    int hour_;
+    int min_;
+    int sec_;
+    int millisec_;
 };
 
 struct LGT_API DateTime
@@ -38,17 +38,17 @@ struct LGT_API DateTime
     DateTime()
     {}
     DateTime(const Date& d, const DayTime& t)
-        :date(d),
-        daytime(t)
+        :date_(d),
+        daytime_(t)
     {}
     DateTime(int y, int m, int d, int h, int min, int s, int ms)
-        :date(y, m, d),
-        daytime(h, min, s, ms)
+        :date_(y, m, d),
+        daytime_(h, min, s, ms)
     {}
     ~DateTime()
     {}
-    Date date;
-    DayTime daytime;
+    Date date_;
+    DayTime daytime_;
 };
 NP_END
 

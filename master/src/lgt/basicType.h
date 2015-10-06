@@ -13,6 +13,7 @@
     #define _xCsLen wcslen
     #define _xsprintf swprintf_s
     #define _xvsprintf_s vswprintf_s
+    #define _xvscprintf _vscwprintf 
     #define __XFUNCTION__  __FUNCTIONW__ 
     #define __XFILE__ __FILEW__
     #define _xgetcwd _wgetcwd
@@ -24,6 +25,7 @@
     #define _xCsLen strlen
     #define _xsprintf sprintf_s
     #define _xvsprintf_s vsprintf_s
+    #define _xvscprintf _vscprintf
     #define __XFUNCTION__  __FUNCTION__ 
     #define __XFILE__ __FILE__
     #define _xgetcwd _getcwd
@@ -36,6 +38,7 @@
 #define xCsLen _xCsLen
 #define xSprintf _xsprintf
 #define xVSprintf_s _xvsprintf_s
+#define xvscprintf _xvscprintf
 #define _XFUNCTION_ __XFUNCTION__
 #define _XFILE_ __XFILE__
 #define xGetcwd _xgetcwd
