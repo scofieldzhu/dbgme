@@ -43,6 +43,7 @@
 #define _XFILE_ __XFILE__
 #define xGetcwd _xgetcwd
 #define xCout _xcout
+#define NONE_STR _X("None")
 
 #define NP_BEGIN(np) namespace np{
 #define NP_END }
@@ -53,5 +54,9 @@
 #define USING_LGT USING_NP(LGT)
 
 #pragma warning(disable:4251)
+
+#if defined(_WIN32) || defined(_WIN64)
+    #define IN_WINOS
+#endif
 
 #endif

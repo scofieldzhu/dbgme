@@ -13,25 +13,28 @@ void StandardFormatter::format(Log& log)
     xStrT result = _X("");
     handleLineBreak(log, result);
     result += _X("[");    
-    result += log.getTimeStamp().repr();
+    result += log.timestamp_.repr();
     result += _X("][");
-    result += log.getLevel().repr();
+    if(log.level_)
+        result += log.level_->repr();
+    else
+        result += NONE_STR;
     result += _X("][");
-    result += log.getFileName();
+    result += log.filename_;
     result += _X("(");
-    result += Int2Str(log.getLineNo());    
+    result += Int2Str(log.lineno_);    
     result += _X(")]:");
-    if (!log.getContent().empty())
-        result += log.getContent();
-    log.setContent(result);
+    if (!log.content_.empty())
+        result += log.content_;
+    log.content_ = result;
 }
 
 void StandardFormatter::handleLineBreak(Log& log, xStrT& formatted_str)
 {
-    if (log.getContent().empty())
+    if(log.content_.empty())
         return;
     xStrT::size_type pos = 0;
-    xStrT content_copy = log.getContent();
+    xStrT content_copy = log.content_;
     for (; pos != xStrT::npos; ++pos)
     {
         if (content_copy[pos] != 13 && content_copy[pos] != 10)
@@ -40,7 +43,7 @@ void StandardFormatter::handleLineBreak(Log& log, xStrT& formatted_str)
     if (pos != 0)
     {
         formatted_str = content_copy.substr(0, pos);
-        log.setContent(content_copy.substr(pos));
+        log.content_ = content_copy.substr(pos);
     }
 }
 

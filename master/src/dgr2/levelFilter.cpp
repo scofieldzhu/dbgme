@@ -4,12 +4,15 @@
 using namespace std;
 DGR2_NP_BEGIN
 
-bool LevelFilter::filter(const Log& log) const
-{
-    const Level& log_level = log.getLevel();
-    const bool check_left_bound_result = (lower_bound_level_ ? log_level.getValue() >= lower_bound_level_->getValue() : true);
-    const bool check_right_bound_result = (upper_bound_level_ ? log_level.getValue() < upper_bound_level_->getValue() : true);
-    return check_left_bound_result && check_right_bound_result;
+bool LevelFilter::isLoggabled(const Log& log) const
+{    
+    if(log.level_)
+    {
+        const bool check_left_bound_result = (lower_bound_level_ ? log.level_->getValue() >= lower_bound_level_->getValue() : true);
+        const bool check_right_bound_result = (upper_bound_level_ ? log.level_->getValue() < upper_bound_level_->getValue() : true);
+        return check_left_bound_result && check_right_bound_result;
+    }
+    return false;    
 }
 
 void LevelFilter::setUpperBoundLevel(const Level* level)

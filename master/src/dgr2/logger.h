@@ -9,6 +9,8 @@
 DGR2_NP_BEGIN
 struct DGR2_API Logger
 {    
+    void setFilter(Filter* filter) { filter_ = filter; }
+    Filter* getFilter() const { return filter_; }
     const std::xStrT& getName()const { return name_; }
     void addAppender(Appender& appender);
     void removeAppender(Appender& appender);
@@ -33,6 +35,7 @@ private:
     std::basic_ostringstream<xCharT> xostream_;
     Log* target_log_;
     std::xStrT name_;
+    Filter* filter_;
 };
 NP_END
 #endif

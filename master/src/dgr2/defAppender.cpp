@@ -16,7 +16,7 @@ DefAppender::~DefAppender()
 
 bool DefAppender::write(const Log& log)
 {
-    if(filter_ && !filter_->filter(log))
+    if(filter_ && !filter_->isLoggabled(log))
         return false;
     doWrite(log);        
     finished_log_count_ += 1;

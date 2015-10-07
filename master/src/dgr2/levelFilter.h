@@ -6,7 +6,7 @@
 DGR2_NP_BEGIN
 struct DGR2_API LevelFilter : public Filter
 {
-    bool filter(const Log& log)const;
+    bool isLoggabled(const Log& log)const;
     void setLowerBoundLevel(const Level* level);
     const Level* getLowerBoundLevel()const;
     void setUpperBoundLevel(const Level* level);

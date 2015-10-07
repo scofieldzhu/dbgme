@@ -1,9 +1,8 @@
-#ifdef _WIN32
-#include <windows.h>
-#endif
 #include <algorithm>
+#include <cstdarg>
 #include "logger.h"
 #include "appender.h"
+#include "filter.h"
 #include "log.h"
 using namespace std;
 
@@ -34,6 +33,7 @@ DGR2_NP_BEGIN
 void Logger::publish(const Level& level, const xCharT* fmt, ...)
 {
     Log log(level);
+    log.logger_name_ = getName();
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);
     this->publish(log);
 }
@@ -45,9 +45,7 @@ void Logger::publish(const Level& level, const xCharT* file, const xCharT* func,
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);
     log.func_name_ = func;
     log.filename_ = SplitRelativeFilePath(file);
-    log.lineno_ = lineno;
-    log.thread_id_ = ::GetCurrentThreadId();
-    log.timestamp_ = LGT::DateTime::Now();
+    log.lineno_ = lineno;    
     this->publish(log);
 }
 
@@ -66,6 +64,8 @@ void Logger::removeAppender(Appender& appender)
 
 void Logger::publish(Log& log)
 {
+    if(filter_ && !filter_->isLoggabled(log))
+        return;
     AppenderListType::const_iterator iter = appenders_.begin();
     for (; iter != appenders_.end(); ++iter)
         (*iter)->write(log);
@@ -106,12 +106,16 @@ void Logger::onEndLog()
 
 Logger::Logger(const std::xStrT& name)
     :target_log_(NULL),
-    name_(name)
+    name_(name),
+    filter_(NULL)
 {
 }
 
 Logger::~Logger()
 {
+    if(target_log_)
+        delete target_log_;
+    target_log_ = NULL;
 }
 
 NP_END
