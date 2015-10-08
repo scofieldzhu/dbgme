@@ -9,7 +9,7 @@ USING_LGT
 DGR2_NP_BEGIN
 
 Log::Log(const Level& level) 
-    :level_(&level),
+    :level_(level.clone()),
     logger_name_(NONE_STR),
     content_(_X("")),
     func_name_(NONE_STR),

@@ -13,7 +13,7 @@ using namespace std;
     const int required_buffer_size = xvscprintf(fmt, vl); \
     xCharT* buffer = new xCharT[required_buffer_size + 1]; \
     memset(buffer, 0, sizeof(xCharT) * (required_buffer_size + 1)); \
-    xVSprintf_s(buffer, required_buffer_size, fmt, vl); \
+    xVSprintf_s(buffer, required_buffer_size + 1, fmt, vl); \
     result = buffer; \
     va_end(vl); \
     delete[] buffer; \
@@ -42,7 +42,7 @@ void Logger::publish(const Level& level, const xCharT* file, const xCharT* func,
 {
     Log log(level);
     log.logger_name_ = getName();
-    CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);
+    CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);    
     log.func_name_ = func;
     log.filename_ = SplitRelativeFilePath(file);
     log.lineno_ = lineno;    
