@@ -13,8 +13,8 @@ struct DGR2_API OstreamAppender : public DefAppender
 
 protected:
     typedef std::basic_ostream<xCharT> OstreamT;
-    OstreamAppender(OstreamT& os, Filter* filter, unsigned int flush_frequence);
-    void doWrite(const Log& log);
+    OstreamAppender(OstreamT& os, unsigned int flush_frequence);
+    void write(const std::xStrT& logged_msg);
     OstreamT* os_;
 };
 

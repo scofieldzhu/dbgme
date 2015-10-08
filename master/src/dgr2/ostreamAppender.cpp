@@ -5,8 +5,8 @@ using namespace std;
 USING_LGT
 
 DGR2_NP_BEGIN
-OstreamAppender::OstreamAppender(OstreamT& os, Filter* filter, unsigned int flush_frequence)
-    :DefAppender(filter, flush_frequence),
+OstreamAppender::OstreamAppender(OstreamT& os, unsigned int flush_frequence)
+    :DefAppender(flush_frequence),
     os_(&os)
 {
 }
@@ -20,12 +20,12 @@ void OstreamAppender::flush()
     os_->flush();
 }
 
-void OstreamAppender::doWrite(const Log& log)
+void OstreamAppender::write(const std::xStrT& logged_msg)
 {
-    xStrT content = Int2Str(getFinishedLogCount());
-    content += _X(">");
-    content += log.content_;
-    os_->write(content.c_str(), content.size());    
+//     xStrT content = Int2Str(getFinishedLogCount());
+//     content += _X(">");
+//     content += log.content_;
+    os_->write(logged_msg.c_str(), logged_msg.size() * sizeof(xCharT));
 }
 
 NP_END

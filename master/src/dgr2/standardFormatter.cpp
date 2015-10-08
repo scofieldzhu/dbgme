@@ -4,47 +4,45 @@
 #include "xText.h"
 #include "level.h"
 using namespace std;
-USING_LGT
+USING_LGT;
 
 DGR2_NP_BEGIN
 
-void StandardFormatter::format(Log& log)
+std::xStrT StandardFormatter::format(const Log& log)
 {
     xStrT result = _X("");
-    handleLineBreak(log, result);
+    xStrT valid_content = handleLineBreak(log, result);
     result += _X("[");    
     result += log.timestamp_.repr();
     result += _X("][");
-    if(log.level_)
-        result += log.level_->repr();
-    else
-        result += NONE_STR;
+    result += (log.level_ ? log.level_->repr() : NONE_STR);
     result += _X("][");
     result += log.filename_;
     result += _X("(");
     result += Int2Str(log.lineno_);    
     result += _X(")]:");
-    if (!log.content_.empty())
-        result += log.content_;
-    log.content_ = result;
+    if (!valid_content.empty())
+        result += valid_content;
+    return result;
 }
 
-void StandardFormatter::handleLineBreak(Log& log, xStrT& formatted_str)
+xStrT StandardFormatter::handleLineBreak(const Log& log, xStrT& formatted_str)
 {
+    xStrT valid_content = log.content_;
     if(log.content_.empty())
-        return;
-    xStrT::size_type pos = 0;
-    xStrT content_copy = log.content_;
+        return valid_content;
+    xStrT::size_type pos = 0;    
     for (; pos != xStrT::npos; ++pos)
     {
-        if (content_copy[pos] != 13 && content_copy[pos] != 10)
+        if (valid_content[pos] != 13 && valid_content[pos] != 10)
             break;
     }
     if (pos != 0)
     {
-        formatted_str = content_copy.substr(0, pos);
-        log.content_ = content_copy.substr(pos);
+        formatted_str = valid_content.substr(0, pos);
+        valid_content = valid_content.substr(pos);
     }
+    return valid_content;
 }
 
 StandardFormatter::StandardFormatter()

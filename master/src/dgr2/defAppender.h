@@ -6,9 +6,11 @@
 DGR2_NP_BEGIN
 struct DGR2_API DefAppender : public Appender
 {    
-    void setFilter(Filter* filter) { filter_ = filter; }
-    Filter* getFilter() { return filter_; }
-    const Filter* getFilter()const { return filter_; }
+    void setFilter(Filter* filter) {  filter_ = filter; }
+    Filter* getFilter() { return filter_; }    
+
+    void setFormatter(Formatter* formatter) {  formatter_ = formatter; }
+    Formatter* getFormatter() { return formatter_; }
 
     void setFlushFrequence(unsigned int frequence) { flush_frequence_ = frequence; }
     unsigned int getFlushFrequnce()const { return flush_frequence_; }
@@ -18,12 +20,14 @@ struct DGR2_API DefAppender : public Appender
     virtual ~DefAppender();
 
 protected:
-    DefAppender(Filter* filter, unsigned int flush_frequence);
-    virtual void doWrite(const Log& log) = 0;
+    DefAppender(unsigned int flush_frequence);
+    virtual void write(const std::xStrT& logged_msg) = 0;
+    virtual void flush() = 0;
 
 private:
-    bool write(const Log& log);
+    bool publish(const Log& log);
     Filter* filter_;
+    Formatter* formatter_;
     unsigned int flush_frequence_;
     unsigned int finished_log_count_;
 };

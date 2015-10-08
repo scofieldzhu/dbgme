@@ -7,7 +7,7 @@
 DGR2_NP_BEGIN
 struct DGR2_API Formatter
 {
-    virtual void format(Log& log) = 0;
+    virtual std::xStrT format(const Log& log) = 0;
     virtual ~Formatter() {}
 };
 NP_END

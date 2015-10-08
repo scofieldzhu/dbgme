@@ -26,4 +26,12 @@
 #define SLOG_ERR _SLOG(DGR2::ErrLevel())
 #define SLOG_FAT _SLOG(DGR2::FatalLevel())
 
+
+#define XLOG_DBG(logger, fmt, ...) logger->publish(DGR2::DebugLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
+#define XLOG_INF(logger, fmt, ...) logger->publish(DGR2::InfoLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
+#define XLOG_WAR(logger, fmt, ...) logger->publish(DGR2::WarnLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
+#define XLOG_ERR(logger, fmt, ...) logger->publish(DGR2::ErrLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
+#define XLOG_FAT(logger, fmt, ...) logger->publish(DGR2::FatalLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
+
+
 #endif

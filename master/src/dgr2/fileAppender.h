@@ -6,7 +6,7 @@
 DGR2_NP_BEGIN
 struct DGR2_API FileAppender : public OstreamAppender
 {
-    FileAppender(const std::xStrT& filepath, Filter* filter, unsigned int flush_frequence);
+    FileAppender(const std::xStrT& filepath, unsigned int flush_frequence);
     ~FileAppender();
 };
 NP_END

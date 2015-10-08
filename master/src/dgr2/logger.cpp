@@ -68,7 +68,7 @@ void Logger::publish(Log& log)
         return;
     AppenderListType::const_iterator iter = appenders_.begin();
     for (; iter != appenders_.end(); ++iter)
-        (*iter)->write(log);
+        (*iter)->publish(log);
 }
 
 Logger& Logger::operator<<(const Log& log)
