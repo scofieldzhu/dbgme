@@ -4,6 +4,7 @@
 #include "appender.h"
 #include "filter.h"
 #include "log.h"
+#include "utils.h"
 using namespace std;
 
 #define CONVERT_ARGS_TO_STR(result, fmt, ...) \
@@ -19,16 +20,6 @@ using namespace std;
     delete[] buffer; \
 }
 
-namespace {
-    xStrT SplitRelativeFilePath(const xCharT* abs_filepath)
-    {
-        xCharT* work_dir_buffer = xGetcwd(NULL, 0);
-        xStrT substr = xStrT(abs_filepath).substr(xCsLen(work_dir_buffer));
-        free(work_dir_buffer);
-        return substr;
-    }
-}
-
 DGR2_NP_BEGIN
 void Logger::publish(const Level& level, const xCharT* fmt, ...)
 {
@@ -41,10 +32,10 @@ void Logger::publish(const Level& level, const xCharT* fmt, ...)
 void Logger::publish(const Level& level, const xCharT* file, const xCharT* func, unsigned int lineno, const xCharT* fmt, ...)
 {
     Log log(level);
-    log.logger_name_ = getName();
+    log.logger_name_ = getName();    
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);    
     log.func_name_ = func;
-    log.filename_ = SplitRelativeFilePath(file);
+    log.filename_ = UTLS::SplitFilenameFromFullPath(file);
     log.lineno_ = lineno;    
     this->publish(log);
 }

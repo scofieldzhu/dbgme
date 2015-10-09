@@ -25,6 +25,7 @@ Log::Log(const Level& level)
 }
 
 Log::Log(const Log& rhs)
+    :level_(NULL)
 {
     if (level_ != NULL)
         delete level_;

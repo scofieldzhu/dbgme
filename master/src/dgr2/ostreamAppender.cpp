@@ -22,10 +22,7 @@ void OstreamAppender::flush()
 
 void OstreamAppender::write(const std::xStrT& logged_msg)
 {
-//     xStrT content = Int2Str(getFinishedLogCount());
-//     content += _X(">");
-//     content += log.content_;
-    os_->write(logged_msg.c_str(), logged_msg.size() * sizeof(xCharT));
+    os_->write(logged_msg.c_str(), logged_msg.size()); 
 }
 
 NP_END

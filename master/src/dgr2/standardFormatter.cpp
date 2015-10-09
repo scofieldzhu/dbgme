@@ -11,16 +11,14 @@ DGR2_NP_BEGIN
 std::xStrT StandardFormatter::format(const Log& log)
 {
     xStrT result = _X("");
-    xStrT valid_content = handleLineBreak(log, result);
-    result += _X("[");    
-    result += log.timestamp_.repr();
-    result += _X("][");
+    xStrT valid_content = handleLineBreak(log, result);        
+    result += _X("[") + log.timestamp_.repr() + _X("]"); 
+    result += _X("[") + log.logger_name_ + _X("]");
+    result += _X("[");
     result += (log.level_ ? log.level_->repr() : NONE_STR);
-    result += _X("][");
-    result += log.filename_;
-    result += _X("(");
-    result += Int2Str(log.lineno_);    
-    result += _X(")]:");
+    result += _X("]");
+    result += _X("[") + log.filename_ + _X("]");    
+    result += _X("[") + Int2Str(log.lineno_) + _X("]:");    
     if (!valid_content.empty())
         result += valid_content;
     return result;

@@ -15,12 +15,12 @@ DGR2_API xStrT ConvertArgsToString(const xCharT* format, ...)
     return xStrT(buffer);
 }
 
-DGR2_API xStrT SplitRelativeFilePath(const xCharT* abs_filepath)
+DGR2_API xStrT SplitFilenameFromFullPath(const xCharT* abs_filepath, bool with_ext_flag)
 {
-    xCharT* work_dir_buffer = xGetcwd(NULL, 0);    
-    xStrT substr = xStrT(abs_filepath).substr(xCsLen(work_dir_buffer));
-    free(work_dir_buffer);
-    return substr;
+    xCharT buffer_fn[256] = { _X('\0') };
+    xCharT buffer_ext[20] = { _X('\0') };
+    _xsplitpath_s(abs_filepath, NULL, 0, NULL, 0, buffer_fn, 256, buffer_ext, 20);
+    return with_ext_flag ? xStrT(buffer_fn) + xStrT(buffer_ext) : xStrT(buffer_ext);
 }
 
 NP_END

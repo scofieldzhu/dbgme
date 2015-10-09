@@ -18,6 +18,7 @@
     #define __XFILE__ __FILEW__
     #define _xgetcwd _wgetcwd
     #define _xcout wcout
+    #define __xsplitpath_s _wsplitpath_s
 #else
     #define _XChar char
     #define __X(t) t
@@ -30,6 +31,7 @@
     #define __XFILE__ __FILE__
     #define _xgetcwd _getcwd
     #define _xcout cout
+    #define __xsplitpath_s _splitpath_s
 #endif
 
 #define xCharT _XChar
@@ -43,6 +45,7 @@
 #define _XFILE_ __XFILE__
 #define xGetcwd _xgetcwd
 #define xCout _xcout
+#define _xsplitpath_s __xsplitpath_s
 #define NONE_STR _X("None")
 
 #define NP_BEGIN(np) namespace np{
