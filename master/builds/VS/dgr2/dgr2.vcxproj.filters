@@ -69,13 +69,13 @@
     <ClInclude Include="..\..\..\src\dgr2\logMacro.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\dgr2\sqliteAppender.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\logTag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\dbAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -116,10 +116,10 @@
     <ClCompile Include="..\..\..\src\dgr2\levels.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\dgr2\sqliteAppender.cpp">
+    <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp">
+    <ClCompile Include="..\..\..\src\dgr2\dbAppender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

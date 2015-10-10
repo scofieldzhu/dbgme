@@ -17,7 +17,9 @@ std::xStrT StandardFormatter::format(const Log& log)
     result += _X("[");
     result += (log.level_ ? log.level_->repr() : NONE_STR);
     result += _X("]");
+    result += _X("[") + Int2Str(log.thread_id_) + _X("]");
     result += _X("[") + log.filename_ + _X("]");    
+    result += _X("[") + log.func_name_ + _X("]");    
     result += _X("[") + Int2Str(log.lineno_) + _X("]:");    
     if (!valid_content.empty())
         result += valid_content;

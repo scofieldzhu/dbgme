@@ -27,7 +27,7 @@ int main()
     FileAppender file_appender(_X("test.log.txt"), 100);
     file_appender.setFormatter(&formatter);
     
-    Logger logger(_X("TestLogger"));
+    Logger logger(_X("Console"));
     logger.setFilter(&filter);    
     logger.addAppender(console_appender);
     //logger.addAppender(file_appender);
