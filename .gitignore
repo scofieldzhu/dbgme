@@ -22,9 +22,15 @@ $Debug/
 /master/builds/VS/ipch
 /master/builds/VS/_bin
 /master/builds/VS/dgr/Debug
+/master/builds/VS/dgr/Release
 /master/builds/VS/dgr2/Debug
+/master/builds/VS/dgr2/Release
 /master/builds/VS/sfdgr/Debug
+/master/builds/VS/sfdgr/Release
+/master/builds/VS/conf_parser/Debug
+/master/builds/VS/conf_parser/Release
 /master/builds/VS/lgt/Debug
+/master/builds/VS/lgt/Release
 
 # Windows Installer files
 *.cab
