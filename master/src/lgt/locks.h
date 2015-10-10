@@ -16,5 +16,6 @@ private:
     struct Impl;
     Impl* impl_;
 };
+
 NP_END
 #endif

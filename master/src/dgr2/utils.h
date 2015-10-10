@@ -2,7 +2,6 @@
 #define __UTILS_H__
 
 #include "general.h"
-#include "log.h"
 
 DGR2_NP_BEGIN
 UTLS_NP_BEGIN

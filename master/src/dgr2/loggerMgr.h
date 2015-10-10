@@ -12,18 +12,8 @@ class DGR2_API LoggerMgr
 public:
     static LoggerMgr* GetInst();
     void addLogger(Logger& logger);
-    void publish(const Log& log);
-    template <typename T>
-    LoggerMgr& operator<<(T val)
-    {
-        LoggerListType::const_iterator iter = loggers_.begin();
-        for (; iter != loggers_.end(); ++iter)
-        {
-            (*iter)->operator<<(val);
-        }
-        return *this;
-    }
-    LoggerMgr& operator<<(const Log& log);
+    Logger* getLogger(const std::xStrT& name);
+
 private:
     LoggerMgr();
     LoggerMgr(const LoggerMgr&);

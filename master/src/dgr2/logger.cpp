@@ -23,6 +23,7 @@ using namespace std;
 DGR2_NP_BEGIN
 void Logger::publish(const Level& level, const xCharT* fmt, ...)
 {
+    __GUARD__
     Log log(level);
     log.logger_name_ = getName();
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);
@@ -31,6 +32,7 @@ void Logger::publish(const Level& level, const xCharT* fmt, ...)
 
 void Logger::publish(const Level& level, const xCharT* file, const xCharT* func, unsigned int lineno, const xCharT* fmt, ...)
 {
+    __GUARD__
     Log log(level);
     log.logger_name_ = getName();    
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);    
@@ -42,12 +44,14 @@ void Logger::publish(const Level& level, const xCharT* file, const xCharT* func,
 
 void Logger::addAppender(Appender& appender)
 {
+    __GUARD__
     if(find(appenders_.begin(), appenders_.end(), &appender) == appenders_.end())
         appenders_.push_back(&appender);
 }
 
 void Logger::removeAppender(Appender& appender)
 {
+    __GUARD__
     AppenderListType::const_iterator result = find(appenders_.begin(), appenders_.end(), &appender);
     if(result != appenders_.end())
         appenders_.erase(result);
@@ -55,6 +59,7 @@ void Logger::removeAppender(Appender& appender)
 
 void Logger::publish(Log& log)
 {
+    __GUARD__
     if(filter_ && !filter_->isLoggabled(log))
         return;
     AppenderListType::const_iterator iter = appenders_.begin();
@@ -64,12 +69,14 @@ void Logger::publish(Log& log)
 
 Logger& Logger::operator<<(const Log& log)
 {
+    __GUARD__
     target_log_ = new Log(log);
     return *this;
 }
 
 Logger& Logger::operator<<(LogTag tag)
 {
+    __GUARD__
     switch(tag)
     {
         case endt:
@@ -88,6 +95,7 @@ Logger& Logger::operator<<(LogTag tag)
 
 void Logger::onEndLog()
 {    
+    __GUARD__
     target_log_->content_ = xostream_.str();
     xostream_.str(_X(""));
     publish(*target_log_);

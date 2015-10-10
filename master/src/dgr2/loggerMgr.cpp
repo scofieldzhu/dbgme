@@ -2,9 +2,8 @@
 #include "loggerMgr.h"
 #include "log.h"
 #include "logger.h"
-#include "autoLock.h"
-#include "locks.h"
 using namespace std;
+
 DGR2_NP_BEGIN
 USING_LGT
 
@@ -14,7 +13,7 @@ LoggerMgr* LoggerMgr::GetInst()
 {
     if(inst_ == NULL)
     {
-        AutoLock<CriticalSectionLock> lock;
+        __GUARD__
         if(inst_ == NULL)        
             inst_ = new LoggerMgr();
     }
@@ -27,24 +26,23 @@ void LoggerMgr::addLogger(Logger& logger)
         loggers_.push_back(&logger);
 }
 
-void LoggerMgr::publish(const Log& log)
+struct CheckLoggerPredicate
 {
-    LoggerListType::const_iterator iter = loggers_.begin();
-    for (; iter != loggers_.end(); ++iter)
+    bool operator()(const Logger* logger)const
     {
-        Log clone(log);
-        (*iter)->publish(clone);
+        return logger->getName() == name_;
     }
-}
+    CheckLoggerPredicate(const xStrT& name)
+        :name_(name)
+    {}
+private:
+    const std::xStrT& name_;
+};
 
-LoggerMgr& LoggerMgr::operator<<(const Log& log)
+Logger* LoggerMgr::getLogger(const std::xStrT& name)
 {
-    LoggerListType::const_iterator iter = loggers_.begin();
-    for (; iter != loggers_.end(); ++iter)
-    {
-        (*iter)->operator<<(log);
-    }
-    return *this;
+    LoggerListType::const_iterator iter = find_if(loggers_.begin(), loggers_.end(), CheckLoggerPredicate(name));
+    return (iter == loggers_.end() ? NULL : *iter);        
 }
 
 LoggerMgr::LoggerMgr()
@@ -54,6 +52,6 @@ LoggerMgr::LoggerMgr()
 
 LoggerMgr::~LoggerMgr()
 {
-
+    loggers_.clear();
 }
 NP_END
