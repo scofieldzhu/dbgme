@@ -1,7 +1,8 @@
 #ifndef __BASIC_TYPE_H__
 #define __BASIC_TYPE_H__
 
-#include <wchar.h>
+#include <cstdlib>
+#include <cwchar>
 #include <cstring>
 #include <string>
 #include <memory>
@@ -56,7 +57,7 @@
 #define LGT_NP_BEGIN NP_BEGIN(LGT)
 #define USING_LGT USING_NP(LGT)
 
-#pragma warning(disable:4251)
+#pragma warning(disable:4251 4150)
 
 #if defined(_WIN32) || defined(_WIN64)
     #define IN_WINOS

@@ -4,12 +4,15 @@
 #include "confParser.h"
 
 CFP_NP_BEGIN
-template <class ClassType>
 class CFP_API ConfXmlParser
 {
 public:
-    virtual ClassType* parse(rapidxml::xml_node& cls_node) = 0;
-    virtual ~ConfXmlParser() {}
+    bool parse();
+    ConfXmlParser(const std::xStrT& conf_file);
+    ~ConfXmlParser();
+private:
+    struct Impl;
+    std::auto_ptr<Impl> impl_;
 };
 NP_END
 

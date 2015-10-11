@@ -96,6 +96,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>lgtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -149,14 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confXmlParser.cpp" />
+    <ClCompile Include="..\..\..\src\conf_parser\xmlParserHelper.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confParser.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\confParseException.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confXmlParser.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\xmlParserHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

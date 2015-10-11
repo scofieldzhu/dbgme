@@ -4,6 +4,8 @@
 #include "langext.h"
 #include "cfpDLLExport.h"
 
+#pragma warning(disable:4275)
+
 #define CFP cfp
 #define CFP_NP_BEGIN NP_BEGIN(CFP)
 #define USING_CFP USING_NP(CFP)
