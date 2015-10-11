@@ -27,6 +27,9 @@
     <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\conf_parser\levelFilterNodeParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h">
@@ -45,6 +48,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\conf_parser\confParseException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\levelFilterNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

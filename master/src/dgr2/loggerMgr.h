@@ -2,7 +2,7 @@
 #define __LOGGER_MGR_H__
 
 #include <vector>
-#include "general.h"
+#include "dgr2.h"
 #include "logTag.h"
 #include "logger.h"
 

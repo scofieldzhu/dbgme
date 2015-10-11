@@ -13,6 +13,7 @@
 #define USING_UTLS USING_NP(UTLS)
 
 DGR2_NP_BEGIN
+struct DGRObject;
 struct Level;
 struct Log;
 struct Filter;

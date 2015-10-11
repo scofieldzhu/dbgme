@@ -6,6 +6,7 @@
 DGR2_NP_BEGIN 
 struct DGR2_API StandardFormatter : public Formatter
 {
+    DGR_OBJECT(StandardFormatter)
     std::xStrT format(const Log& log);
     StandardFormatter();
     ~StandardFormatter();

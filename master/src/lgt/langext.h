@@ -2,6 +2,7 @@
 #define __LANGEXT_H__
 
 #include "basicType.h"
+#include "lgtDLLExport.h"
 
 #include "autoLock.h"
 #include "locks.h"

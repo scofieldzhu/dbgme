@@ -98,7 +98,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\_bin</AdditionalLibraryDirectories>
-      <AdditionalDependencies>lgt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lgtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -159,11 +159,12 @@
     <ClInclude Include="..\..\..\src\dgr2\appender.h" />
     <ClInclude Include="..\..\..\src\dgr2\consoleAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\defAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgrObject.h" />
     <ClInclude Include="..\..\..\src\dgr2\dr2DllExport.h" />
     <ClInclude Include="..\..\..\src\dgr2\fileAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\filter.h" />
     <ClInclude Include="..\..\..\src\dgr2\formatter.h" />
-    <ClInclude Include="..\..\..\src\dgr2\general.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgr2.h" />
     <ClInclude Include="..\..\..\src\dgr2\level.h" />
     <ClInclude Include="..\..\..\src\dgr2\levelFilter.h" />
     <ClInclude Include="..\..\..\src\dgr2\levels.h" />
@@ -175,7 +176,6 @@
     <ClInclude Include="..\..\..\src\dgr2\dbAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\logTag.h" />
-    <ClInclude Include="..\..\..\src\dgr2\utils.h" />
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +190,6 @@
     <ClCompile Include="..\..\..\src\dgr2\ostreamAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\dbAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
-    <ClCompile Include="..\..\..\src\dgr2\utils.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp" />
     <ClCompile Include="dllMain.cpp" />
   </ItemGroup>

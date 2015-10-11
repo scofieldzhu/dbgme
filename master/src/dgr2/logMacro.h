@@ -1,7 +1,7 @@
 #ifndef __LOG_MACRO_H__
 #define __LOG_MACRO_H__
 
-#include "utils.h"
+#include "xtext.h"
 #include "log.h"
 #include "levels.h"
 #include "logger.h"
@@ -16,7 +16,7 @@
     DGR2::Log log(level); \
     log.logger_name_ = logger_name; \
     log.func_name_ = __XFUNCTION__; \
-    log.filename_ = DGR2::UTLS::SplitFilenameFromFullPath(__XFILE__); \
+    log.filename_ = LGT::SplitFilenameFromFullPath(__XFILE__); \
     log.lineno_ = __LINE__;
 #define END endt;}
 #define LBT lbt

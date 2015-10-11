@@ -27,9 +27,6 @@
     <ClInclude Include="..\..\..\src\dgr2\formatter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\dgr2\general.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\level.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -43,9 +40,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\dgr2\utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\levelFilter.h">
@@ -78,6 +72,12 @@
     <ClInclude Include="..\..\..\src\dgr2\dbAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\dgrObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\dgr2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllMain.cpp">
@@ -87,9 +87,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\dgr2\utils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp">

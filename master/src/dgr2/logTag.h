@@ -1,7 +1,7 @@
 #ifndef __LOG_TAG_H__
 #define __LOG_TAG_H__
 
-#include "general.h"
+#include "dgr2.h"
 
 DGR2_NP_BEGIN
 

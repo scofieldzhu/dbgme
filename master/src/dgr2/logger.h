@@ -3,12 +3,13 @@
 
 #include <vector>
 #include <sstream>
-#include "general.h"
+#include "dgrObject.h"
 #include "logTag.h"
 
 DGR2_NP_BEGIN
-struct DGR2_API Logger
+struct DGR2_API Logger : public DGRObject
 {    
+    DGR_OBJECT(Logger)
     void setFilter(Filter* filter) { filter_ = filter; }
     Filter* getFilter() const { return filter_; }
     const std::xStrT& getName()const { return name_; }

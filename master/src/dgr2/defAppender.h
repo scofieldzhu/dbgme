@@ -6,6 +6,8 @@
 DGR2_NP_BEGIN
 struct DGR2_API DefAppender : public Appender
 {    
+    DGR_OBJECT(DefAppender)
+
     void setFilter(Filter* filter) {  filter_ = filter; }
     Filter* getFilter() { return filter_; }    
 

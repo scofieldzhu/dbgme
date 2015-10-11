@@ -4,7 +4,7 @@
 #include "appender.h"
 #include "filter.h"
 #include "log.h"
-#include "utils.h"
+#include "xtext.h"
 using namespace std;
 
 #define CONVERT_ARGS_TO_STR(result, fmt, ...) \
@@ -37,7 +37,7 @@ void Logger::publish(const Level& level, const xCharT* file, const xCharT* func,
     log.logger_name_ = getName();    
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);    
     log.func_name_ = func;
-    log.filename_ = UTLS::SplitFilenameFromFullPath(file);
+    log.filename_ = LGT::SplitFilenameFromFullPath(file);
     log.lineno_ = lineno;    
     this->publish(log);
 }

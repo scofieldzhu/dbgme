@@ -1,7 +1,7 @@
 #ifndef __LEVEL_H__
 #define __LEVEL_H__
 
-#include "general.h"
+#include "dgr2.h"
 
 DGR2_NP_BEGIN
 

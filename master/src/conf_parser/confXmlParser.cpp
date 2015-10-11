@@ -1,21 +1,49 @@
 #include "confXmlParser.h"
 #include "confParseException.h"
 #include "xmlParserHelper.h"
+#include "clsNodeParser.h"
 #include "xtext.h"
 using namespace std;
 using namespace rapidxml;
 USING_LGT;
 
+namespace {
+    namespace LotsOfKeyNodes
+    {
+        const xCharT* ROOT = _X("Loggers");
+        const xCharT* LOGGER = _X("Logger");
+    }
+    namespace LotOfKeyAttrs
+    {
+        const xCharT* CLS_ATTR = _X("ClsAttr");
+    }    
+}
+
 CFP_NP_BEGIN
+typedef xml_document<xCharT> my_xml_document;
+typedef ClsNodeParser::my_xml_node my_xml_node;
 
 struct ConfXmlParser::Impl 
 {
-    xml_document<xCharT> doc_;
+    void parseLoggerNode(my_xml_node& root_node) throw (ConfParseException&);
+    my_xml_document doc_;
 };
 
-bool ConfXmlParser::parse()
+void ConfXmlParser::Impl::parseLoggerNode(my_xml_node& root_node) throw (ConfParseException&)
 {
-    return false;
+
+}
+
+void ConfXmlParser::parse() throw (ConfParseException&)
+{
+    my_xml_node* root_node = impl_->doc_.first_node(LotsOfKeyNodes::ROOT);
+    COND_VERIFYEX(root_node != NULL, _X("%s Node Not Found!"), LotsOfKeyNodes::ROOT);
+    my_xml_node* logger_node = root_node->first_node(LotsOfKeyNodes::LOGGER);
+    while (logger_node)
+    {
+        impl_->parseLoggerNode(*logger_node);
+        logger_node = logger_node->next_sibling(LotsOfKeyNodes::LOGGER);
+    }
 }
 
 ConfXmlParser::ConfXmlParser(const std::xStrT& conf_file)

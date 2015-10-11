@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confXmlParser.cpp" />
+    <ClCompile Include="..\..\..\src\conf_parser\levelFilterNodeParser.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\xmlParserHelper.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="..\..\..\src\conf_parser\confParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confParseException.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confXmlParser.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\levelFilterNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\xmlParserHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

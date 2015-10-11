@@ -1,11 +1,10 @@
 #ifndef __FORMATTER_H__
 #define __FORMATTER_H__
 
-#include "general.h"
-#include "dr2DllExport.h"
+#include "dgrObject.h"
 
 DGR2_NP_BEGIN
-struct DGR2_API Formatter
+struct DGR2_API Formatter : public DGRObject
 {
     virtual std::xStrT format(const Log& log) = 0;
     virtual ~Formatter() {}

@@ -8,6 +8,7 @@ DGR2_NP_BEGIN
 
 struct DGR2_API OstreamAppender : public DefAppender
 {        
+    DGR_OBJECT(OstreamAppender)
     virtual ~OstreamAppender();
 protected:
     typedef std::basic_ostream<xCharT> OstreamT;
