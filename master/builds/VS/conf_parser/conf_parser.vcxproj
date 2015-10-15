@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserLodge.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confXmlParser.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\levelFilterNodeParser.cpp" />
@@ -160,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserLodge.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confParseException.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confXmlParser.h" />

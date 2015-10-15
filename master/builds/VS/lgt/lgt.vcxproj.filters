@@ -33,7 +33,10 @@
     <ClInclude Include="..\..\..\src\lgt\locks.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\lgt\autoLock.h">
+    <ClInclude Include="..\..\..\src\lgt\uncopyable.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\lgt\autoLock.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

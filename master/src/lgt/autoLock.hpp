@@ -1,5 +1,5 @@
-#ifndef __AUTO_LOCK_H__
-#define __AUTO_LOCK_H__
+#ifndef __AUTO_LOCK_HPP__
+#define __AUTO_LOCK_HPP__
 
 #include "basicType.h"
 

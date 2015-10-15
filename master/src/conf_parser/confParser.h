@@ -12,10 +12,7 @@
 
 CFP_NP_BEGIN
 class ConfParseException;
-NP_END
-
-DGR2_NP_BEGIN
-struct LevelFilter;
+class ClsNodeParser;
 NP_END
 
 #endif

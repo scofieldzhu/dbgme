@@ -155,8 +155,9 @@
     <ClInclude Include="..\..\..\src\lgt\basicType.h" />
     <ClInclude Include="..\..\..\src\lgt\langext.h" />
     <ClInclude Include="..\..\..\src\lgt\lgtDLLExport.h" />
-    <ClInclude Include="..\..\..\src\lgt\autoLock.h" />
+    <ClInclude Include="..\..\..\src\lgt\autoLock.hpp" />
     <ClInclude Include="..\..\..\src\lgt\locks.h" />
+    <ClInclude Include="..\..\..\src\lgt\uncopyable.hpp" />
     <ClInclude Include="..\..\..\src\lgt\xtext.h" />
     <ClInclude Include="..\..\..\src\lgt\xtime.h" />
   </ItemGroup>
