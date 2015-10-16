@@ -6,7 +6,7 @@
 CFP_NP_BEGIN
 class CFP_API ConfXmlParser
 {
-public:
+public:    
     void parse() throw (ConfParseException&);
     ConfXmlParser(const std::xStrT& conf_file);
     ~ConfXmlParser();

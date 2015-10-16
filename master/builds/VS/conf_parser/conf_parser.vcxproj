@@ -96,7 +96,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lgtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lgtd.lib;dgr2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserLodge.cpp" />
+    <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confXmlParser.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\levelFilterNodeParser.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserLodge.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confParseException.h" />
     <ClInclude Include="..\..\..\src\conf_parser\confXmlParser.h" />

@@ -1,11 +1,12 @@
 #ifndef __CLS_NODE_PARSER_LODGE_H__
 #define __CLS_NODE_PARSER_LODGE_H__
 
+#include <map>
 #include "confParser.h"
 #include "uncopyable.hpp"
 
 CFP_NP_BEGIN
-class ClsNodeParserLodge : public LGT::Uncopyable
+class CFP_API ClsNodeParserLodge : public LGT::Uncopyable
 {
 public:
     static ClsNodeParserLodge& GetInst();
@@ -14,9 +15,11 @@ public:
 private:
     ClsNodeParserLodge();
     ~ClsNodeParserLodge();
+    typedef std::map<std::xStrT, ClsNodeParser*> Name2ParserMapType;
+    Name2ParserMapType parser_map_;
 };
 NP_END
 
-#define JOIN_PARSER_LODGE(DGRCls, ParserObj) ClsNodeParserLodge::GetInst().join(_X(#DGRCls), ParserObj)
+#define JOIN_PARSER_LODGE(DGRCls, ParserCls) { ClsNodeParser* parser = new ParserCls(); ClsNodeParserLodge::GetInst().join(_X(#DGRCls), *parser); }
 
 #endif

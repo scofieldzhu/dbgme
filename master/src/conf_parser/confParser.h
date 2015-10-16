@@ -13,6 +13,7 @@
 CFP_NP_BEGIN
 class ConfParseException;
 class ClsNodeParser;
+class ClsNodeParserRegistrant;
 NP_END
 
 #endif
