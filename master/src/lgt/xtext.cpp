@@ -2,6 +2,9 @@
 #include <cassert>
 #include <cstdarg>
 #include "xtext.h"
+#ifdef IN_WINOS
+#include <windows.h>
+#endif
 using namespace std;
 
 LGT_NP_BEGIN
@@ -40,6 +43,17 @@ LGT_API std::string UnicodeToAnsi(const wchar_t* src)
     size_t return_value = 0;
     wcstombs_s(&return_value, buffer, required_buffer_size + 1, src, required_buffer_size);
     return buffer;
+}
+
+LGT_API void Utf8ToUnicode(const char* utf8_chars, int char_count,  wchar_t*& dst_chars, int& dst_buffer_size)
+{
+    const int REQUIRED_BUFFER_SIZE = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, char_count, NULL, 0);
+    dst_buffer_size = REQUIRED_BUFFER_SIZE + 1;
+    wchar_t* buffer = new wchar_t[dst_buffer_size];
+    int err = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, char_count, buffer, REQUIRED_BUFFER_SIZE);
+    buffer[REQUIRED_BUFFER_SIZE] = _X('\0');
+    if (err != 0)    
+        dst_chars = buffer;                    
 }
 
 LGT_API xStrT ConvertArgsToString(const xCharT* format, ...)

@@ -36,6 +36,9 @@
     <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\conf_parser\loggerClsNodeParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h">
@@ -63,6 +66,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\loggerClsNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

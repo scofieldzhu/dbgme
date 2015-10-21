@@ -9,12 +9,27 @@
 #include "logger.h"
 #include "log.h"
 #include <iomanip>
+#include "confXmlParser.h"
+#include "confParseException.h"
 using namespace std;
 USING_DGR2
 USING_LGT
+USING_CFP
 
 int main()
 {
+    try
+    {
+        ConfXmlParser conf_parser(_X(".\\logger-conf.xml"));
+        conf_parser.parse();
+    }
+    catch (ConfParseException& e)
+    {
+        xCout << _X("exception : ") << e.what_err() << endl;
+    }
+
+
+    /*
     WarnLevel lower;
     FatalLevel upper;
     LevelFilter filter(NULL, &upper);
@@ -52,5 +67,6 @@ int main()
       
     XLOG_FAT(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     SXLOG_FAT(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
+    */
 	return 0;
 }

@@ -5,9 +5,10 @@
 #include "dgr2.h"
 #include "logTag.h"
 #include "logger.h"
+#include "uncopyable.hpp"
 
 DGR2_NP_BEGIN
-class DGR2_API LoggerMgr
+class DGR2_API LoggerMgr : private LGT::Uncopyable
 {
 public:
     static LoggerMgr* GetInst();
@@ -15,8 +16,7 @@ public:
     Logger* getLogger(const std::xStrT& name);
 
 private:
-    LoggerMgr();
-    LoggerMgr(const LoggerMgr&);
+    LoggerMgr();    
     ~LoggerMgr();
     typedef std::vector<Logger*> LoggerListType;
     LoggerListType loggers_;

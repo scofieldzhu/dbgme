@@ -5,7 +5,7 @@
 #include "rapidxml.hpp"
 
 CFP_NP_BEGIN
-class ClsNodeParser
+class CFP_API ClsNodeParser
 {
 public:      
     typedef rapidxml::xml_node<xCharT> my_xml_node;    

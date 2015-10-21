@@ -1,18 +1,13 @@
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Loggers>    
-        <ConsoleLogger name = "console">            
-            <Filter>
-                <Switch>ON</Switch>
-                <Level>ALL</Level>
-            </Filter>
-        </ConsoleLogger>
-        <FileLogger name = "file">
-            <Filter>
-                <Switch>ON</Switch>
-                <Level>ALL</Level>                            
-            </Filter>
-            <MaxSize>104857600</MaxSize> 
-            <ExceedMaxSize> <>
-            <FilePath>C:\\test.log.txt</FilePath>            
-        </FileLogger>       
+    <Logger ClsName = "Logger">            
+        <Name>TL</Name>                
+        <Filter ClsName = "LevelFilter"></Filter>
+        <Appenders>
+            <Appender ClsName = "">
+                <Filter ClsName = "LevelFilter"></Filter>
+                <Formatter ClsName = ""></Formatter>
+            </Appender>
+        </Appenders>      
+    </Logger> 
 </Loggers>
