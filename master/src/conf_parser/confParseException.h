@@ -18,8 +18,10 @@ private:
 
 #define COND_VERIFY(cond, msg) if(!(cond)) throw ConfParseException(msg);
 #define COND_VERIFYEX(cond, fmt, ...) \
-    const std::xStrT msg = LGT::ConvertArgsToString(fmt, __VA_ARGS__); \
-    COND_VERIFY(cond, msg.c_str());
+    { \
+        const std::xStrT msg = LGT::ConvertArgsToString(fmt, __VA_ARGS__); \
+        COND_VERIFY(cond, msg.c_str()); \
+    }
 
 NP_END
 

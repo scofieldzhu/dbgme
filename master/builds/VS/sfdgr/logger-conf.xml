@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Loggers>    
     <Logger ClsName = "Logger">            
-        <Name>TL</Name>                
-        <Filter ClsName = "LevelFilter"></Filter>
+        <Name>TL</Name>                        
         <Appenders>
             <Appender ClsName = "">
                 <Filter ClsName = "LevelFilter"></Filter>

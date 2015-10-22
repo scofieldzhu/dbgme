@@ -11,6 +11,7 @@
 #include <iomanip>
 #include "confXmlParser.h"
 #include "confParseException.h"
+#include "clsNodeParserRegistrant.h"
 using namespace std;
 USING_DGR2
 USING_LGT
@@ -20,6 +21,8 @@ int main()
 {
     try
     {
+        ClsNodeParserRegistrant regitrant;
+        regitrant.registerAllParsers();
         ConfXmlParser conf_parser(_X(".\\logger-conf.xml"));
         conf_parser.parse();
     }
