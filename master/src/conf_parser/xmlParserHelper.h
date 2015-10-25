@@ -9,9 +9,12 @@ namespace LotsOfKeyNodes
 {
     CFP_API extern const xCharT* ROOT;
     CFP_API extern const xCharT* LOGGER;
+    CFP_API extern const xCharT* FILTER;
+    CFP_API extern const xCharT* APPENDER;
+    CFP_API extern const xCharT* FORMATTER;
 }
 
-namespace LotOfKeyAttrs
+namespace LotsOfKeyAttrs
 {
     CFP_API extern const xCharT* CLS_ATTR;
 }

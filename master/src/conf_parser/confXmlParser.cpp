@@ -38,8 +38,8 @@ struct ConfXmlParser::Impl
 
 Logger* ConfXmlParser::Impl::parseLoggerNode(my_xml_node& root_node) throw (ConfParseException&)
 {
-    my_xml_attribute* cls_attr = root_node.first_attribute(LotOfKeyAttrs::CLS_ATTR);
-    COND_VERIFYEX(cls_attr != NULL, _X("%s Attribute Of Logger Xml Node Not Found!"), LotOfKeyAttrs::CLS_ATTR);
+    my_xml_attribute* cls_attr = root_node.first_attribute(LotsOfKeyAttrs::CLS_ATTR);
+    COND_VERIFYEX(cls_attr != NULL, _X("%s Attribute Of Logger Xml Node Not Found!"), LotsOfKeyAttrs::CLS_ATTR);
     const xStrT cls_name(cls_attr->value());
     ClsNodeParser* right_parser = ClsNodeParserLodge::GetInst().getClsNodeParser(cls_name);
     return (right_parser != NULL ? dynamic_cast<Logger*>(right_parser->parse(root_node)) : NULL);
