@@ -151,6 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\conf_parser\baseAppenderNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\conf_parser\fileAppenderNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\conf_parser\standardFormatterNodeParser.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserLodge.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.cpp" />
     <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp" />
@@ -162,6 +165,9 @@
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\src\conf_parser\baseAppenderNodeParser.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\fileAppenderNodeParser.h" />
+    <ClInclude Include="..\..\..\src\conf_parser\standardFormatterNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserLodge.h" />

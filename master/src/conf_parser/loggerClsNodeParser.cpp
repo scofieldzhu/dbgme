@@ -11,7 +11,7 @@ using namespace rapidxml;
 
 namespace {    
     namespace KeyChildOfLoggerNode{
-        const xCharT* Name = _X("Name");
+        const xCharT* Name = _X("name");
         const xCharT* Appenders = _X("Appenders");
     }
     typedef std::vector<Appender*> AppenderList;
@@ -49,11 +49,11 @@ DGRObject* LoggerClsNodeParser::parse(my_xml_node& cls_node)
     {
         my_xml_attribute* attri = appender_node->first_attribute(LotsOfKeyAttrs::CLS_ATTR);
         COND_VERIFYEX(attri != NULL, _X("%s Attribute Of <%s> Node Not Found!\r\n"), LotsOfKeyAttrs::CLS_ATTR, LotsOfKeyNodes::APPENDER);
-        ClsNodeParser* appender_parser = ClsNodeParserLodge::GetInst().getClsNodeParser(attri->name());
-        COND_VERIFYEX(appender_parser != NULL, _X("Could Not Found %s XmlParser!\r\n"), attri->name());
+        ClsNodeParser* appender_parser = ClsNodeParserLodge::GetInst().getClsNodeParser(attri->value());
+        COND_VERIFYEX(appender_parser != NULL, _X("Could Not Found %s XmlParser!\r\n"), attri->value());
         DGRObject* appender_dgrobj = appender_parser->parse(*appender_node);
         Appender* appender = dynamic_cast<Appender*>(appender_dgrobj);
-        COND_VERIFYEX(appender != NULL, _X("Parse %s Node Failed!\r\n"), attri->name());
+        COND_VERIFYEX(appender != NULL, _X("Parse %s Node Failed!\r\n"), attri->value());
         appender_list.push_back(appender);
         appender_node = appender_node->next_sibling(LotsOfKeyNodes::APPENDER);
     };

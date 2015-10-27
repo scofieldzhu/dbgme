@@ -42,6 +42,15 @@
     <ClCompile Include="..\..\..\src\conf_parser\consoleAppenderNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\conf_parser\baseAppenderNodeParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\conf_parser\standardFormatterNodeParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\conf_parser\fileAppenderNodeParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h">
@@ -75,6 +84,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\conf_parser\consoleAppenderNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\baseAppenderNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\standardFormatterNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\fileAppenderNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

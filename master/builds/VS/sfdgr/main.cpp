@@ -12,6 +12,7 @@
 #include "confXmlParser.h"
 #include "confParseException.h"
 #include "clsNodeParserRegistrant.h"
+#include "loggerMgr.h"
 using namespace std;
 USING_DGR2
 USING_LGT
@@ -32,22 +33,22 @@ int main()
     }
 
 
-    /*
-    WarnLevel lower;
+    
+    /*WarnLevel lower;
     FatalLevel upper;
     LevelFilter filter(NULL, &upper);
 
     StandardFormatter formatter;
-    
+
     ConsoleAppender console_appender;
     console_appender.setFormatter(&formatter);
-    
+
     FileAppender file_appender(_X("test.log.txt"), 100);
     file_appender.setFormatter(&formatter);
-    
+
     Logger logger(_X("Console"));
-    logger.setFilter(&filter);    
-    logger.addAppender(console_appender);
+    logger.setFilter(&filter);
+    logger.addAppender(console_appender);*/
     //logger.addAppender(file_appender);
     //LoggerMgr::GetInst()->addLogger(logger);
 
@@ -55,7 +56,7 @@ int main()
     int ix = 10;
     double fx = 12.36;
 
-    Logger* pLogger = &logger;
+    Logger* pLogger = LoggerMgr::GetInst()->getLogger(_X("TL"));
     XLOG_DBG(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     SXLOG_DBG(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
  
@@ -69,7 +70,6 @@ int main()
     SXLOG_ERR(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
       
     XLOG_FAT(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    SXLOG_FAT(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
-    */
+    SXLOG_FAT(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;    
 	return 0;
 }
