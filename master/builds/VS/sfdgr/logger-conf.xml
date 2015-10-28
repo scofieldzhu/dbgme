@@ -7,9 +7,12 @@
                 <Formatter ClsName = "StandardFormatter"/>
                 <flush_frequence>1</flush_frequence>
             </Appender>
-            <Appender ClsName = "FileAppender">                
+            <Appender ClsName = "FileAppender">    
+                <Filter ClsName = "LevelFilter">
+                    <lower_bound_level>InfoLevel</lower_bound_level>                    
+                </Filter>            
                 <Formatter ClsName = "StandardFormatter"/>
-                <file_path>C:\\sf.log.txt</file_path>
+                <file_path>C:\\Work\\sf.log.txt</file_path>
                 <flush_frequence>1</flush_frequence>
             </Appender>
         </Appenders>      

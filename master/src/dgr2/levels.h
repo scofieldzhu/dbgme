@@ -2,6 +2,8 @@
 #define __LEVELS_H__
 
 #include "level.h"
+#include "uncopyable.hpp"
+#include <map>
 
 DGR2_NP_BEGIN
 
@@ -13,11 +15,24 @@ struct LevelClass : public DefLevel{ \
     ~LevelClass(){} \
 };
 
-NEW_LEVEL_CLASS(DebugLevel, Dbg, 1)
-NEW_LEVEL_CLASS(InfoLevel, Info, 2)
-NEW_LEVEL_CLASS(WarnLevel, Warn, 3)
-NEW_LEVEL_CLASS(ErrLevel, Err, 4)
-NEW_LEVEL_CLASS(FatalLevel, Fat, 5)
+NEW_LEVEL_CLASS(DebugLevel, DebugLevel, 1)
+NEW_LEVEL_CLASS(InfoLevel, InfoLevel, 2)
+NEW_LEVEL_CLASS(WarnLevel, WarnLevel, 3)
+NEW_LEVEL_CLASS(ErrLevel, ErrLevel, 4)
+NEW_LEVEL_CLASS(FatalLevel, FatalLevel, 5)
+
+struct DGR2_API LevelObjReflection : public LGT::Uncopyable
+{
+    static LevelObjReflection& GetInstance();
+    void registerLevelClass(Level& obj);
+    Level* bornLevelObject(const std::xStrT& level_clsname);
+private:
+    LevelObjReflection();
+    typedef std::map<std::xStrT, Level*> xStr2LevelDictType;
+    xStr2LevelDictType level_reflection_dict_;
+};
+
+#define REGISTER_LEVEL_CLASS(LevelClass) LevelObjReflection::GetInstance().registerLevelClass(*new LevelClass())
 
 NP_END
 

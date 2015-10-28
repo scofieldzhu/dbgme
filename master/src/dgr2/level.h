@@ -16,8 +16,8 @@ struct Level
 struct DefLevel : public Level
 {
     int getValue() const { return val_; }
-    DefLevel(int val) 
-        :val_(val){}
+    DefLevel(int val)
+        :val_(val) {}
     virtual ~DefLevel() {}
 private:
     int val_;
