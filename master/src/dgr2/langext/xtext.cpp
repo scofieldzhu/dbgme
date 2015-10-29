@@ -7,9 +7,9 @@
 #endif
 using namespace std;
 
-LGT_NP_BEGIN
+DGR2_NP_BEGIN
 
-LGT_API xStrT Int2Str(int value, int radix)
+DGR2_API xStrT Int2Str(int value, int radix)
 {
      static const int MAX_BUFFER_SIZE = 30;
      xCharT buffer[MAX_BUFFER_SIZE] = { _X('\0') };
@@ -18,12 +18,12 @@ LGT_API xStrT Int2Str(int value, int radix)
      return xStrT(buffer);
 }
 
-LGT_API int Str2Int(const xStrT& str)
+DGR2_API int Str2Int(const xStrT& str)
 {
     return _tstoi(str.c_str());
 }
 
-LGT_API std::wstring AnsiToUnicode(const char* src)
+DGR2_API std::wstring AnsiToUnicode(const char* src)
 {
     size_t required_buffer_size = 0;
     mbstowcs_s(&required_buffer_size, NULL, 0, src, 0);
@@ -34,7 +34,7 @@ LGT_API std::wstring AnsiToUnicode(const char* src)
     return buffer;
 }
 
-LGT_API std::string UnicodeToAnsi(const wchar_t* src)
+DGR2_API std::string UnicodeToAnsi(const wchar_t* src)
 {
     size_t required_buffer_size = 0;
     wcstombs_s(&required_buffer_size, NULL, 0, src, 0);
@@ -45,7 +45,7 @@ LGT_API std::string UnicodeToAnsi(const wchar_t* src)
     return buffer;
 }
 
-LGT_API void Utf8ToUnicode(const char* utf8_chars, int char_count,  wchar_t*& dst_chars, int& dst_buffer_size)
+DGR2_API void Utf8ToUnicode(const char* utf8_chars, int char_count,  wchar_t*& dst_chars, int& dst_buffer_size)
 {
     const int REQUIRED_BUFFER_SIZE = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, char_count, NULL, 0);
     dst_buffer_size = REQUIRED_BUFFER_SIZE + 1;
@@ -56,7 +56,7 @@ LGT_API void Utf8ToUnicode(const char* utf8_chars, int char_count,  wchar_t*& ds
         dst_chars = buffer;                    
 }
 
-LGT_API xStrT ConvertArgsToString(const xCharT* format, ...)
+DGR2_API xStrT ConvertArgsToString(const xCharT* format, ...)
 {
     static const int MAX_BUFFER_SIZE = 300;
     va_list vl;
@@ -67,7 +67,7 @@ LGT_API xStrT ConvertArgsToString(const xCharT* format, ...)
     return xStrT(buffer);
 }
 
-LGT_API xStrT SplitFilenameFromFullPath(const xCharT* abs_filepath, bool with_ext_flag)
+DGR2_API xStrT SplitFilenameFromFullPath(const xCharT* abs_filepath, bool with_ext_flag)
 {
     xCharT buffer_fn[256] = { _X('\0') };
     xCharT buffer_ext[20] = { _X('\0') };

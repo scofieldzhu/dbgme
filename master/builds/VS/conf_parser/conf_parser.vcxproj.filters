@@ -53,9 +53,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>

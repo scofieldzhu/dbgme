@@ -17,7 +17,7 @@ namespace {
     typedef std::vector<Appender*> AppenderList;
 }
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 
 DGRObject* LoggerClsNodeParser::parse(my_xml_node& cls_node)
 {

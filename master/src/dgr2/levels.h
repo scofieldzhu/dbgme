@@ -21,7 +21,7 @@ NEW_LEVEL_CLASS(WarnLevel, WarnLevel, 3)
 NEW_LEVEL_CLASS(ErrLevel, ErrLevel, 4)
 NEW_LEVEL_CLASS(FatalLevel, FatalLevel, 5)
 
-struct DGR2_API LevelObjReflection : public LGT::Uncopyable
+struct DGR2_API LevelObjReflection : public Uncopyable
 {
     static LevelObjReflection& GetInstance();
     void registerLevelClass(Level& obj);

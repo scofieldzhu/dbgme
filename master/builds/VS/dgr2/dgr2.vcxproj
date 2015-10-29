@@ -92,7 +92,8 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\lgt;..\..\..\src\dgr2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\dgr2;..\..\..\src\dgr2\langext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4150;4251;4275;4290;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -160,11 +161,17 @@
     <ClInclude Include="..\..\..\src\dgr2\consoleAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\defAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\dgrObject.h" />
-    <ClInclude Include="..\..\..\src\dgr2\dr2DllExport.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgr2Exporter.h" />
     <ClInclude Include="..\..\..\src\dgr2\fileAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\filter.h" />
     <ClInclude Include="..\..\..\src\dgr2\formatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\dgr2.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\autoLock.hpp" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\basicType.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\locks.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\uncopyable.hpp" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\xtext.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\xtime.h" />
     <ClInclude Include="..\..\..\src\dgr2\level.h" />
     <ClInclude Include="..\..\..\src\dgr2\levelFilter.h" />
     <ClInclude Include="..\..\..\src\dgr2\levels.h" />
@@ -182,6 +189,9 @@
     <ClCompile Include="..\..\..\src\dgr2\consoleAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\defAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\fileAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\locks.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\xtext.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\xtime.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\levels.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\log.cpp" />

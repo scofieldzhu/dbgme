@@ -4,7 +4,7 @@
 #include "confParser.h"
 #include "rapidxml.hpp"
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 class CFP_API ClsNodeParser
 {
 public:      

@@ -6,7 +6,7 @@
 #include "fileAppenderNodeParser.h"
 #include "standardFormatterNodeParser.h"
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 
 void ClsNodeParserRegistrant::registerAllParsers()
 {

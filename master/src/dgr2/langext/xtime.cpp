@@ -3,7 +3,7 @@
 #include <sys/timeb.h>
 using namespace std;
 
-LGT_NP_BEGIN
+DGR2_NP_BEGIN
 
 DateTime DateTime::Now()
 {

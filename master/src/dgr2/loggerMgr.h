@@ -8,7 +8,7 @@
 #include "uncopyable.hpp"
 
 DGR2_NP_BEGIN
-class DGR2_API LoggerMgr : private LGT::Uncopyable
+class DGR2_API LoggerMgr : private Uncopyable
 {
 public:
     static LoggerMgr* GetInst();

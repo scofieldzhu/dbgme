@@ -4,10 +4,9 @@
 #include "xmlParserHelper.h"
 #include "xtext.h"
 USING_DGR2;
-USING_LGT;
 using namespace std;
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 namespace {
     const xCharT* kFilePathNodeName = _X("file_path");
     const xCharT* kFFNodeName = _X("flush_frequence");

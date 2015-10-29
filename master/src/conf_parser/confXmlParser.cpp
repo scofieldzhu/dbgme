@@ -10,7 +10,6 @@
 using namespace std;
 using namespace rapidxml;
 USING_DGR2;
-USING_LGT;
 
 #define SAFE_RELEASE_FILE_BUFFER \
     if(file_content_buffer != NULL) \
@@ -19,7 +18,7 @@ USING_LGT;
         file_content_buffer = NULL; \
     }        
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 typedef xml_document<xCharT> my_xml_document;
 typedef ClsNodeParser::my_xml_node my_xml_node;
 typedef ClsNodeParser::my_xml_attribute my_xml_attribute;

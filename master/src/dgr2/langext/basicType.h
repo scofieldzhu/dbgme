@@ -56,12 +56,6 @@
 #define NP_END }
 #define USING_NP(np) using namespace np;
 
-#define LGT lgt
-#define LGT_NP_BEGIN NP_BEGIN(LGT)
-#define USING_LGT USING_NP(LGT)
-
-#pragma warning(disable:4251 4150)
-
 #if defined(_WIN32) || defined(_WIN64)
     #define IN_WINOS
 #endif

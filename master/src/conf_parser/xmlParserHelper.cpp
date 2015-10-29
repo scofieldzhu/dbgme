@@ -1,6 +1,6 @@
 #include "xmlParserHelper.h"
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 namespace LotsOfKeyNodes
 {
     const xCharT* ROOT = _X("Loggers");

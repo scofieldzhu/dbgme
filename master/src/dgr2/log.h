@@ -20,7 +20,7 @@ struct DGR2_API Log
     std::xStrT filename_;
     unsigned int lineno_;
     unsigned int thread_id_;
-    LGT::DateTime timestamp_;    
+    DateTime timestamp_;    
 };
 
 NP_END

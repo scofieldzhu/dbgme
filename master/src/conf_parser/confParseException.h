@@ -5,7 +5,7 @@
 #include "xtext.h"
 #include <exception>
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 class CFP_API ConfParseException : std::exception
 {
 public:

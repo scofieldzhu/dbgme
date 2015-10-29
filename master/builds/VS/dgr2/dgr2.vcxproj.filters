@@ -13,12 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="langext">
+      <UniqueIdentifier>{4ea23a21-ded6-4e79-ae1b-1d9990ee52e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\dgr2\appender.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\dgr2\dr2DllExport.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\filter.h">
@@ -78,6 +78,27 @@
     <ClInclude Include="..\..\..\src\dgr2\dgr2.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\autoLock.hpp">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\basicType.h">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\locks.h">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\uncopyable.hpp">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\xtext.h">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\xtime.h">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\dgr2Exporter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllMain.cpp">
@@ -118,6 +139,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\dbAppender.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\langext\locks.cpp">
+      <Filter>langext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\langext\xtext.cpp">
+      <Filter>langext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\langext\xtime.cpp">
+      <Filter>langext</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

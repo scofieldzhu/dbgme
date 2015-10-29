@@ -4,7 +4,6 @@
 #include <Windows.h>
 #endif
 using namespace std;
-USING_LGT
 
 DGR2_NP_BEGIN
 

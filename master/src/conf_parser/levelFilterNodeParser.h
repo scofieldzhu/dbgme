@@ -3,7 +3,7 @@
 
 #include "clsNodeParser.h"
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 class LevelFilterNodeParser : public ClsNodeParser
 {
 public:

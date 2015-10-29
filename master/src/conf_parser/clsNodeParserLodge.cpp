@@ -1,6 +1,6 @@
 #include "clsNodeParserLodge.h"
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 
 ClsNodeParserLodge& ClsNodeParserLodge::GetInst()
 {

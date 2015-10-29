@@ -1,11 +1,10 @@
 #ifndef __XTIME_H__
 #define __XTIME_H__
 
-#include "basicType.h"
-#include "lgtDLLExport.h"
+#include "dgr2.h"
 
-LGT_NP_BEGIN
-struct LGT_API Date
+DGR2_NP_BEGIN
+struct DGR2_API Date
 {
     Date(int y = 1900, int m = 1, int d = 1)
         :year_(y),
@@ -17,7 +16,7 @@ struct LGT_API Date
     int mday_;
 };
 
-struct LGT_API DayTime
+struct DGR2_API DayTime
 {
     DayTime(int h = 0, int m = 0, int s = 0, int ms = 0)
         :hour_(h),
@@ -31,7 +30,7 @@ struct LGT_API DayTime
     int millisec_;
 };
 
-struct LGT_API DateTime
+struct DGR2_API DateTime
 {
     static DateTime Now();
     std::xStrT repr()const;

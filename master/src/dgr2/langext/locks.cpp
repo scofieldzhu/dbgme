@@ -2,7 +2,7 @@
 #include <memory>
 #include <Windows.h>
 
-LGT_NP_BEGIN
+DGR2_NP_BEGIN
 
 struct CriticalSectionLock::Impl
 {

@@ -2,10 +2,13 @@
 #include "loggerMgr.h"
 #include "log.h"
 #include "logger.h"
+#include "locks.h"
+#include "autoLock.hpp"
 using namespace std;
 
+#define __GUARD__ AutoLock<CriticalSectionLock> lock;
+
 DGR2_NP_BEGIN
-USING_LGT
 
 LoggerMgr* LoggerMgr::inst_ = NULL;
 

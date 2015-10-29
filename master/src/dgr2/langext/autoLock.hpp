@@ -1,9 +1,9 @@
 #ifndef __AUTO_LOCK_HPP__
 #define __AUTO_LOCK_HPP__
 
-#include "basicType.h"
+#include "dgr2.h"
 
-LGT_NP_BEGIN
+DGR2_NP_BEGIN
 template <class L>
 class AutoLock
 {

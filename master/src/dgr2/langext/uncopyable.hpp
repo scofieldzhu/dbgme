@@ -1,9 +1,9 @@
 #ifndef __UNCOPYABLE_H__
 #define __UNCOPYABLE_H__
 
-#include "basicType.h"
+#include "dgr2.h"
 
-LGT_NP_BEGIN
+DGR2_NP_BEGIN
 class Uncopyable
 {
 protected:

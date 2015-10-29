@@ -4,7 +4,6 @@
 #include "xText.h"
 #include "level.h"
 using namespace std;
-USING_LGT;
 
 DGR2_NP_BEGIN
 

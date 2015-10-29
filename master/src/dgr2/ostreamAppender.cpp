@@ -2,7 +2,6 @@
 #include "xtext.h"
 #include "log.h"
 using namespace std;
-USING_LGT
 
 DGR2_NP_BEGIN
 OstreamAppender::OstreamAppender(OstreamT& os, unsigned int flush_frequence)

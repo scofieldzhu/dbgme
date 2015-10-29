@@ -23,6 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>conf_parser</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>xmlConfKit</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -91,7 +92,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CFP_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\conf_parser;..\..\..\src\lgt;..\..\..\src\dgr2;..\..\..\3rd\rapidxml-1.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\conf_parser;..\..\..\src\dgr2\langext;..\..\..\src\dgr2;..\..\..\3rd\rapidxml-1.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,7 +169,6 @@
     <ClInclude Include="..\..\..\src\conf_parser\baseAppenderNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\fileAppenderNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\standardFormatterNodeParser.h" />
-    <ClInclude Include="..\..\..\src\conf_parser\cfpDLLExport.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserLodge.h" />
     <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.h" />

@@ -3,17 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lgt", "lgt\lgt.vcxproj", "{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dgr", "dgr\dgr.vcxproj", "{DD927D84-1159-4CA6-BFB6-FA68D7871CB4}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC} = {7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dgr2", "dgr2\dgr2.vcxproj", "{FEF134BE-E3CD-4BF3-9AF5-B51F37339AC5}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC} = {7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfdgr", "sfdgr\sfdgr.vcxproj", "{A6F9FC1A-3D3A-45C8-8D11-147E8B079088}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -34,14 +26,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Debug|x64.ActiveCfg = Debug|x64
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Debug|x64.Build.0 = Debug|x64
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Debug|x86.ActiveCfg = Debug|Win32
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Debug|x86.Build.0 = Debug|Win32
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Release|x64.ActiveCfg = Release|x64
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Release|x64.Build.0 = Release|x64
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Release|x86.ActiveCfg = Release|Win32
-		{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}.Release|x86.Build.0 = Release|Win32
 		{DD927D84-1159-4CA6-BFB6-FA68D7871CB4}.Debug|x64.ActiveCfg = Debug|x64
 		{DD927D84-1159-4CA6-BFB6-FA68D7871CB4}.Debug|x64.Build.0 = Debug|x64
 		{DD927D84-1159-4CA6-BFB6-FA68D7871CB4}.Debug|x86.ActiveCfg = Debug|Win32

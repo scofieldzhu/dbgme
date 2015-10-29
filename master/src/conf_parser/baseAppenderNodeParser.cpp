@@ -7,7 +7,7 @@
 #include "appender.h"
 USING_DGR2;
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 DGRObject* BaseAppenderNodeParser::parse(my_xml_node& cls_node)
 {
     Appender* appender_inst = createAppenderInstance();

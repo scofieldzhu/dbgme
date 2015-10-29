@@ -15,7 +15,6 @@
 #include "loggerMgr.h"
 using namespace std;
 USING_DGR2
-USING_LGT
 USING_CFP
 
 int main()

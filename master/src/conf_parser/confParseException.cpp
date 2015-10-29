@@ -1,6 +1,6 @@
 #include "confParseException.h"
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 const std::xStrT& ConfParseException::what_err() const
 {
     return msg_;

@@ -1,11 +1,11 @@
 #ifndef __LOCKS_H__
 #define __LOCKS_H__
 
-#include "basicType.h"
-#include "lgtDLLExport.h"
+#include "dgr2.h"
 
-LGT_NP_BEGIN
-class LGT_API CriticalSectionLock
+DGR2_NP_BEGIN
+
+class DGR2_API CriticalSectionLock
 {
 public:
     void lock();

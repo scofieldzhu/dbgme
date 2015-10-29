@@ -6,7 +6,7 @@ USING_DGR2;
 using namespace std;
 using namespace rapidxml;
 
-CFP_NP_BEGIN
+DGR2_NP_BEGIN
 namespace {
     const xCharT* kLowerBoundLevelNodeName = _X("lower_bound_level");
     const xCharT* kUpperBoundLevelNodeName = _X("upper_bound_level");
