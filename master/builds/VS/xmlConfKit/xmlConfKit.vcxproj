@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7A1DA84F-5C53-46F7-9BB5-3B124C3802CC}</ProjectGuid>
+    <ProjectGuid>{1E59F07D-A13F-4527-AB0D-845B0CF9F4E6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>lgt</RootNamespace>
+    <RootNamespace>xmlConfKit</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>lgt</ProjectName>
+    <ProjectName>xmlConfKit</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -90,14 +90,16 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\lgt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\xmlConfKit\rapidxml;..\..\..\src\xmlConfKit;..\..\..\src\dgr2\langext;..\..\..\src\dgr2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4275;4290;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>dgr2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\_bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -106,9 +108,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;LGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\lgt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -123,7 +124,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -141,7 +142,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;LGT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -152,20 +153,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\lgt\basicType.h" />
-    <ClInclude Include="..\..\..\src\lgt\langext.h" />
-    <ClInclude Include="..\..\..\src\lgt\lgtDLLExport.h" />
-    <ClInclude Include="..\..\..\src\lgt\autoLock.hpp" />
-    <ClInclude Include="..\..\..\src\lgt\locks.h" />
-    <ClInclude Include="..\..\..\src\lgt\uncopyable.hpp" />
-    <ClInclude Include="..\..\..\src\lgt\xtext.h" />
-    <ClInclude Include="..\..\..\src\lgt\xtime.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\baseAppenderXmlNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\consoleAppenderXmlNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\fileAppenderXmlNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\levelFilterXmlNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\loggerXmlNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml.hpp" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\standardFormatterXmlNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlClsNodeParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlClsNodeParserLodge.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlClsNodeParserRegistrant.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlConfKit.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlConfParseException.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlConfParser.h" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\xmlParserHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\lgt\locks.cpp" />
-    <ClCompile Include="..\..\..\src\lgt\xtext.cpp" />
-    <ClCompile Include="..\..\..\src\lgt\xtime.cpp" />
-    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\baseAppenderXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\consoleAppenderXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\fileAppenderXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\levelFilterXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\loggerXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\standardFormatterXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\xmlClsNodeParserLodge.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\xmlClsNodeParserRegistrant.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\xmlConfParseException.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\xmlConfParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\xmlParserHelper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

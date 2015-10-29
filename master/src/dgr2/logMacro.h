@@ -16,7 +16,7 @@
     DGR2::Log log(level); \
     log.logger_name_ = logger_name; \
     log.func_name_ = __XFUNCTION__; \
-    log.filename_ = LGT::SplitFilenameFromFullPath(__XFILE__); \
+    log.filename_ = SplitFilenameFromFullPath(__XFILE__); \
     log.lineno_ = __LINE__;
 #define END endt;}
 #define LBT lbt

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Loggers>    
+    <Logger ClsName = "Logger">            
+        <name>TL</name>                        
+        <Appenders>
+            <Appender ClsName = "ConsoleAppender">
+                <Filter ClsName = "LevelFilter">
+                    <lower_bound_level>DebugLevel</lower_bound_level>
+                    <upper_bound_level>FatalLevel</upper_bound_level>
+                </Filter>
+                <Formatter ClsName = "StandardFormatter"/>
+                <flush_frequence>1</flush_frequence>
+            </Appender>
+            <Appender ClsName = "FileAppender">                
+                <Formatter ClsName = "StandardFormatter"/>
+                <file_path>D:\\sf.log.txt</file_path>
+                <flush_frequence>1</flush_frequence>
+            </Appender>
+        </Appenders>      
+    </Logger> 
+</Loggers>

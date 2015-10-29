@@ -1,6 +1,5 @@
 #include <iostream>
 #include "xtime.h"
-#include "loggerParser.h"
 #include "levelFilter.h"
 #include "logMacro.h"
 #include "standardFormatter.h"
@@ -8,7 +7,6 @@
 #include "fileAppender.h"
 #include "logger.h"
 #include "log.h"
-#include <iomanip>
 #include "xmlConfParser.h"
 #include "xmlConfParseException.h"
 #include "xmlClsNodeParserRegistrant.h"
@@ -20,12 +18,12 @@ int main()
 {
     try
     {
-        ClsNodeParserRegistrant regitrant;
+        XmlClsNodeParserRegistrant regitrant;
         regitrant.registerAllParsers();
-        ConfXmlParser conf_parser(_X(".\\logger-conf.xml"));
+        XmlConfParser conf_parser(_X(".\\logger-conf.xml"));
         conf_parser.parse();
     }
-    catch (ConfParseException& e)
+    catch (XmlConfParseException& e)
     {
         xCout << _X("exception : ") << e.what_err() << endl;
     }
