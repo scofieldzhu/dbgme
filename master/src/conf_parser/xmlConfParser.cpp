@@ -1,8 +1,8 @@
-#include "confXmlParser.h"
-#include "confParseException.h"
+#include "XmlConfParser.h"
+#include "xmlConfParseException.h"
 #include "xmlParserHelper.h"
-#include "clsNodeParser.h"
-#include "clsNodeParserLodge.h"
+#include "xmlClsNodeParser.h"
+#include "xmlClsNodeParserLodge.h"
 #include "loggerMgr.h"
 #include "xtext.h"
 #include "logger.h"
@@ -20,12 +20,12 @@ USING_DGR2;
 
 DGR2_NP_BEGIN
 typedef xml_document<xCharT> my_xml_document;
-typedef ClsNodeParser::my_xml_node my_xml_node;
-typedef ClsNodeParser::my_xml_attribute my_xml_attribute;
+typedef XmlClsNodeParser::my_xml_node my_xml_node;
+typedef XmlClsNodeParser::my_xml_attribute my_xml_attribute;
 
-struct ConfXmlParser::Impl 
+struct XmlConfParser::Impl 
 {
-    Logger* parseLoggerNode(my_xml_node& root_node) throw (ConfParseException&);    
+    Logger* parseLoggerNode(my_xml_node& root_node) throw (XmlConfParseException&);    
     void readutf8ConfContent(const xStrT& conf_file);
     void releaseResource();
     Impl();
@@ -35,16 +35,16 @@ struct ConfXmlParser::Impl
     int filecontent_size_;
 };
 
-Logger* ConfXmlParser::Impl::parseLoggerNode(my_xml_node& root_node) throw (ConfParseException&)
+Logger* XmlConfParser::Impl::parseLoggerNode(my_xml_node& root_node) throw (XmlConfParseException&)
 {
     my_xml_attribute* cls_attr = root_node.first_attribute(LotsOfKeyAttrs::CLS_ATTR);
     COND_VERIFYEX(cls_attr != NULL, _X("%s Attribute Of Logger Xml Node Not Found!"), LotsOfKeyAttrs::CLS_ATTR);
     const xStrT cls_name(cls_attr->value());
-    ClsNodeParser* right_parser = ClsNodeParserLodge::GetInst().getClsNodeParser(cls_name);
+    XmlClsNodeParser* right_parser = XmlClsNodeParserLodge::GetInst().getClsNodeParser(cls_name);
     return (right_parser != NULL ? dynamic_cast<Logger*>(right_parser->parse(root_node)) : NULL);
 }
 
-void ConfXmlParser::Impl::readutf8ConfContent(const xStrT& conf_file)
+void XmlConfParser::Impl::readutf8ConfContent(const xStrT& conf_file)
 {    
     FILE* fp = NULL;
     errno_t error = xfopen(&fp, conf_file.c_str(), _X("rb,ccs=UTF-8"));
@@ -61,18 +61,18 @@ void ConfXmlParser::Impl::readutf8ConfContent(const xStrT& conf_file)
     delete[] raw_content_buffer;
 }
 
-ConfXmlParser::Impl::Impl()
+XmlConfParser::Impl::Impl()
     :conf_filecontent_(NULL),
     filecontent_size_(0)
 {
 }
 
-ConfXmlParser::Impl::~Impl()
+XmlConfParser::Impl::~Impl()
 {
     releaseResource();
 }
 
-void ConfXmlParser::Impl::releaseResource()
+void XmlConfParser::Impl::releaseResource()
 {
     if (conf_filecontent_)
         delete[] conf_filecontent_;
@@ -80,7 +80,7 @@ void ConfXmlParser::Impl::releaseResource()
     filecontent_size_ = 0;
 }
 
-void ConfXmlParser::parse() throw (ConfParseException&)
+void XmlConfParser::parse() throw (XmlConfParseException&)
 {
     my_xml_node* root_node = impl_->doc_.first_node(LotsOfKeyNodes::ROOT);
     COND_VERIFYEX(root_node != NULL, _X("%s Node Not Found!"), LotsOfKeyNodes::ROOT);
@@ -94,7 +94,7 @@ void ConfXmlParser::parse() throw (ConfParseException&)
     }
 }
 
-ConfXmlParser::ConfXmlParser(const std::xStrT& conf_file)
+XmlConfParser::XmlConfParser(const std::xStrT& conf_file)
     :impl_(new Impl)
 {    
     try
@@ -102,7 +102,7 @@ ConfXmlParser::ConfXmlParser(const std::xStrT& conf_file)
         impl_->readutf8ConfContent(conf_file);
         impl_->doc_.parse<0>(impl_->conf_filecontent_);        
     }
-    catch (ConfParseException& e)
+    catch (XmlConfParseException& e)
     {
         impl_->releaseResource();
         throw e;
@@ -111,22 +111,22 @@ ConfXmlParser::ConfXmlParser(const std::xStrT& conf_file)
     {        
         impl_->releaseResource();
         xStrT err_details = e.where<xCharT>() + AnsiToUnicode(e.what());
-        throw ConfParseException(err_details.c_str());
+        throw XmlConfParseException(err_details.c_str());
     }    
     catch (exception& e)
     {
         impl_->releaseResource();
         xStrT err_details = AnsiToUnicode(e.what());
-        throw ConfParseException(err_details.c_str());
+        throw XmlConfParseException(err_details.c_str());
     }
     catch (...)
     {
         impl_->releaseResource();
-        throw ConfParseException(_X("Unknown Exception!"));
+        throw XmlConfParseException(_X("Unknown Exception!"));
     }    
 }
 
-ConfXmlParser::~ConfXmlParser()
+XmlConfParser::~XmlConfParser()
 {
 }
 NP_END

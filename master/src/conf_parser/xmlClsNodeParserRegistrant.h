@@ -1,15 +1,15 @@
 #ifndef __CLS_NODE_PARSER_REGISTRANT_H__
 #define __CLS_NODE_PARSER_REGISTRANT_H__
 
-#include "confParser.h"
+#include "xmlConfKit.h"
 
 DGR2_NP_BEGIN
-class CFP_API ClsNodeParserRegistrant 
+class DGR2_API XmlClsNodeParserRegistrant 
 {
 public:
     virtual void registerAllParsers();
-    ClsNodeParserRegistrant();
-    virtual ~ClsNodeParserRegistrant();
+    XmlClsNodeParserRegistrant();
+    virtual ~XmlClsNodeParserRegistrant();
 };
 NP_END
 

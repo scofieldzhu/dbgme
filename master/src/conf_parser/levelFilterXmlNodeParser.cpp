@@ -1,5 +1,5 @@
-#include "levelFilterNodeParser.h"
-#include "confParseException.h"
+#include "levelFilterXmlNodeParser.h"
+#include "xmlConfParseException.h"
 #include "levelFilter.h"
 #include "levels.h"
 USING_DGR2;
@@ -11,7 +11,7 @@ namespace {
     const xCharT* kLowerBoundLevelNodeName = _X("lower_bound_level");
     const xCharT* kUpperBoundLevelNodeName = _X("upper_bound_level");
 }
-DGRObject* LevelFilterNodeParser::parse(my_xml_node& cls_node)
+DGRObject* LevelFilterXmlNodeParser::parse(my_xml_node& cls_node)
 {
     LevelFilter* filter = new LevelFilter();
     my_xml_node* lower_bound_node = cls_node.first_node(kLowerBoundLevelNodeName);
@@ -33,12 +33,12 @@ DGRObject* LevelFilterNodeParser::parse(my_xml_node& cls_node)
     return filter;
 }
 
-LevelFilterNodeParser::LevelFilterNodeParser()
+LevelFilterXmlNodeParser::LevelFilterXmlNodeParser()
 {
 
 }
 
-LevelFilterNodeParser::~LevelFilterNodeParser()
+LevelFilterXmlNodeParser::~LevelFilterXmlNodeParser()
 {
 
 }

@@ -13,7 +13,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfdgr", "sfdgr\sfdgr.vcxpro
 		{FEF134BE-E3CD-4BF3-9AF5-B51F37339AC5} = {FEF134BE-E3CD-4BF3-9AF5-B51F37339AC5}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "conf_parser", "conf_parser\conf_parser.vcxproj", "{1E59F07D-A13F-4527-AB0D-845B0CF9F4E6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xmlConfKit", "conf_parser\conf_parser.vcxproj", "{1E59F07D-A13F-4527-AB0D-845B0CF9F4E6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FEF134BE-E3CD-4BF3-9AF5-B51F37339AC5} = {FEF134BE-E3CD-4BF3-9AF5-B51F37339AC5}
 	EndProjectSection

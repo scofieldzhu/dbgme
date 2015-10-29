@@ -1,7 +1,7 @@
-#include "loggerClsNodeParser.h"
-#include "confParseException.h"
+#include "loggerXmlNodeParser.h"
+#include "xmlConfParseException.h"
 #include "xmlParserHelper.h"
-#include "clsNodeParserLodge.h"
+#include "xmlClsNodeParserLodge.h"
 #include "logger.h"
 #include "appender.h"
 #include "filter.h"
@@ -19,7 +19,7 @@ namespace {
 
 DGR2_NP_BEGIN
 
-DGRObject* LoggerClsNodeParser::parse(my_xml_node& cls_node)
+DGRObject* LoggerXmlNodeParser::parse(my_xml_node& cls_node)
 {
     const xStrT kNodeName = cls_node.name();    
     COND_VERIFYEX(kNodeName == LotsOfKeyNodes::LOGGER, _X("RootNode is not %s.\r\n"), LotsOfKeyNodes::LOGGER);
@@ -34,7 +34,7 @@ DGRObject* LoggerClsNodeParser::parse(my_xml_node& cls_node)
     {
         my_xml_attribute* filter_clsname = filter_node->first_attribute(LotsOfKeyAttrs::CLS_ATTR);
         COND_VERIFYEX(filter_clsname != NULL, _X("%s Attribute Of Filter Node Not Found!\r\n"), LotsOfKeyAttrs::CLS_ATTR);
-        ClsNodeParser* filter_parser = ClsNodeParserLodge::GetInst().getClsNodeParser(filter_clsname->value());
+        XmlClsNodeParser* filter_parser = XmlClsNodeParserLodge::GetInst().getClsNodeParser(filter_clsname->value());
         COND_VERIFYEX(filter_parser != NULL, _X("%s Parser Not Found!\r\n"), filter_clsname->value());
         DGRObject* filter_dgrobj = filter_parser->parse(*filter_node);
         logger_filter = dynamic_cast<Filter*>(filter_dgrobj);
@@ -49,7 +49,7 @@ DGRObject* LoggerClsNodeParser::parse(my_xml_node& cls_node)
     {
         my_xml_attribute* attri = appender_node->first_attribute(LotsOfKeyAttrs::CLS_ATTR);
         COND_VERIFYEX(attri != NULL, _X("%s Attribute Of <%s> Node Not Found!\r\n"), LotsOfKeyAttrs::CLS_ATTR, LotsOfKeyNodes::APPENDER);
-        ClsNodeParser* appender_parser = ClsNodeParserLodge::GetInst().getClsNodeParser(attri->value());
+        XmlClsNodeParser* appender_parser = XmlClsNodeParserLodge::GetInst().getClsNodeParser(attri->value());
         COND_VERIFYEX(appender_parser != NULL, _X("Could Not Found %s XmlParser!\r\n"), attri->value());
         DGRObject* appender_dgrobj = appender_parser->parse(*appender_node);
         Appender* appender = dynamic_cast<Appender*>(appender_dgrobj);
@@ -64,12 +64,12 @@ DGRObject* LoggerClsNodeParser::parse(my_xml_node& cls_node)
     return new_logger;
 }
 
-LoggerClsNodeParser::LoggerClsNodeParser()
+LoggerXmlNodeParser::LoggerXmlNodeParser()
 {
 
 }
 
-LoggerClsNodeParser::~LoggerClsNodeParser()
+LoggerXmlNodeParser::~LoggerXmlNodeParser()
 {
 
 }

@@ -1,17 +1,17 @@
 #ifndef __CLS_NODE_PARSER_H__
 #define __CLS_NODE_PARSER_H__
 
-#include "confParser.h"
+#include "xmlConfKit.h"
 #include "rapidxml.hpp"
 
 DGR2_NP_BEGIN
-class CFP_API ClsNodeParser
+class DGR2_API XmlClsNodeParser
 {
 public:      
     typedef rapidxml::xml_node<xCharT> my_xml_node;
     typedef rapidxml::xml_attribute<xCharT> my_xml_attribute;    
     virtual DGR2::DGRObject* parse(my_xml_node& cls_node) = 0;
-    virtual ~ClsNodeParser() {}
+    virtual ~XmlClsNodeParser() {}
 };
 NP_END
 

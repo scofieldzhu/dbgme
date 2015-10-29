@@ -9,13 +9,12 @@
 #include "logger.h"
 #include "log.h"
 #include <iomanip>
-#include "confXmlParser.h"
-#include "confParseException.h"
-#include "clsNodeParserRegistrant.h"
+#include "xmlConfParser.h"
+#include "xmlConfParseException.h"
+#include "xmlClsNodeParserRegistrant.h"
 #include "loggerMgr.h"
 using namespace std;
 USING_DGR2
-USING_CFP
 
 int main()
 {

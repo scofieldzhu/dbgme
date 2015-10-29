@@ -4,9 +4,9 @@
 #include "dgr2.h"
 
 DGR2_NP_BEGIN
-class ConfParseException;
-class ClsNodeParser;
-class ClsNodeParserRegistrant;
+class XmlConfParseException;
+class XmlClsNodeParser;
+class XmlClsNodeParserRegistrant;
 NP_END
 
 #endif

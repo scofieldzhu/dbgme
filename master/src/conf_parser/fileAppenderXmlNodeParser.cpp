@@ -1,6 +1,6 @@
-#include "fileAppenderNodeParser.h"
+#include "fileAppenderXmlNodeParser.h"
 #include "fileAppender.h"
-#include "confParseException.h"
+#include "xmlConfParseException.h"
 #include "xmlParserHelper.h"
 #include "xtext.h"
 USING_DGR2;
@@ -12,7 +12,7 @@ namespace {
     const xCharT* kFFNodeName = _X("flush_frequence");
 }
 
-DGRObject* FileAppenderNodeParser::parse(my_xml_node& cls_node)
+DGRObject* FileAppenderXmlNodeParser::parse(my_xml_node& cls_node)
 {    
     my_xml_node* filepath_node = cls_node.first_node(kFilePathNodeName);
     COND_VERIFYEX(filepath_node != NULL, _X("%s Child Node Of Appender Node Not Found!\r\n"), kFilePathNodeName);
@@ -36,12 +36,12 @@ DGRObject* FileAppenderNodeParser::parse(my_xml_node& cls_node)
     return file_appender;
 }
 
-FileAppenderNodeParser::FileAppenderNodeParser()
+FileAppenderXmlNodeParser::FileAppenderXmlNodeParser()
 {
 
 }
 
-FileAppenderNodeParser::~FileAppenderNodeParser()
+FileAppenderXmlNodeParser::~FileAppenderXmlNodeParser()
 {
 
 }

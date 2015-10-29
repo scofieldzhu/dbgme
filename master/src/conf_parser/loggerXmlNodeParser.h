@@ -1,15 +1,15 @@
 #ifndef __LOGGER_CLS_NODE_PARSER_H__
 #define __LOGGER_CLS_NODE_PARSER_H__
 
-#include "clsNodeParser.h"
+#include "xmlClsNodeParser.h"
 
 DGR2_NP_BEGIN
-class CFP_API LoggerClsNodeParser : public ClsNodeParser
+class DGR2_API LoggerXmlNodeParser : public XmlClsNodeParser
 {
 public:
     DGR2::DGRObject* parse(my_xml_node& cls_node);
-    LoggerClsNodeParser();
-    virtual ~LoggerClsNodeParser();
+    LoggerXmlNodeParser();
+    virtual ~LoggerXmlNodeParser();
 };
 NP_END
 #endif

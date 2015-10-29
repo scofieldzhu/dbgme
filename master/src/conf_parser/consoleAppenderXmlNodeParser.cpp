@@ -1,6 +1,6 @@
-#include "consoleAppenderNodeParser.h"
+#include "consoleAppenderXmlNodeParser.h"
 #include "consoleAppender.h"
-#include "confParseException.h"
+#include "xmlConfParseException.h"
 #include "xtext.h"
 USING_DGR2;
 using namespace std;
@@ -9,9 +9,9 @@ DGR2_NP_BEGIN
 namespace {
     const xCharT* kFFNodeName = _X("flush_frequence");
 }
-DGRObject* ConsoleAppenderNodeParser::parse(my_xml_node& cls_node)
+DGRObject* ConsoleAppenderXmlNodeParser::parse(my_xml_node& cls_node)
 {
-    DGRObject* appender = BaseAppenderNodeParser::parse(cls_node);
+    DGRObject* appender = BaseAppenderXmlNodeParser::parse(cls_node);
     if (appender == NULL)
         return NULL;
     ConsoleAppender* my_appender = dynamic_cast<ConsoleAppender*>(appender);
@@ -25,17 +25,17 @@ DGRObject* ConsoleAppenderNodeParser::parse(my_xml_node& cls_node)
     return my_appender;
 }
 
-ConsoleAppenderNodeParser::ConsoleAppenderNodeParser()
+ConsoleAppenderXmlNodeParser::ConsoleAppenderXmlNodeParser()
 {
 
 }
 
-ConsoleAppenderNodeParser::~ConsoleAppenderNodeParser()
+ConsoleAppenderXmlNodeParser::~ConsoleAppenderXmlNodeParser()
 {
 
 }
 
-Appender* ConsoleAppenderNodeParser::createAppenderInstance()
+Appender* ConsoleAppenderXmlNodeParser::createAppenderInstance()
 {
     return new ConsoleAppender();
 }

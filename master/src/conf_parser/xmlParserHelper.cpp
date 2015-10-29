@@ -3,14 +3,14 @@
 DGR2_NP_BEGIN
 namespace LotsOfKeyNodes
 {
-    const xCharT* ROOT = _X("Loggers");
-    const xCharT* LOGGER = _X("Logger");
-    const xCharT* FILTER = _X("Filter");
-    const xCharT* APPENDER = _X("Appender");
-    const xCharT* FORMATTER = _X("Formatter");
+    DGR2_API const xCharT* ROOT = _X("Loggers");
+    DGR2_API const xCharT* LOGGER = _X("Logger");
+    DGR2_API const xCharT* FILTER = _X("Filter");
+    DGR2_API const xCharT* APPENDER = _X("Appender");
+    DGR2_API const xCharT* FORMATTER = _X("Formatter");
 }
 namespace LotsOfKeyAttrs
 {
-    const xCharT* CLS_ATTR = _X("ClsName");
+    DGR2_API const xCharT* CLS_ATTR = _X("ClsName");
 }
 NP_END

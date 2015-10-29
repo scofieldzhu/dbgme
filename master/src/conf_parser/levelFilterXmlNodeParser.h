@@ -1,15 +1,15 @@
 #ifndef __LEVEL_FILTER_NODE_PARSER_H__
 #define __LEVEL_FILTER_NODE_PARSER_H__
 
-#include "clsNodeParser.h"
+#include "xmlClsNodeParser.h"
 
 DGR2_NP_BEGIN
-class LevelFilterNodeParser : public ClsNodeParser
+class LevelFilterXmlNodeParser : public XmlClsNodeParser
 {
 public:
     DGR2::DGRObject* parse(my_xml_node& cls_node);
-    LevelFilterNodeParser();
-    ~LevelFilterNodeParser();
+    LevelFilterXmlNodeParser();
+    ~LevelFilterXmlNodeParser();
 };
 NP_END
 #endif

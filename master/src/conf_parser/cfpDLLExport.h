@@ -2,9 +2,9 @@
 #define __CFPDLL_EXPORT_H__
 
 #ifdef CFP_EXPORTS
-#define CFP_API __declspec(dllexport)
+#define DGR2_API __declspec(dllexport)
 #else
-#define CFP_API __declspec(dllimport)
+#define DGR2_API __declspec(dllimport)
 #endif
 
 #endif

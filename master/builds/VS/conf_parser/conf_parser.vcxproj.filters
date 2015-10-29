@@ -15,81 +15,81 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\conf_parser\confXmlParser.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\conf_parser\xmlParserHelper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\confParseException.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\xmlConfParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\levelFilterNodeParser.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\xmlConfParseException.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserLodge.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\xmlClsNodeParserLodge.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\xmlClsNodeParserRegistrant.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\loggerClsNodeParser.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\baseAppenderXmlNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\consoleAppenderNodeParser.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\fileAppenderXmlNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\baseAppenderNodeParser.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\levelFilterXmlNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\standardFormatterNodeParser.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\loggerXmlNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\conf_parser\fileAppenderNodeParser.cpp">
+    <ClCompile Include="..\..\..\src\conf_parser\standardFormatterXmlNodeParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\conf_parser\consoleAppenderXmlNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\conf_parser\clsNodeParser.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\confXmlParser.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\confParser.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\conf_parser\xmlParserHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\confParseException.h">
+    <ClInclude Include="..\..\..\src\conf_parser\xmlConfKit.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\levelFilterNodeParser.h">
+    <ClInclude Include="..\..\..\src\conf_parser\xmlConfParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserLodge.h">
+    <ClInclude Include="..\..\..\src\conf_parser\xmlConfParseException.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\clsNodeParserRegistrant.h">
+    <ClInclude Include="..\..\..\src\conf_parser\xmlClsNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\loggerClsNodeParser.h">
+    <ClInclude Include="..\..\..\src\conf_parser\xmlClsNodeParserLodge.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\consoleAppenderNodeParser.h">
+    <ClInclude Include="..\..\..\src\conf_parser\xmlClsNodeParserRegistrant.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\baseAppenderNodeParser.h">
+    <ClInclude Include="..\..\..\src\conf_parser\baseAppenderXmlNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\standardFormatterNodeParser.h">
+    <ClInclude Include="..\..\..\src\conf_parser\fileAppenderXmlNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\conf_parser\fileAppenderNodeParser.h">
+    <ClInclude Include="..\..\..\src\conf_parser\levelFilterXmlNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\loggerXmlNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\standardFormatterXmlNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\conf_parser\consoleAppenderXmlNodeParser.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
