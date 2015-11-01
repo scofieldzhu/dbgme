@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\dgr2;..\..\..\src\dgr2\langext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\dgr2;..\..\..\src\dgr2\langext;..\..\..\src\dgr2\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4150;4251;4275;4290;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -118,7 +118,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\dgr2;..\..\..\src\dgr2\langext;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\dgr2;..\..\..\src\dgr2\langext;..\..\..\src\dgr2\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4150;4251;4275;4290;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -193,7 +193,9 @@
     <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h" />
     <ClInclude Include="..\..\..\src\dgr2\logMacro.h" />
     <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
-    <ClInclude Include="..\..\..\src\dgr2\dbAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqlite3Appender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3ext.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\logTag.h" />
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
@@ -211,7 +213,9 @@
     <ClCompile Include="..\..\..\src\dgr2\logger.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\loggerMgr.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\ostreamAppender.cpp" />
-    <ClCompile Include="..\..\..\src\dgr2\dbAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\sqlite3Appender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\shell.c" />
+    <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.c" />
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp" />
     <ClCompile Include="dllMain.cpp" />

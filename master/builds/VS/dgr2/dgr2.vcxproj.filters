@@ -16,6 +16,9 @@
     <Filter Include="langext">
       <UniqueIdentifier>{4ea23a21-ded6-4e79-ae1b-1d9990ee52e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sqlite-amalgamation">
+      <UniqueIdentifier>{6109c374-d895-48f7-967d-c0b48dc93534}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\dgr2\appender.h">
@@ -69,9 +72,6 @@
     <ClInclude Include="..\..\..\src\dgr2\logTag.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\dgr2\dbAppender.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\dgrObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -97,6 +97,15 @@
       <Filter>langext</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\dgr2Exporter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.h">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3ext.h">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\sqlite3Appender.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -137,9 +146,6 @@
     <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\dgr2\dbAppender.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\langext\locks.cpp">
       <Filter>langext</Filter>
     </ClCompile>
@@ -148,6 +154,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\langext\xtime.cpp">
       <Filter>langext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\shell.c">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.c">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\sqlite3Appender.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

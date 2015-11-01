@@ -23,7 +23,7 @@ struct DGR2_API DefAppender : public Appender
 
 protected:
     DefAppender(unsigned int flush_frequence);
-    virtual void write(const std::xStrT& logged_msg) = 0;
+    virtual void write(const Log& log, const std::xStrT& logged_msg) = 0;
     virtual void flush() = 0;
 
 private:

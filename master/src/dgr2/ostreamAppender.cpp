@@ -19,7 +19,7 @@ void OstreamAppender::flush()
     os_->flush();
 }
 
-void OstreamAppender::write(const std::xStrT& logged_msg)
+void OstreamAppender::write(const Log& log, const std::xStrT& logged_msg)
 {
     os_->write(logged_msg.c_str(), logged_msg.size()); 
 }

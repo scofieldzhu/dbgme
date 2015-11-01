@@ -45,15 +45,30 @@ DGR2_API std::string UnicodeToAnsi(const wchar_t* src)
     return buffer;
 }
 
-DGR2_API void Utf8ToUnicode(const char* utf8_chars, int char_count,  wchar_t*& dst_chars, int& dst_buffer_size)
+DGR2_API void Utf8ToWideChar(const char* utf8_chars, wchar_t*& dst_chars, int* dst_buffer_size)
 {
-    const int REQUIRED_BUFFER_SIZE = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, char_count, NULL, 0);
-    dst_buffer_size = REQUIRED_BUFFER_SIZE + 1;
-    wchar_t* buffer = new wchar_t[dst_buffer_size];
-    int err = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, char_count, buffer, REQUIRED_BUFFER_SIZE);
-    buffer[REQUIRED_BUFFER_SIZE] = _X('\0');
-    if (err != 0)    
-        dst_chars = buffer;                    
+    const int kRequiredBufferSize = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, -1, NULL, 0);        
+    wchar_t* buffer = new wchar_t[kRequiredBufferSize];
+    int err = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, kRequiredBufferSize, buffer, kRequiredBufferSize);
+    if (err != 0)
+    {
+        dst_chars = buffer;
+        if (dst_buffer_size)
+            *dst_buffer_size = kRequiredBufferSize;
+    }
+}
+
+DGR2_API void WideCharToUtf8(const wchar_t* wide_chars, char*& dst_chars, int* dst_buffer_size)
+{
+    const int kRequiredBufferSize = ::WideCharToMultiByte(CP_UTF8, 0, wide_chars, -1, NULL, 0, NULL, NULL);        
+    char* buffer = new char[kRequiredBufferSize];
+    int err = ::WideCharToMultiByte(CP_UTF8, 0, wide_chars, -1, buffer, kRequiredBufferSize, NULL, NULL);
+    if (err != 0)
+    {
+        dst_chars = buffer;
+        if (dst_buffer_size)
+            *dst_buffer_size = kRequiredBufferSize;
+    }
 }
 
 DGR2_API xStrT ConvertArgsToString(const xCharT* format, ...)

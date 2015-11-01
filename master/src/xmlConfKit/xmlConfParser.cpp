@@ -31,8 +31,7 @@ struct XmlConfParser::Impl
     Impl();
     ~Impl();
     my_xml_document doc_;    
-    xCharT* conf_filecontent_;
-    int filecontent_size_;
+    xCharT* conf_filecontent_;    
 };
 
 Logger* XmlConfParser::Impl::parseLoggerNode(my_xml_node& root_node) throw (XmlConfParseException&)
@@ -52,18 +51,18 @@ void XmlConfParser::Impl::readutf8ConfContent(const xStrT& conf_file)
     fseek(fp, 0, SEEK_END);     
     const int CONTENT_BUFFER_SIZE = ftell(fp) - 3; 
     rewind(fp);        
-    char* raw_content_buffer = new char[CONTENT_BUFFER_SIZE];    
+    char* raw_content_buffer = new char[CONTENT_BUFFER_SIZE + 1];    
     fread(raw_content_buffer, 1, 3, fp);//jump over file BOM:\xef\xbb\xbf
     const int numberOfItemsFinished = fread(raw_content_buffer, 1, CONTENT_BUFFER_SIZE, fp);
     COND_VERIFY(numberOfItemsFinished == CONTENT_BUFFER_SIZE, _X("read conf file failed!"));        
-    Utf8ToUnicode(raw_content_buffer, CONTENT_BUFFER_SIZE, conf_filecontent_, filecontent_size_);
+    raw_content_buffer[CONTENT_BUFFER_SIZE] = '\0';
+    Utf8ToWideChar(raw_content_buffer, conf_filecontent_);
     fclose(fp);
     delete[] raw_content_buffer;
 }
 
 XmlConfParser::Impl::Impl()
-    :conf_filecontent_(NULL),
-    filecontent_size_(0)
+    :conf_filecontent_(NULL)    
 {
 }
 
@@ -76,8 +75,7 @@ void XmlConfParser::Impl::releaseResource()
 {
     if (conf_filecontent_)
         delete[] conf_filecontent_;
-    conf_filecontent_ = NULL;
-    filecontent_size_ = 0;
+    conf_filecontent_ = NULL;    
 }
 
 void XmlConfParser::parse() throw (XmlConfParseException&)
