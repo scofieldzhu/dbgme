@@ -8,6 +8,7 @@ struct DGR2_API ConsoleAppender : public OstreamAppender
 {
     DGR_OBJECT(ConsoleAppender)
     ConsoleAppender(unsigned int flush_frequence = 1);
+private:
     ~ConsoleAppender();
 };
 NP_END

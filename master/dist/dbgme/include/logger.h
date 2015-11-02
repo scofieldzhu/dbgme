@@ -10,6 +10,7 @@ DGR2_NP_BEGIN
 struct DGR2_API Logger : public DGRObject
 {    
     DGR_OBJECT(Logger)
+    void destroy();
     void setFilter(Filter* filter) { filter_ = filter; }
     Filter* getFilter() const { return filter_; }
     const std::xStrT& getName()const { return name_; }
@@ -26,10 +27,10 @@ struct DGR2_API Logger : public DGRObject
     }
     Logger& operator<<(const Log& log);
     Logger& operator<<(LogTag tag);
-    Logger(const std::xStrT& name);
-    ~Logger();
+    Logger(const std::xStrT& name);    
 
 private:
+    ~Logger();
     void onEndLog();    
     typedef std::vector<Appender*> AppenderListType;
     AppenderListType appenders_;

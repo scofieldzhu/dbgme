@@ -8,12 +8,12 @@ DGR2_NP_BEGIN
 
 struct DGR2_API OstreamAppender : public DefAppender
 {        
-    DGR_OBJECT(OstreamAppender)
-    virtual ~OstreamAppender();
+    DGR_OBJECT(OstreamAppender)    
 protected:
+    virtual ~OstreamAppender();
     typedef std::basic_ostream<xCharT> OstreamT;
     OstreamAppender(OstreamT& os, unsigned int flush_frequence);
-    void write(const std::xStrT& logged_msg);
+    bool write(const Log& log, const std::xStrT& logged_msg);
     void flush();
     OstreamT* os_;
 };

@@ -18,12 +18,11 @@ struct DGR2_API DefAppender : public Appender
     unsigned int getFlushFrequnce()const { return flush_frequence_; }
 
     int getFinishedLogCount()const { return finished_log_count_; }
-        
-    virtual ~DefAppender();
-
+            
 protected:
     DefAppender(unsigned int flush_frequence);
-    virtual void write(const std::xStrT& logged_msg) = 0;
+    virtual ~DefAppender();
+    virtual bool write(const Log& log, const std::xStrT& logged_msg) = 0;
     virtual void flush() = 0;
 
 private:

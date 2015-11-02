@@ -11,6 +11,8 @@ struct DGR2_API Appender : public DGRObject
     virtual Filter* getFilter() = 0;    
     virtual void setFormatter(Formatter* formatter) = 0;
     virtual Formatter* getFormatter() = 0;    
+    virtual void destroy();
+protected:
     virtual ~Appender() {}
 };
 NP_END

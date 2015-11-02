@@ -8,9 +8,9 @@ struct DGR2_API StandardFormatter : public Formatter
 {
     DGR_OBJECT(StandardFormatter)
     std::xStrT format(const Log& log);
-    StandardFormatter();
-    ~StandardFormatter();
+    StandardFormatter();    
 private:
+    ~StandardFormatter();
     std::xStrT handleLineBreak(const Log& log, std::xStrT& formatted_str);
 };
 NP_END
