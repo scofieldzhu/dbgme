@@ -7,7 +7,7 @@ DGR2_NP_BEGIN
 class DGR2_API FileAppenderXmlNodeParser : public BaseAppenderXmlNodeParser
 {
 public:
-    DGR2::DGRObject* parse(my_xml_node& cls_node);
+    DGRObject* parse(my_xml_node& cls_node);
     FileAppenderXmlNodeParser();
     ~FileAppenderXmlNodeParser();
 };

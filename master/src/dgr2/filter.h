@@ -7,6 +7,7 @@ DGR2_NP_BEGIN
 struct DGR2_API Filter : public DGRObject
 {
     virtual bool isLoggabled(const Log& log)const = 0;
+protected:
     virtual ~Filter() {}
 };
 NP_END

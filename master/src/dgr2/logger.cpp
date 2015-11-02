@@ -47,6 +47,19 @@ void Logger::publish(const Level& level, const xCharT* file, const xCharT* func,
     this->publish(log);
 }
 
+void Logger::destroy()
+{
+    if (getFilter())
+    {
+        getFilter()->destroy();
+        setFilter(NULL);
+    }
+    AppenderListType::const_iterator iter = appenders_.begin();
+    for (; iter != appenders_.end(); ++iter)
+        (*iter)->destroy();
+    appenders_.clear();
+}
+
 void Logger::addAppender(Appender& appender)
 {
     __GUARD__

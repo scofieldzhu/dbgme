@@ -8,8 +8,7 @@ using namespace std;
 
 DGR2_NP_BEGIN
 namespace {
-    const xCharT* kFilePathNodeName = _X("file_path");
-    const xCharT* kFFNodeName = _X("flush_frequence");
+    const xCharT* kFilePathNodeName = _X("file_path");    
 }
 
 DGRObject* FileAppenderXmlNodeParser::parse(my_xml_node& cls_node)
@@ -18,12 +17,9 @@ DGRObject* FileAppenderXmlNodeParser::parse(my_xml_node& cls_node)
     COND_VERIFYEX(filepath_node != NULL, _X("%s Child Node Of Appender Node Not Found!\r\n"), kFilePathNodeName);
     const xStrT filepath = filepath_node->value();    
     
-    my_xml_node* ffnode = cls_node.first_node(kFFNodeName);
-    COND_VERIFYEX(ffnode != NULL, _X("%s Child Node Of Appender Node Not Found!\r\n"), kFFNodeName);
-    const int value = Str2Int(ffnode->value());
-    COND_VERIFYEX(value != 0, _X("invalid %s value!\r\n"), kFFNodeName);
+    const int flush_frequence = parseFlushFrequnce(cls_node);
 
-    FileAppender* file_appender = new FileAppender(filepath, value);
+    FileAppender* file_appender = new FileAppender(filepath, flush_frequence);
 
     my_xml_node* filter_node = cls_node.first_node(LotsOfKeyNodes::FILTER);
     if (filter_node)

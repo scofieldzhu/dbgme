@@ -164,5 +164,8 @@
     <ClCompile Include="..\..\..\src\dgr2\sqlite3Appender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\appender.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

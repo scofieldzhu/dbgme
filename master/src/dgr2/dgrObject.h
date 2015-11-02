@@ -6,8 +6,9 @@
 DGR2_NP_BEGIN
 struct DGR2_API DGRObject
 {
-public:
+    virtual void destroy() { delete this; } //only created object by new method
     virtual const xCharT* getClassName()const = 0;
+protected:
     virtual ~DGRObject() {}
 };
 

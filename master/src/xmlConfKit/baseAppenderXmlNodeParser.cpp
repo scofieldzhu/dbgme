@@ -7,6 +7,9 @@
 #include "appender.h"
 
 DGR2_NP_BEGIN
+namespace {
+    const xCharT* kFFNodeName = _X("flush_frequence");
+}
 DGRObject* BaseAppenderXmlNodeParser::parse(my_xml_node& cls_node)
 {
     Appender* appender_inst = createAppenderInstance();
@@ -45,6 +48,16 @@ Formatter* BaseAppenderXmlNodeParser::parserFormatter(my_xml_node& cls_node)
     Formatter* formatter = dynamic_cast<Formatter*>(formatter_parser->parse(cls_node));
     COND_VERIFYEX(formatter != NULL, _X("%s Parse Failed!\r\n"), formatter_cls_attr->value());
     return formatter;
+}
+
+int BaseAppenderXmlNodeParser::parseFlushFrequnce(my_xml_node& cls_node)
+{
+    my_xml_node* ffnode = cls_node.first_node(kFFNodeName);
+    if (ffnode == NULL)
+        return 1;    
+    const int value = Str2Int(ffnode->value());
+    COND_VERIFYEX(value != 0, _X("invalid %s value!\r\n"), kFFNodeName);
+    return value;
 }
 
 BaseAppenderXmlNodeParser::BaseAppenderXmlNodeParser()

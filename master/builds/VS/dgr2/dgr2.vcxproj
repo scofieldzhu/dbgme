@@ -201,6 +201,7 @@
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\dgr2\appender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\consoleAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\defAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\fileAppender.cpp" />

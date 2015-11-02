@@ -3,8 +3,6 @@
 
 #include <vector>
 #include "dgr2.h"
-#include "logTag.h"
-#include "logger.h"
 #include "uncopyable.hpp"
 
 DGR2_NP_BEGIN
@@ -14,6 +12,7 @@ public:
     static LoggerMgr* GetInst();
     void addLogger(Logger& logger);
     Logger* getLogger(const std::xStrT& name);
+    void reset();
 
 private:
     LoggerMgr();    

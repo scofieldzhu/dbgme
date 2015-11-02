@@ -15,6 +15,9 @@
                 <file_path>C:\\Work\\sf.log.txt</file_path>
                 <flush_frequence>1</flush_frequence>
             </Appender>
+            <Appender ClsName = "Sqlite3Appender">
+                <db_filepath>testx.db</db_filepath>                
+            </Appender>
         </Appenders>      
     </Logger> 
 </Loggers>

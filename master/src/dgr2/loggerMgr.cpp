@@ -1,5 +1,5 @@
-#include <algorithm>
 #include "loggerMgr.h"
+#include <algorithm>
 #include "log.h"
 #include "logger.h"
 #include "locks.h"
@@ -48,13 +48,20 @@ Logger* LoggerMgr::getLogger(const std::xStrT& name)
     return (iter == loggers_.end() ? NULL : *iter);        
 }
 
+void LoggerMgr::reset()
+{
+    for (LoggerListType::const_iterator iter = loggers_.begin(); iter != loggers_.end(); ++iter)    
+        (*iter)->destroy();
+    loggers_.clear();
+}
+
 LoggerMgr::LoggerMgr()
 {
 
 }
 
 LoggerMgr::~LoggerMgr()
-{
-    loggers_.clear();
+{    
+    reset();
 }
 NP_END

@@ -20,6 +20,8 @@ struct Sqlite3Appender::Impl
     bool checkIfTableExists(const string& table)const;
     void createLogTableIfNecessary();
     bool executeNonQuerySql(const char* sql);
+    bool open();
+    void close();
     ~Impl();
     xStrT db_file_;
     sqlite3* db_conn_;
@@ -33,6 +35,7 @@ Sqlite3Appender::Impl::Impl(const std::xStrT& db_file)
 
 Sqlite3Appender::Impl::~Impl()
 {    
+    close();
 }
 
 bool Sqlite3Appender::Impl::checkIfTableExists(const string& table) const
@@ -99,51 +102,56 @@ bool Sqlite3Appender::Impl::executeNonQuerySql(const char* sql)
     return true;
 }
 
-bool Sqlite3Appender::open()
+bool Sqlite3Appender::Impl::open()
 {
     RESET_LAST_ERR;
-    if (impl_->db_conn_ != NULL)
+    if (db_conn_ != NULL)
         return true;
     char* utf8_str = NULL;
-    WideCharToUtf8(impl_->db_file_.c_str(), utf8_str);
-    int result = sqlite3_open_v2(utf8_str, &impl_->db_conn_, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+    WideCharToUtf8(db_file_.c_str(), utf8_str);
+    int result = sqlite3_open_v2(utf8_str, &db_conn_, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
     delete[] utf8_str;
     if (result != SQLITE_OK)
     {        
-        SET_LAST_ERR(sqlite3_errmsg(impl_->db_conn_));
-        sqlite3_close_v2(impl_->db_conn_);
+        SET_LAST_ERR(sqlite3_errmsg(db_conn_));
+        sqlite3_close_v2(db_conn_);
         return false;
     }
-    impl_->createLogTableIfNecessary();
+    createLogTableIfNecessary();
     return true;
 }
 
-void Sqlite3Appender::close()
+void Sqlite3Appender::Impl::close()
 {
     RESET_LAST_ERR;
-    if (impl_->db_conn_)
-        sqlite3_close_v2(impl_->db_conn_);
-    impl_->db_conn_ = NULL;
+    if (db_conn_)
+        sqlite3_close_v2(db_conn_);
+    db_conn_ = NULL;
 }
 
 Sqlite3Appender::Sqlite3Appender(const std::xStrT& db_file, unsigned int flush_frequence)
     :DefAppender(flush_frequence),
     impl_(new Impl(db_file))
 {
+    impl_->open();
 }
 
 Sqlite3Appender::~Sqlite3Appender()
-{
-    close();
+{    
     delete impl_;
     impl_ = NULL;
 }
 
-void Sqlite3Appender::write(const Log& log, const std::xStrT& logged_msg)
+bool Sqlite3Appender::write(const Log& log, const std::xStrT& logged_msg)
 {
     RESET_LAST_ERR;
+    if (!impl_->db_conn_)
+    {
+        SET_LAST_ERR("db connection not created sucessfully!\r\n");
+        return false;
+    }
     if (!impl_->executeNonQuerySql("BEGIN;"))    
-        return;    
+        return false;    
     char insert_record_sql_buffer[200] = { '\0' };
     sprintf_s(insert_record_sql_buffer, "INSERT INTO %s(level, logger, func, file, lineno, thread_id, timestamp, content) VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8);", LOG_TABLE);
     sqlite3_stmt* st = NULL;    
@@ -169,6 +177,7 @@ void Sqlite3Appender::write(const Log& log, const std::xStrT& logged_msg)
     sqlite3_finalize(st);
     for (int i = 0; i < sizeof(utf8_buffer_arry) / sizeof(utf8_buffer_arry[0]); ++i)
         delete[] utf8_buffer_arry[i];
+    return true;
 }
 
 void Sqlite3Appender::flush()

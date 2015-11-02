@@ -180,6 +180,7 @@
     <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml_iterators.hpp" />
     <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml_print.hpp" />
     <ClInclude Include="..\..\..\src\xmlConfKit\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\..\src\xmlConfKit\sqlite3AppenderXmlNodeParser.h" />
     <ClInclude Include="..\..\..\src\xmlConfKit\standardFormatterXmlNodeParser.h" />
     <ClInclude Include="..\..\..\src\xmlConfKit\xmlClsNodeParser.h" />
     <ClInclude Include="..\..\..\src\xmlConfKit\xmlClsNodeParserLodge.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="..\..\..\src\xmlConfKit\fileAppenderXmlNodeParser.cpp" />
     <ClCompile Include="..\..\..\src\xmlConfKit\levelFilterXmlNodeParser.cpp" />
     <ClCompile Include="..\..\..\src\xmlConfKit\loggerXmlNodeParser.cpp" />
+    <ClCompile Include="..\..\..\src\xmlConfKit\sqlite3AppenderXmlNodeParser.cpp" />
     <ClCompile Include="..\..\..\src\xmlConfKit\standardFormatterXmlNodeParser.cpp" />
     <ClCompile Include="..\..\..\src\xmlConfKit\xmlClsNodeParserLodge.cpp" />
     <ClCompile Include="..\..\..\src\xmlConfKit\xmlClsNodeParserRegistrant.cpp" />

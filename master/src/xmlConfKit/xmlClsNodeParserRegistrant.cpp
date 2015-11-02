@@ -5,6 +5,7 @@
 #include "consoleAppenderXmlNodeParser.h"
 #include "fileAppenderXmlNodeParser.h"
 #include "standardFormatterXmlNodeParser.h"
+#include "sqlite3AppenderXmlNodeParser.h"
 
 DGR2_NP_BEGIN
 
@@ -15,6 +16,7 @@ void XmlClsNodeParserRegistrant::registerAllParsers()
     JOIN_PARSER_LODGE(ConsoleAppender, ConsoleAppenderXmlNodeParser)
     JOIN_PARSER_LODGE(FileAppender, FileAppenderXmlNodeParser)
     JOIN_PARSER_LODGE(StandardFormatter, StandardFormatterXmlNodeParser)
+    JOIN_PARSER_LODGE(Sqlite3Appender, Sqlite3AppenderXmlNodeParser)
 }
 
 XmlClsNodeParserRegistrant::XmlClsNodeParserRegistrant()

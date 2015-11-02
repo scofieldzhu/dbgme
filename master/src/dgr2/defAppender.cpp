@@ -25,7 +25,8 @@ bool DefAppender::publish(const Log& log)
     xStrT logged_msg = log.content_;
     if (formatter_)
         logged_msg = formatter_->format(log);
-    write(log, logged_msg);
+    if (!write(log, logged_msg))
+        return false;
     finished_log_count_ += 1;
     if(finished_log_count_ % flush_frequence_ == 0)
         flush();

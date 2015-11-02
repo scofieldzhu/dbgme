@@ -69,6 +69,9 @@
     <ClInclude Include="..\..\..\src\xmlConfKit\xmlParserHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\xmlConfKit\sqlite3AppenderXmlNodeParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\xmlConfKit\baseAppenderXmlNodeParser.cpp">
@@ -102,6 +105,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\xmlConfKit\xmlParserHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\xmlConfKit\sqlite3AppenderXmlNodeParser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
