@@ -1,7 +1,7 @@
 #include <iostream>
 #include "xtime.h"
 #include "levelFilter.h"
-#include "logMacro.h"
+#include "dgr2Macro.h"
 #include "standardFormatter.h"
 #include "consoleAppender.h"
 #include "fileAppender.h"
@@ -15,6 +15,28 @@
 #include "sqlite3Appender.h"
 using namespace std;
 USING_DGR2
+
+void TestFuncB(Logger& logger)
+{
+    TRACE_FUNC(logger);
+    PLACE_TRACK_SLOT;
+}
+
+void TestFuncA(Logger& logger)
+{
+    TRACE_FUNC(logger);
+    START_TRACK(logger);
+    TestFuncB(logger);
+}
+
+void TestFunction(Logger& logger)
+{
+    TRACE_FUNC(logger);
+    TestFuncA(logger);
+    for (int i = 0; i < 1000000; ++i)
+        ;
+    STOP_TRACK;
+}
 
 int main()
 {       
@@ -54,6 +76,9 @@ int main()
     double fx = 12.36;
 
     Logger* pLogger = LoggerMgr::GetInst()->getLogger(_X("TL"));
+    TestFunction(*pLogger);
+
+    /*
     XLOG_DBG(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     SXLOG_DBG(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
  
@@ -68,7 +93,7 @@ int main()
       
     XLOG_FAT(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
     SXLOG_FAT(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;    
-
+    */
     LoggerMgr::GetInst()->reset();
 	return 0;    
 }

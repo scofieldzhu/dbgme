@@ -1,8 +1,6 @@
 #include "log.h"
 #include "level.h"
-#ifdef IN_WINOS
-#include <Windows.h>
-#endif
+#include "platform.h"
 using namespace std;
 
 DGR2_NP_BEGIN
@@ -14,11 +12,7 @@ Log::Log(const Level& level)
     func_name_(NONE_STR),
     filename_(NONE_STR),
     lineno_(-1),
-#ifdef IN_WINOS
-    thread_id_(GetCurrentThreadId()),
-#else
-    thread_id_(-1),
-#endif
+    thread_id_(GetPresentThreadId()),
     timestamp_(DateTime::Now())
 {
 }

@@ -1,10 +1,7 @@
+#include "xtext.h"
 #include <tchar.h>
 #include <cassert>
 #include <cstdarg>
-#include "xtext.h"
-#ifdef IN_WINOS
-#include <windows.h>
-#endif
 using namespace std;
 
 DGR2_NP_BEGIN
@@ -43,32 +40,6 @@ DGR2_API std::string UnicodeToAnsi(const wchar_t* src)
     size_t return_value = 0;
     wcstombs_s(&return_value, buffer, required_buffer_size + 1, src, required_buffer_size);
     return buffer;
-}
-
-DGR2_API void Utf8ToWideChar(const char* utf8_chars, wchar_t*& dst_chars, int* dst_buffer_size)
-{
-    const int kRequiredBufferSize = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, -1, NULL, 0);        
-    wchar_t* buffer = new wchar_t[kRequiredBufferSize];
-    int err = ::MultiByteToWideChar(CP_UTF8, 0, utf8_chars, kRequiredBufferSize, buffer, kRequiredBufferSize);
-    if (err != 0)
-    {
-        dst_chars = buffer;
-        if (dst_buffer_size)
-            *dst_buffer_size = kRequiredBufferSize;
-    }
-}
-
-DGR2_API void WideCharToUtf8(const wchar_t* wide_chars, char*& dst_chars, int* dst_buffer_size)
-{
-    const int kRequiredBufferSize = ::WideCharToMultiByte(CP_UTF8, 0, wide_chars, -1, NULL, 0, NULL, NULL);        
-    char* buffer = new char[kRequiredBufferSize];
-    int err = ::WideCharToMultiByte(CP_UTF8, 0, wide_chars, -1, buffer, kRequiredBufferSize, NULL, NULL);
-    if (err != 0)
-    {
-        dst_chars = buffer;
-        if (dst_buffer_size)
-            *dst_buffer_size = kRequiredBufferSize;
-    }
 }
 
 DGR2_API xStrT ConvertArgsToString(const xCharT* format, ...)

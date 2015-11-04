@@ -182,6 +182,7 @@
     <ClInclude Include="..\..\..\src\dgr2\langext\autoLock.hpp" />
     <ClInclude Include="..\..\..\src\dgr2\langext\basicType.h" />
     <ClInclude Include="..\..\..\src\dgr2\langext\locks.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\platform.h" />
     <ClInclude Include="..\..\..\src\dgr2\langext\uncopyable.hpp" />
     <ClInclude Include="..\..\..\src\dgr2\langext\xtext.h" />
     <ClInclude Include="..\..\..\src\dgr2\langext\xtime.h" />
@@ -191,13 +192,14 @@
     <ClInclude Include="..\..\..\src\dgr2\log.h" />
     <ClInclude Include="..\..\..\src\dgr2\logger.h" />
     <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h" />
-    <ClInclude Include="..\..\..\src\dgr2\logMacro.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgr2Macro.h" />
     <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
     <ClInclude Include="..\..\..\src\dgr2\sqlite3Appender.h" />
     <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.h" />
     <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3ext.h" />
     <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\dgr2\logTag.h" />
+    <ClInclude Include="..\..\..\src\dgr2\tracer.h" />
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +208,7 @@
     <ClCompile Include="..\..\..\src\dgr2\defAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\fileAppender.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\langext\locks.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\platform.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\langext\xtext.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\langext\xtime.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp" />
@@ -218,6 +221,7 @@
     <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\shell.c" />
     <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.c" />
     <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\tracer.cpp" />
     <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp" />
     <ClCompile Include="dllMain.cpp" />
   </ItemGroup>

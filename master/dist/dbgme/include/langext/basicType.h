@@ -56,8 +56,4 @@
 #define NP_END }
 #define USING_NP(np) using namespace np;
 
-#if defined(_WIN32) || defined(_WIN64)
-    #define IN_WINOS
-#endif
-
 #endif

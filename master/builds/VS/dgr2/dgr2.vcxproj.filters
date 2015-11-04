@@ -63,9 +63,6 @@
     <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\dgr2\logMacro.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -106,6 +103,15 @@
       <Filter>sqlite-amalgamation</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\dgr2\sqlite3Appender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\tracer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\langext\platform.h">
+      <Filter>langext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\dgr2\dgr2Macro.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -166,6 +172,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\dgr2\appender.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\tracer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\dgr2\langext\platform.cpp">
+      <Filter>langext</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
