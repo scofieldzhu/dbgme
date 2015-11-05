@@ -59,20 +59,20 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\_bin</OutDir>
+    <OutDir>$(SolutionDir)_bin</OutDir>
     <TargetName>$(ProjectName)-debug-x86</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\_bin</OutDir>
+    <OutDir>$(SolutionDir)_bin</OutDir>
     <TargetName>$(ProjectName)-release-x86</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\_bin</OutDir>
+    <OutDir>$(SolutionDir)_bin</OutDir>
     <TargetName>$(ProjectName)-debug-x64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)\_bin</OutDir>
+    <OutDir>$(SolutionDir)_bin</OutDir>
     <TargetName>$(ProjectName)-release-x64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
