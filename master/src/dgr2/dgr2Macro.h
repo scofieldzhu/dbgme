@@ -7,6 +7,7 @@
 #include "logger.h"
 #include "tracer.h"
 #include "platform.h"
+#include "loggerMgr.h"
 
 #define XLOG_DBG(plogger, fmt, ...) plogger->publish(DGR2::DebugLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
 #define XLOG_INF(plogger, fmt, ...) plogger->publish(DGR2::InfoLevel(), __XFILE__, __XFUNCTION__, __LINE__, fmt, __VA_ARGS__)
@@ -40,10 +41,14 @@
         DGR2::DebugBreak(); \
     }
 
+#define LOGGER(name) DGR2::LoggerMgr::GetInst()->getLogger(name)
+
 #define VERIFYEX(pLogger, cond, fmt, ...) \
     if(!(cond)) {\
         XLOG_FAT(pLogger, fmt, __VA_ARGS__);  \
         DGR2::DebugBreak(); \
     }
+
+#pragma warning(disable:4275)
 
 #endif
