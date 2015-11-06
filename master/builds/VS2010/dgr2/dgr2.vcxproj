@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5458D0DC-FAAC-4B3F-84C1-D8387CA85AFD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>dgr2</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)_bin</OutDir>
+    <TargetName>$(ProjectName)-v10-debug-win32</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)_bin</OutDir>
+    <TargetName>$(ProjectName)-v10-release-win32</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\src\dgr2\sqlite-amalgamation;..\..\..\src\dgr2\langext;..\..\..\src\dgr2;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;DGR2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\src\dgr2\sqlite-amalgamation;..\..\..\src\dgr2\langext;..\..\..\src\dgr2;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;4275;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\dgr2\appender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\consoleAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\defAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\fileAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\locks.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\platform.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\xtext.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\langext\xtime.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\levelFilter.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\levels.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\log.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\logger.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\loggerMgr.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\ostreamAppender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\shell.c" />
+    <ClCompile Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.c" />
+    <ClCompile Include="..\..\..\src\dgr2\sqlite3Appender.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\standardFormatter.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\tracer.cpp" />
+    <ClCompile Include="..\..\..\src\dgr2\xmlAppender.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\dgr2\appender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\consoleAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\defAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgr2.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgr2Exporter.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgr2Macro.h" />
+    <ClInclude Include="..\..\..\src\dgr2\dgrObject.h" />
+    <ClInclude Include="..\..\..\src\dgr2\fileAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\filter.h" />
+    <ClInclude Include="..\..\..\src\dgr2\formatter.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\autoLock.hpp" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\basicType.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\locks.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\platform.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\uncopyable.hpp" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\xtext.h" />
+    <ClInclude Include="..\..\..\src\dgr2\langext\xtime.h" />
+    <ClInclude Include="..\..\..\src\dgr2\level.h" />
+    <ClInclude Include="..\..\..\src\dgr2\levelFilter.h" />
+    <ClInclude Include="..\..\..\src\dgr2\levels.h" />
+    <ClInclude Include="..\..\..\src\dgr2\log.h" />
+    <ClInclude Include="..\..\..\src\dgr2\logger.h" />
+    <ClInclude Include="..\..\..\src\dgr2\loggerMgr.h" />
+    <ClInclude Include="..\..\..\src\dgr2\logTag.h" />
+    <ClInclude Include="..\..\..\src\dgr2\ostreamAppender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqlite-amalgamation\sqlite3ext.h" />
+    <ClInclude Include="..\..\..\src\dgr2\sqlite3Appender.h" />
+    <ClInclude Include="..\..\..\src\dgr2\standardFormatter.h" />
+    <ClInclude Include="..\..\..\src\dgr2\tracer.h" />
+    <ClInclude Include="..\..\..\src\dgr2\xmlAppender.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
