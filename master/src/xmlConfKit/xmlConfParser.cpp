@@ -107,8 +107,8 @@ XmlConfParser::XmlConfParser(const std::xStrT& conf_file)
     }
     catch (parse_error& e)
     {        
-        impl_->releaseResource();
-        xStrT err_details = e.where<xCharT>() + AnsiToUnicode(e.what());
+        impl_->releaseResource();        
+        xStrT err_details = AnsiToUnicode(e.what());
         throw XmlConfParseException(err_details.c_str());
     }    
     catch (exception& e)
