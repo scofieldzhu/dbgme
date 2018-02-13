@@ -6,7 +6,7 @@
 SFLOGGER_NAMESPACE_BEGIN 
 struct SFLOGGER_API StandardFormatter : public Formatter
 {
-    DGR_OBJECT(StandardFormatter)
+    HEAP_OBJECT(StandardFormatter)
     std::xStrT format(const Log& log);
     StandardFormatter();    
 private:

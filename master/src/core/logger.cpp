@@ -26,20 +26,20 @@ SFLOGGER_NAMESPACE_BEGIN
 
 #define __GUARD__ AutoLock<CriticalSectionLock> lock;
 
-void Logger::publish(const Level& level, const xCharT* fmt, ...)
+void Logger::publish(const Level* level, const xCharT* fmt, ...)
 {
     __GUARD__
     Log log(level);
-    log.logger_name_ = getName();
+    log.logger_name_ = getName().c_str();
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);
     this->publish(log);
 }
 
-void Logger::publish(const Level& level, const xCharT* file, const xCharT* func, unsigned int lineno, const xCharT* fmt, ...)
+void Logger::publish(const Level* level, const xCharT* file, const xCharT* func, unsigned int lineno, const xCharT* fmt, ...)
 {
     __GUARD__
     Log log(level);
-    log.logger_name_ = getName();    
+    log.logger_name_ = getName().c_str();
     CONVERT_ARGS_TO_STR(log.content_, fmt, __VA_ARGS__);    
     log.func_name_ = func;
     log.filename_ = SplitFilenameFromFullPath(file);
@@ -85,54 +85,13 @@ void Logger::publish(Log& log)
         (*iter)->publish(log);
 }
 
-Logger& Logger::operator<<(const Log& log)
-{
-    __GUARD__
-    target_log_ = new Log(log);
-    return *this;
-}
-
-Logger& Logger::operator<<(LogTag tag)
-{
-    __GUARD__
-    switch(tag)
-    {
-        case endt:
-            onEndLog();
-            break;
-
-        case lbt:
-            xostream_ << std::endl;
-            break;
-
-        default:
-            break;
-    }
-    return *this;
-}
-
-void Logger::onEndLog()
-{    
-    __GUARD__
-    target_log_->content_ = xostream_.str();
-    xostream_.str(_X(""));
-    publish(*target_log_);
-    delete target_log_;
-    target_log_ = NULL;
-}
-
 Logger::Logger(const std::xStrT& name)
-    :target_log_(NULL),
-    name_(name),
+    :name_(name),
     filter_(NULL)
 {
 }
 
 Logger::~Logger()
-{
-    if(target_log_)
-        delete target_log_;
-    target_log_ = NULL;
-}
+{}
 
 NAMESPACE_END

@@ -41,4 +41,34 @@ LevelObjReflection& LevelObjReflection::GetInstance()
     static LevelObjReflection reflection;
     return reflection;
 }
+
+const Level* debuglevel()
+{
+    static DebugLevel dl;
+    return &dl;
+}
+
+const Level* infolevel()
+{
+    static InfoLevel il;
+    return &il;
+}
+
+const Level* warnlevel()
+{
+    static WarnLevel wl;
+    return &wl;
+}
+
+const Level* errlevel()
+{
+    static ErrLevel el;
+    return &el;
+}
+
+const Level* fatallevel()
+{
+    static FatalLevel fl;
+    return &fl;
+}
 NAMESPACE_END

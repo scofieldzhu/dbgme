@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test2", "test2\test2.vcxproj", "{2A3BCB81-CE6E-4D5D-83B7-E146E51DCF01}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A047DA7C-D882-4EB2-BF38-A87FFFA003D7} = {A047DA7C-D882-4EB2-BF38-A87FFFA003D7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sflogger.xmlconf", "sflogger.xmlconf\sflogger.xmlconf.vcxproj", "{A047DA7C-D882-4EB2-BF38-A87FFFA003D7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B8A5140-D13F-4D8F-B69E-AD79CB16B870} = {9B8A5140-D13F-4D8F-B69E-AD79CB16B870}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sflogger.core", "sflogger.core\sflogger.core.vcxproj", "{9B8A5140-D13F-4D8F-B69E-AD79CB16B870}"
 EndProject

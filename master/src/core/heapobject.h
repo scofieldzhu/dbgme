@@ -12,7 +12,7 @@ protected:
     virtual ~HeapObject() {}
 };
 
-#define DGR_OBJECT(ClassName) \
+#define HEAP_OBJECT(ClassName) \
 public: \
     const xCharT* getClassName()const { return _X(#ClassName);}
 

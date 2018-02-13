@@ -8,7 +8,7 @@ SFLOGGER_NAMESPACE_BEGIN
 
 struct SFLOGGER_API OstreamAppender : public DefAppender
 {        
-    DGR_OBJECT(OstreamAppender)    
+    HEAP_OBJECT(OstreamAppender)    
 protected:
     virtual ~OstreamAppender();
     typedef std::basic_ostream<xCharT> OstreamT;

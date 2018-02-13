@@ -6,7 +6,7 @@
 SFLOGGER_NAMESPACE_BEGIN
 struct SFLOGGER_API DefAppender : public Appender
 {    
-    DGR_OBJECT(DefAppender)
+    HEAP_OBJECT(DefAppender)
 
     void setFilter(Filter* filter) {  filter_ = filter; }
     Filter* getFilter() { return filter_; }    

@@ -6,7 +6,7 @@
 SFLOGGER_NAMESPACE_BEGIN
 struct SFLOGGER_API LevelFilter : public Filter
 {
-    DGR_OBJECT(LevelFilter)
+    HEAP_OBJECT(LevelFilter)
     bool isLoggabled(const Log& log)const;
     void setLowerBoundLevel(const Level* level);
     const Level* getLowerBoundLevel()const;

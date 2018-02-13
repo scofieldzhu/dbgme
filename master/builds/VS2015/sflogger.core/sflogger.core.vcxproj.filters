@@ -81,6 +81,9 @@
     <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.c">
       <Filter>sqlite-amalgamation</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\core\logstream.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\core\appender.h">
@@ -120,9 +123,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\loggerMgr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\logTag.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\ostreamAppender.h">
@@ -177,6 +177,9 @@
       <Filter>sqlite-amalgamation</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\npsdef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\logstream.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@
 SFLOGGER_NAMESPACE_BEGIN
 struct SFLOGGER_API Sqlite3Appender : public DefAppender
 {
-    DGR_OBJECT(Sqlite3Appender)
+    HEAP_OBJECT(Sqlite3Appender)
     Sqlite3Appender(const std::xStrT& db_file, unsigned int flush_frequence);    
 private:    
     ~Sqlite3Appender();

@@ -5,8 +5,8 @@ using namespace std;
 
 SFLOGGER_NAMESPACE_BEGIN
 
-Log::Log(const Level& level) 
-    :level_(level.clone()),
+Log::Log(const Level* level) 
+    :level_(level),
     logger_name_(NONE_STR),
     content_(_X("")),
     func_name_(NONE_STR),
@@ -19,12 +19,8 @@ Log::Log(const Level& level)
 
 Log::Log(const Log& rhs)
     :level_(NULL)
-{
-    if (level_ != NULL)
-        delete level_;
-    level_ = NULL;
-    if(rhs.level_)
-        level_ = rhs.level_->clone();
+{    
+    level_ = rhs.level_;
     logger_name_ = rhs.logger_name_;
     content_ = rhs.content_;
     func_name_ = rhs.func_name_;
@@ -36,11 +32,7 @@ Log::Log(const Log& rhs)
 
 Log& Log::operator=(const Log& rhs)
 {
-    if (level_ != NULL)
-        delete level_;
-    level_ = NULL;
-    if (rhs.level_)
-        level_ = rhs.level_->clone();
+    level_ = rhs.level_;
     logger_name_ = rhs.logger_name_;
     content_ = rhs.content_;
     func_name_ = rhs.func_name_;
@@ -50,13 +42,5 @@ Log& Log::operator=(const Log& rhs)
     timestamp_ = rhs.timestamp_;
     return *this;
 }
-
-Log::~Log()
-{
-    if (level_)
-        delete level_;
-    level_ = NULL;
-}
-
 NAMESPACE_END
 

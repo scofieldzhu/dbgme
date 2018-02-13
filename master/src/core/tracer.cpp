@@ -19,8 +19,7 @@ SFLOGGER_API void StartTrack(Logger& logger, xCharT* file, const xCharT* functio
     g_track_start_tickcount = GetCurrentTickCount();
     g_last_track_slot_tickcount = g_track_start_tickcount;
     g_track_logger = &logger;    
-    InfoLevel info_level;
-    g_track_logger->publish(info_level, file, function, lineno, _X("Start New Tracker...\r\n"));
+    g_track_logger->publish(infolevel(), file, function, lineno, _X("Start New Tracker...\r\n"));
 }
 
 SFLOGGER_API void StopTrack(const xCharT* file, const xCharT* function, int lineno)
@@ -28,8 +27,7 @@ SFLOGGER_API void StopTrack(const xCharT* file, const xCharT* function, int line
     const int kNowTickTime = GetCurrentTickCount();
     const int kTotalCostTime = kNowTickTime - g_track_start_tickcount;
     const int kOffsetCostTime = kNowTickTime - g_last_track_slot_tickcount;
-    InfoLevel info_level;
-    g_track_logger->publish(info_level, file, function, lineno, _X("Tracker Stopped![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
+    g_track_logger->publish(infolevel(), file, function, lineno, _X("Tracker Stopped![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
     g_track_start_tickcount = 0;
     g_last_track_slot_tickcount = 0;
     g_track_logger = NULL;
@@ -40,14 +38,13 @@ SFLOGGER_API void PlaceTrackSlot(const xCharT* file, const xCharT* function, int
     const int kNowTickTime = GetCurrentTickCount();
     const int kTotalCostTime = kNowTickTime - g_track_start_tickcount;
     const int kOffsetCostTime = kNowTickTime - g_last_track_slot_tickcount;
-    InfoLevel info_level;
-    g_track_logger->publish(info_level, file, function, lineno, _X("New Track Slot Placed![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
+    g_track_logger->publish(infolevel(), file, function, lineno, _X("New Track Slot Placed![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
     g_last_track_slot_tickcount = kNowTickTime;
 }
 
 struct FunctionTracer::Impl 
 {
-    Impl(Logger& logger, const Level& level, const xCharT* file, const xCharT* function, int lineno, bool trace_time_wasted);
+    Impl(Logger& logger, const Level* level, const xCharT* file, const xCharT* function, int lineno, bool trace_time_wasted);
     ~Impl();
     Log log_;
     bool trace_time_wasted_;
@@ -55,7 +52,7 @@ struct FunctionTracer::Impl
     const int start_time_;
 };
 
-FunctionTracer::Impl::Impl(Logger& logger, const Level& level, const xCharT* file, const xCharT* function, int lineno, bool trace_time_wasted)
+FunctionTracer::Impl::Impl(Logger& logger, const Level* level, const xCharT* file, const xCharT* function, int lineno, bool trace_time_wasted)
     :log_(level),
     trace_time_wasted_(trace_time_wasted),
     logger_(&logger),
@@ -83,7 +80,7 @@ FunctionTracer::Impl::~Impl()
 }
 
 FunctionTracer::FunctionTracer(Logger& logger, const xCharT* file, const xCharT* function, int lineno, bool trace_time_wasted)
-    :impl_(new Impl(logger, InfoLevel(), file, function, lineno, trace_time_wasted))    
+    :impl_(new Impl(logger, infolevel(), file, function, lineno, trace_time_wasted))    
 {    
 }
 

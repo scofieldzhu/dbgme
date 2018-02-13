@@ -12,36 +12,31 @@
 #include "xmlConfParseException.h"
 #include "xmlClsNodeParserRegistrant.h"
 #include "loggerMgr.h"
-
 #include <string>
-
-#include <windows.h>
-
-#include "sqlite3Appender.h"
 
 using namespace std;
 USING_SFLOGGER
 
 void TestFuncB(Logger& logger)
 {
-    TRACE_FUNC(logger);
-    PLACE_TRACK_SLOT;
+    track_this_func(logger);
+    mark_track_slot();
 }
 
 void TestFuncA(Logger& logger)
 {
-    TRACE_FUNC(logger);
-    START_TRACK(logger);
+    track_this_func(logger);
+    track_now(logger);
     TestFuncB(logger);
 }
 
 void TestFunction(Logger& logger)
 {
-    TRACE_FUNC(logger);
+    track_this_func(logger);
     TestFuncA(logger);
     for (int i = 0; i < 1000000; ++i)
         ;
-    STOP_TRACK;
+    stop_track();
 }
 
 int main()
@@ -59,46 +54,27 @@ int main()
         return 0;
     }
 
-    /*WarnLevel lower;
-    FatalLevel upper;
-    LevelFilter filter(NULL, &upper);
-
-    StandardFormatter formatter;
-
-    ConsoleAppender console_appender;
-    console_appender.setFormatter(&formatter);
-
-    FileAppender file_appender(_X("test.log.txt"), 100);
-    file_appender.setFormatter(&formatter);
-
-    Logger logger(_X("Console"));
-    logger.setFilter(&filter);
-    logger.addAppender(console_appender);*/
-    //logger.addAppender(file_appender);
-    //LoggerMgr::GetInst()->addLogger(logger);
-
-
     const xCharT* x = _X("fdfdf");
     int ix = 10;
     double fx = 12.36;    
     Logger* pLogger = LoggerMgr::GetInst()->getLogger(_X("TL"));
     TestFunction(*pLogger);
 
+    log_debug(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    slog_debug(pLogger).enableAutoSpace() << _X("HelloWorld") << x << _X("and") << ix << _X("and") << fx << std::endl;
+    slog_debug(pLogger).disableAutoSpace() << _X("HelloWorld") << x << _X("and") << ix << _X("and") << fx << std::endl;
 
-    XLOG_DBG(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    SXLOG_DBG(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
+    log_warn(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    slog_warn(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << std::endl;
 
-    XLOG_WAR(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    SXLOG_WAR(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
+    log_info(pLogger, _X("\r\nHelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    slog_info(pLogger) << std::endl << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << std::endl;
 
-    XLOG_INF(pLogger, _X("\r\nHelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    SXLOG_INF(pLogger) << LBT << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
+    log_err(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    slog_err(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << std::endl;
 
-    XLOG_ERR(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    SXLOG_ERR(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
-
-    XLOG_FAT(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    SXLOG_FAT(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << LBT << END;
+    log_fatal(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
+    slog_fatal(pLogger) << _X("HelloWorld ") << x << _X(" and ") << ix << _X(" and ") << fx << _X("!") << std::endl;
 
     LoggerMgr::GetInst()->reset();
     return 0;

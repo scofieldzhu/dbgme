@@ -6,7 +6,7 @@
 SFLOGGER_NAMESPACE_BEGIN
 struct SFLOGGER_API FileAppender : public OstreamAppender
 {
-    DGR_OBJECT(FileAppender);
+    HEAP_OBJECT(FileAppender);
     FileAppender(const std::xStrT& filepath, unsigned int flush_frequence);
 private:
     ~FileAppender();

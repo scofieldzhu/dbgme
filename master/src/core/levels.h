@@ -7,7 +7,7 @@
 
 SFLOGGER_NAMESPACE_BEGIN
 
-#define NEW_LEVEL_CLASS(LevelClass, Desp, Val) \
+#define LEVEL_DECL(LevelClass, Desp, Val) \
 struct LevelClass : public DefLevel{ \
     const xCharT* repr() const { return _X(#Desp); } \
     Level* clone()const { return new LevelClass(*this); } \
@@ -15,11 +15,16 @@ struct LevelClass : public DefLevel{ \
     ~LevelClass(){} \
 };
 
-NEW_LEVEL_CLASS(DebugLevel, DebugLevel, 1)
-NEW_LEVEL_CLASS(InfoLevel, InfoLevel, 2)
-NEW_LEVEL_CLASS(WarnLevel, WarnLevel, 3)
-NEW_LEVEL_CLASS(ErrLevel, ErrLevel, 4)
-NEW_LEVEL_CLASS(FatalLevel, FatalLevel, 5)
+LEVEL_DECL(DebugLevel, DebugLevel, 1)
+SFLOGGER_API const Level* debuglevel();
+LEVEL_DECL(InfoLevel, InfoLevel, 2)
+SFLOGGER_API const Level* infolevel();
+LEVEL_DECL(WarnLevel, WarnLevel, 3)
+SFLOGGER_API const Level* warnlevel();
+LEVEL_DECL(ErrLevel, ErrLevel, 4)
+SFLOGGER_API const Level* errlevel();
+LEVEL_DECL(FatalLevel, FatalLevel, 5)
+SFLOGGER_API const Level* fatallevel();
 
 struct SFLOGGER_API LevelObjReflection : public Uncopyable
 {

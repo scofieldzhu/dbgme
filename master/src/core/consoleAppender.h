@@ -6,7 +6,7 @@
 SFLOGGER_NAMESPACE_BEGIN
 struct SFLOGGER_API ConsoleAppender : public OstreamAppender
 {
-    DGR_OBJECT(ConsoleAppender)
+    HEAP_OBJECT(ConsoleAppender)
     ConsoleAppender(unsigned int flush_frequence = 1);
 private:
     ~ConsoleAppender();

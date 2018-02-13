@@ -173,6 +173,7 @@
     <ClCompile Include="..\..\..\src\core\logger.cpp" />
     <ClCompile Include="..\..\..\src\core\loggerMgr.cpp" />
     <ClCompile Include="..\..\..\src\core\ostreamAppender.cpp" />
+    <ClCompile Include="..\..\..\src\core\logstream.cpp" />
     <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\shell.c" />
     <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.c" />
     <ClCompile Include="..\..\..\src\core\sqlite3Appender.cpp" />
@@ -201,9 +202,9 @@
     <ClInclude Include="..\..\..\src\core\log.h" />
     <ClInclude Include="..\..\..\src\core\logger.h" />
     <ClInclude Include="..\..\..\src\core\loggerMgr.h" />
-    <ClInclude Include="..\..\..\src\core\logTag.h" />
     <ClInclude Include="..\..\..\src\core\npsdef.h" />
     <ClInclude Include="..\..\..\src\core\ostreamAppender.h" />
+    <ClInclude Include="..\..\..\src\core\logstream.h" />
     <ClInclude Include="..\..\..\src\core\sfloggerexports.h" />
     <ClInclude Include="..\..\..\src\core\sfloggerpublic.h" />
     <ClInclude Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.h" />
