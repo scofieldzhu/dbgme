@@ -10,6 +10,15 @@ ehthumbs.db
 *.aps
 *.log
 *.txt
+*.ilk
+*.VC.db
+*.VC.opendb
+*.exp
+*.iobj
+*.pdb
+*.ipdb
+*.pch
+*.idb
 
 
 # Folder config file
@@ -19,17 +28,15 @@ Desktop.ini
 $RECYCLE.BIN/
 $Debug/
 /master/dist
-/master/builds/VS/.vs
-/master/builds/VS/ipch
-/master/builds/VS/_bin
-/master/builds/VS/dgr/Debug
-/master/builds/VS/dgr/Release
-/master/builds/VS/dgr2/Debug
-/master/builds/VS/dgr2/Release
-/master/builds/VS/test/Debug
-/master/builds/VS/test/Release
-/master/builds/VS/xmlConfKit/Debug
-/master/builds/VS/xmlConfKit/Release
+/master/builds/VS2015/.vs
+/master/builds/VS2015/ipch
+/master/builds/VS2015/_bin
+/master/builds/VS2015/sflogger.core/Debug
+/master/builds/VS2015/sflogger.core/Release
+/master/builds/VS2015/sflogger.xmlconf/Debug
+/master/builds/VS2015/sflogger.xmlconf/Release
+/master/builds/VS2015/test2/Debug
+/master/builds/VS2015/test2/Release
 
 # Windows Installer files
 *.cab
