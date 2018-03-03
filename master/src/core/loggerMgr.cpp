@@ -3,7 +3,7 @@
 #include <iostream>
 #include "log.h"
 #include "logger.h"
-#include "locks.h"
+#include "platform.h"
 #include "autoLock.hpp"
 using namespace std;
 

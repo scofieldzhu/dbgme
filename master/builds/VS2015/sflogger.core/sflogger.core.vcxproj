@@ -98,7 +98,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SFLOGGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\langext;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -113,7 +113,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;SFLOGGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\langext;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -130,7 +130,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SFLOGGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\langext;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,7 +149,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;SFLOGGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\langext;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\..\..\src\core;..\..\..\src\core\sqlite-amalgamation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -163,48 +163,43 @@
     <ClCompile Include="..\..\..\src\core\consoleAppender.cpp" />
     <ClCompile Include="..\..\..\src\core\defAppender.cpp" />
     <ClCompile Include="..\..\..\src\core\fileAppender.cpp" />
-    <ClCompile Include="..\..\..\src\core\langext\locks.cpp" />
-    <ClCompile Include="..\..\..\src\core\langext\platform.cpp" />
-    <ClCompile Include="..\..\..\src\core\langext\xtext.cpp" />
-    <ClCompile Include="..\..\..\src\core\langext\xtime.cpp" />
     <ClCompile Include="..\..\..\src\core\levelFilter.cpp" />
     <ClCompile Include="..\..\..\src\core\levels.cpp" />
     <ClCompile Include="..\..\..\src\core\log.cpp" />
     <ClCompile Include="..\..\..\src\core\logger.cpp" />
     <ClCompile Include="..\..\..\src\core\loggerMgr.cpp" />
-    <ClCompile Include="..\..\..\src\core\ostreamAppender.cpp" />
     <ClCompile Include="..\..\..\src\core\logstream.cpp" />
+    <ClCompile Include="..\..\..\src\core\ostreamAppender.cpp" />
+    <ClCompile Include="..\..\..\src\core\platform.cpp" />
     <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\shell.c" />
     <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.c" />
     <ClCompile Include="..\..\..\src\core\sqlite3Appender.cpp" />
     <ClCompile Include="..\..\..\src\core\standardFormatter.cpp" />
     <ClCompile Include="..\..\..\src\core\tracer.cpp" />
     <ClCompile Include="..\..\..\src\core\xmlAppender.cpp" />
+    <ClCompile Include="..\..\..\src\core\xtext.cpp" />
+    <ClCompile Include="..\..\..\src\core\xtime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\core\appender.h" />
+    <ClInclude Include="..\..\..\src\core\autoLock.hpp" />
+    <ClInclude Include="..\..\..\src\core\basicType.h" />
     <ClInclude Include="..\..\..\src\core\consoleAppender.h" />
     <ClInclude Include="..\..\..\src\core\defAppender.h" />
     <ClInclude Include="..\..\..\src\core\fileAppender.h" />
     <ClInclude Include="..\..\..\src\core\filter.h" />
     <ClInclude Include="..\..\..\src\core\formatter.h" />
     <ClInclude Include="..\..\..\src\core\heapobject.h" />
-    <ClInclude Include="..\..\..\src\core\langext\autoLock.hpp" />
-    <ClInclude Include="..\..\..\src\core\langext\basicType.h" />
-    <ClInclude Include="..\..\..\src\core\langext\locks.h" />
-    <ClInclude Include="..\..\..\src\core\langext\platform.h" />
-    <ClInclude Include="..\..\..\src\core\langext\uncopyable.hpp" />
-    <ClInclude Include="..\..\..\src\core\langext\xtext.h" />
-    <ClInclude Include="..\..\..\src\core\langext\xtime.h" />
     <ClInclude Include="..\..\..\src\core\level.h" />
     <ClInclude Include="..\..\..\src\core\levelFilter.h" />
     <ClInclude Include="..\..\..\src\core\levels.h" />
     <ClInclude Include="..\..\..\src\core\log.h" />
     <ClInclude Include="..\..\..\src\core\logger.h" />
     <ClInclude Include="..\..\..\src\core\loggerMgr.h" />
+    <ClInclude Include="..\..\..\src\core\logstream.h" />
     <ClInclude Include="..\..\..\src\core\npsdef.h" />
     <ClInclude Include="..\..\..\src\core\ostreamAppender.h" />
-    <ClInclude Include="..\..\..\src\core\logstream.h" />
+    <ClInclude Include="..\..\..\src\core\platform.h" />
     <ClInclude Include="..\..\..\src\core\sfloggerexports.h" />
     <ClInclude Include="..\..\..\src\core\sfloggerpublic.h" />
     <ClInclude Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.h" />
@@ -212,8 +207,11 @@
     <ClInclude Include="..\..\..\src\core\sqlite3Appender.h" />
     <ClInclude Include="..\..\..\src\core\standardFormatter.h" />
     <ClInclude Include="..\..\..\src\core\tracer.h" />
+    <ClInclude Include="..\..\..\src\core\uncopyable.hpp" />
     <ClInclude Include="..\..\..\src\core\utilmacro.h" />
     <ClInclude Include="..\..\..\src\core\xmlAppender.h" />
+    <ClInclude Include="..\..\..\src\core\xtext.h" />
+    <ClInclude Include="..\..\..\src\core\xtime.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@
 #include "filter.h"
 #include "log.h"
 #include "xtext.h"
-#include "locks.h"
+#include "platform.h"
 #include "autoLock.hpp"
 using namespace std;
 

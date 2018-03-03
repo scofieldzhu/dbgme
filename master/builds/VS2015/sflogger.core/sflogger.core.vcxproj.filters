@@ -13,14 +13,17 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="langext">
-      <UniqueIdentifier>{9e7d54ef-69bb-435f-87a9-14580e5c5af5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sqlite-amalgamation">
       <UniqueIdentifier>{62713b22-0a75-447c-87ae-4aee9924cc51}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\shell.c">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.c">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\src\core\appender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -48,7 +51,13 @@
     <ClCompile Include="..\..\..\src\core\loggerMgr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\core\logstream.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\src\core\ostreamAppender.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\platform.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\sqlite3Appender.cpp">
@@ -63,30 +72,27 @@
     <ClCompile Include="..\..\..\src\core\xmlAppender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\langext\locks.cpp">
-      <Filter>langext</Filter>
+    <ClCompile Include="..\..\..\src\core\xtext.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\langext\platform.cpp">
-      <Filter>langext</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\langext\xtext.cpp">
-      <Filter>langext</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\langext\xtime.cpp">
-      <Filter>langext</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\shell.c">
-      <Filter>sqlite-amalgamation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.c">
-      <Filter>sqlite-amalgamation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\core\logstream.cpp">
-      <Filter>头文件</Filter>
+    <ClCompile Include="..\..\..\src\core\xtime.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.h">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\sqlite-amalgamation\sqlite3ext.h">
+      <Filter>sqlite-amalgamation</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\src\core\appender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\autoLock.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\basicType.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\consoleAppender.h">
@@ -125,7 +131,16 @@
     <ClInclude Include="..\..\..\src\core\loggerMgr.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\logstream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\npsdef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\src\core\ostreamAppender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\core\platform.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\sfloggerexports.h">
@@ -143,43 +158,19 @@
     <ClInclude Include="..\..\..\src\core\tracer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\uncopyable.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\src\core\utilmacro.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\core\xmlAppender.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\autoLock.hpp">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\basicType.h">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\locks.h">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\platform.h">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\uncopyable.hpp">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\xtext.h">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\langext\xtime.h">
-      <Filter>langext</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\sqlite-amalgamation\sqlite3.h">
-      <Filter>sqlite-amalgamation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\sqlite-amalgamation\sqlite3ext.h">
-      <Filter>sqlite-amalgamation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\core\npsdef.h">
+    <ClInclude Include="..\..\..\src\core\xtext.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\core\logstream.h">
+    <ClInclude Include="..\..\..\src\core\xtime.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

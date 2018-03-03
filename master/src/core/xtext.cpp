@@ -1,6 +1,4 @@
 #include "xtext.h"
-#include <tchar.h>
-#include <cassert>
 #include <cstdarg>
 using namespace std;
 
@@ -8,16 +6,20 @@ SFLOGGER_NAMESPACE_BEGIN
 
 SFLOGGER_API xStrT Int2Str(int value, int radix)
 {
-     static const int MAX_BUFFER_SIZE = 30;
-     xCharT buffer[MAX_BUFFER_SIZE] = { _X('\0') };
-     errno_t result = _itot_s(value, buffer, MAX_BUFFER_SIZE - 1, 10);
-     assert(result == 0);
-     return xStrT(buffer);
+    static const int MAX_BUFFER_SIZE = 30;
+    xCharT buffer[MAX_BUFFER_SIZE] = { _X('\0') };
+    errno_t result = xSprintf(buffer, _X("%d"), value);
+    assert(result > 0);    
+    return xStrT(buffer);
 }
 
 SFLOGGER_API int Str2Int(const xStrT& str)
 {
-    return _tstoi(str.c_str());
+    #ifdef WIN_UNICODE_APPLIED
+    return _wtoi(str.c_str());
+    #else 
+    return stoi(str.c_str());
+    #endif
 }
 
 SFLOGGER_API std::wstring AnsiToUnicode(const char* src)

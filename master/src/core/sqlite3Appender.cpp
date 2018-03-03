@@ -107,10 +107,17 @@ bool Sqlite3Appender::Impl::open()
     RESET_LAST_ERR;
     if (db_conn_ != NULL)
         return true;
-    char* utf8_str = NULL;
-    WideCharToUtf8(db_file_.c_str(), utf8_str);
-    int result = sqlite3_open_v2(utf8_str, &db_conn_, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
-    delete[] utf8_str;
+    const char* utf8_str = NULL;
+    #ifdef WIN_UNICODE_APPLIED
+        char* retstr = nullptr;
+        WideCharToUtf8(db_file_.c_str(), retstr);
+        utf8_str = retstr;
+        int result = sqlite3_open_v2(utf8_str, &db_conn_, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+        delete[] utf8_str;
+    #else
+        utf8_str = db_file_.c_str();
+        int result = sqlite3_open_v2(utf8_str, &db_conn_, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+    #endif
     if (result != SQLITE_OK)
     {        
         SET_LAST_ERR(sqlite3_errmsg(db_conn_));
@@ -155,28 +162,40 @@ bool Sqlite3Appender::write(const Log& log, const std::xStrT& logged_msg)
     char insert_record_sql_buffer[200] = { '\0' };
     sprintf_s(insert_record_sql_buffer, "INSERT INTO %s(level, logger, func, file, lineno, thread_id, timestamp, content) VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8);", LOG_TABLE);
     sqlite3_stmt* st = NULL;    
-    sqlite3_prepare_v2(impl_->db_conn_, insert_record_sql_buffer, -1, &st, NULL);
-    char* utf8_buffer_arry[6] = { NULL };    
+    sqlite3_prepare_v2(impl_->db_conn_, insert_record_sql_buffer, -1, &st, NULL);    
+#ifdef WIN_UNICODE_APPLIED
+    char* utf8_buffer_arry[6] = { NULL };
     WideCharToUtf8(log.level_->repr(), utf8_buffer_arry[0]);
-    sqlite3_bind_text(st, 1, utf8_buffer_arry[0], -1, SQLITE_STATIC);    
     WideCharToUtf8(log.func_name_.c_str(), utf8_buffer_arry[1]);
-    sqlite3_bind_text(st, 2, utf8_buffer_arry[1], -1, SQLITE_STATIC);    
     WideCharToUtf8(log.func_name_.c_str(), utf8_buffer_arry[2]);
-    sqlite3_bind_text(st, 3, utf8_buffer_arry[2], -1, SQLITE_STATIC);    
     WideCharToUtf8(log.filename_.c_str(), utf8_buffer_arry[3]);
+    WideCharToUtf8(log.timestamp_.repr().c_str(), utf8_buffer_arry[4]);
+    WideCharToUtf8(log.content_.c_str(), utf8_buffer_arry[5]);
+#else 
+    const char* utf8_buffer_arry[6] = {NULL};
+    utf8_buffer_arry[0] = log.level_->repr();    
+    utf8_buffer_arry[1] = log.func_name_.c_str();
+    utf8_buffer_arry[2] = log.func_name_.c_str();
+    utf8_buffer_arry[3] = log.filename_.c_str();
+    xStrT ts = log.timestamp_.repr();
+    utf8_buffer_arry[4] = ts.c_str();
+    utf8_buffer_arry[5] = log.content_.c_str();    
+#endif
+    sqlite3_bind_text(st, 1, utf8_buffer_arry[0], -1, SQLITE_STATIC);
+    sqlite3_bind_text(st, 2, utf8_buffer_arry[1], -1, SQLITE_STATIC);
+    sqlite3_bind_text(st, 3, utf8_buffer_arry[2], -1, SQLITE_STATIC);
     sqlite3_bind_text(st, 4, utf8_buffer_arry[3], -1, SQLITE_STATIC);
     sqlite3_bind_int(st, 5, log.lineno_);
-    sqlite3_bind_int(st, 6, log.thread_id_);    
-    WideCharToUtf8(log.timestamp_.repr().c_str(), utf8_buffer_arry[4]);
+    sqlite3_bind_int(st, 6, log.thread_id_);
     sqlite3_bind_text(st, 7, utf8_buffer_arry[4], -1, SQLITE_STATIC);
-    char* utf8_level_buffer = NULL;
-    WideCharToUtf8(log.content_.c_str(), utf8_buffer_arry[5]);
-    sqlite3_bind_text(st, 8, utf8_buffer_arry[5], -1, SQLITE_STATIC);    
+    sqlite3_bind_text(st, 8, utf8_buffer_arry[5], -1, SQLITE_STATIC);
     if (sqlite3_step(st) != SQLITE_DONE)    
         SET_LAST_ERR(sqlite3_errmsg(impl_->db_conn_));    
     sqlite3_finalize(st);
+#ifdef WIN_UNICODE_APPLIED
     for (int i = 0; i < sizeof(utf8_buffer_arry) / sizeof(utf8_buffer_arry[0]); ++i)
         delete[] utf8_buffer_arry[i];
+#endif
     return true;
 }
 

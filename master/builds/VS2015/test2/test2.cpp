@@ -61,7 +61,8 @@ int main()
     TestFunction(*pLogger);
 
     log_debug(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);
-    slog_debug(pLogger).enableAutoSpace() << _X("HelloWorld") << x << _X("and") << ix << _X("and") << fx << std::endl;
+    log_debug(pLogger, "HelloWorld %s and %d and %f!2\r\n", x, ix, fx);
+    slog_debug(pLogger).enableAutoSpace() << "HelloWorld" << x << "and" << ix << "and" << fx << std::endl;
     slog_debug(pLogger).disableAutoSpace() << _X("HelloWorld") << x << _X("and") << ix << _X("and") << fx << std::endl;
 
     log_warn(pLogger, _X("HelloWorld %s and %d and %f!\r\n"), x, ix, fx);

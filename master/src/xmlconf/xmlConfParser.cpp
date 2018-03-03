@@ -56,9 +56,13 @@ void XmlConfParser::Impl::readutf8ConfContent(const xStrT& conf_file)
     const size_t numberOfItemsFinished = fread(raw_content_buffer, 1, CONTENT_BUFFER_SIZE, fp);
     COND_VERIFY(numberOfItemsFinished == CONTENT_BUFFER_SIZE, _X("read conf file failed!"));        
     raw_content_buffer[CONTENT_BUFFER_SIZE] = '\0';
+#ifdef WIN_UNICODE_APPLIED
     Utf8ToWideChar(raw_content_buffer, conf_filecontent_);
-    fclose(fp);
     delete[] raw_content_buffer;
+#else
+    conf_filecontent_ = raw_content_buffer;
+#endif
+    fclose(fp);    
 }
 
 XmlConfParser::Impl::Impl()
@@ -107,15 +111,23 @@ XmlConfParser::XmlConfParser(const xCharT* conf_file)
     }
     catch (parse_error& e)
     {        
-        impl_->releaseResource();        
+        impl_->releaseResource();       
+#ifdef WIN_UNICODE_APPLIED
         xStrT err_details = AnsiToUnicode(e.what());
         throw XmlConfParseException(err_details.c_str());
+#else 
+        throw XmlConfParseException(e.what());
+#endif
     }    
     catch (exception& e)
     {
         impl_->releaseResource();
+#ifdef WIN_UNICODE_APPLIED
         xStrT err_details = AnsiToUnicode(e.what());
         throw XmlConfParseException(err_details.c_str());
+#else 
+        throw XmlConfParseException(e.what());
+#endif
     }
     catch (...)
     {
