@@ -19,20 +19,20 @@ USING_SFLOGGER
 
 void TestFuncB(Logger& logger)
 {
-    track_this_func(logger);
+    track_this_func(&logger);
     mark_track_slot();
 }
 
 void TestFuncA(Logger& logger)
 {
-    track_this_func(logger);
-    track_now(logger);
+    track_this_func(&logger);
+    track_now(&logger);
     TestFuncB(logger);
 }
 
 void TestFunction(Logger& logger)
 {
-    track_this_func(logger);
+    track_this_func(&logger);
     TestFuncA(logger);
     for (int i = 0; i < 1000000; ++i)
         ;

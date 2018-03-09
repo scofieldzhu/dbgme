@@ -14,32 +14,38 @@ namespace {
     Logger* g_track_logger = NULL;
 }
 
-SFLOGGER_API void StartTrack(Logger& logger, xCharT* file, const xCharT* function, int lineno)
+SFLOGGER_API void StartTrack(Logger* logger, xCharT* file, const xCharT* function, int lineno)
 {
-    g_track_start_tickcount = GetCurrentTickCount();
-    g_last_track_slot_tickcount = g_track_start_tickcount;
-    g_track_logger = &logger;    
-    g_track_logger->publish(infolevel(), file, function, lineno, _X("Start New Tracker...\r\n"));
+    if (logger) {
+        g_track_start_tickcount = GetCurrentTickCount();
+        g_last_track_slot_tickcount = g_track_start_tickcount;
+        g_track_logger = logger;
+        g_track_logger->publish(infolevel(), file, function, lineno, _X("Start New Tracker...\r\n"));
+    }    
 }
 
 SFLOGGER_API void StopTrack(const xCharT* file, const xCharT* function, int lineno)
 {
-    const int kNowTickTime = GetCurrentTickCount();
-    const int kTotalCostTime = kNowTickTime - g_track_start_tickcount;
-    const int kOffsetCostTime = kNowTickTime - g_last_track_slot_tickcount;
-    g_track_logger->publish(infolevel(), file, function, lineno, _X("Tracker Stopped![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
-    g_track_start_tickcount = 0;
-    g_last_track_slot_tickcount = 0;
-    g_track_logger = NULL;
+    if (g_track_logger) {
+        const int kNowTickTime = GetCurrentTickCount();
+        const int kTotalCostTime = kNowTickTime - g_track_start_tickcount;
+        const int kOffsetCostTime = kNowTickTime - g_last_track_slot_tickcount;
+        g_track_logger->publish(infolevel(), file, function, lineno, _X("Tracker Stopped![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
+        g_track_start_tickcount = 0;
+        g_last_track_slot_tickcount = 0;
+        g_track_logger = NULL;
+    }
 }
 
 SFLOGGER_API void PlaceTrackSlot(const xCharT* file, const xCharT* function, int lineno)
 {    
-    const int kNowTickTime = GetCurrentTickCount();
-    const int kTotalCostTime = kNowTickTime - g_track_start_tickcount;
-    const int kOffsetCostTime = kNowTickTime - g_last_track_slot_tickcount;
-    g_track_logger->publish(infolevel(), file, function, lineno, _X("New Track Slot Placed![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
-    g_last_track_slot_tickcount = kNowTickTime;
+    if (g_track_logger){
+        const int kNowTickTime = GetCurrentTickCount();
+        const int kTotalCostTime = kNowTickTime - g_track_start_tickcount;
+        const int kOffsetCostTime = kNowTickTime - g_last_track_slot_tickcount;
+        g_track_logger->publish(infolevel(), file, function, lineno, _X("New Track Slot Placed![total cost time:%d ms offset time:%d ms]\r\n"), kTotalCostTime, kOffsetCostTime);
+        g_last_track_slot_tickcount = kNowTickTime;
+    }
 }
 
 struct FunctionTracer::Impl 
