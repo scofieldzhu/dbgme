@@ -13,6 +13,7 @@ public:
     void join(const std::xStrT& clsname, XmlClsNodeParser& parser);
     XmlClsNodeParser* getClsNodeParser(const std::xStrT& clsname);    
 private:
+    void joinSysParsers();
     XmlClsNodeParserLodge();
     ~XmlClsNodeParserLodge();
     typedef std::map<std::xStrT, XmlClsNodeParser*> Name2ParserMapType;
@@ -20,6 +21,6 @@ private:
 };
 NAMESPACE_END
 
-#define JOIN_PARSER_LODGE(DGRCls, ParserCls) { XmlClsNodeParser* parser = new ParserCls(); XmlClsNodeParserLodge::GetInst().join(_X(#DGRCls), *parser); }
+#define JOIN_PARSER_LODGE(ClsName, ParserCls) { XmlClsNodeParser* parser = new ParserCls(); XmlClsNodeParserLodge::GetInst().join(_X(#ClsName), *parser); }
 
 #endif

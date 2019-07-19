@@ -37,6 +37,7 @@ $Debug/
 /master/builds/VS2015/sflogger.xmlconf/Release
 /master/builds/VS2015/test2/Debug
 /master/builds/VS2015/test2/Release
+/master/builds/VS2017/.vs
 
 # Windows Installer files
 *.cab

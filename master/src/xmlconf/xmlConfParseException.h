@@ -6,12 +6,14 @@
 #include <exception>
 
 SFLOGGER_NAMESPACE_BEGIN
-class SFLOGGER_API XmlConfParseException : std::exception
+class XmlConfParseException : std::exception
 {
 public:
-    const std::xStrT& what_err()const;
-    XmlConfParseException(const xCharT* msg);
-    ~XmlConfParseException();
+    const std::xStrT& what_err()const { return msg_; }
+    XmlConfParseException(const xCharT* msg)
+        :std::exception(nullptr),
+        msg_(msg){}
+    ~XmlConfParseException() = default;
 private:
     const std::xStrT msg_;
 };
